@@ -2937,8 +2937,8 @@ const FFEATS_DATA_V2 = [
         descEn:'+1 to one ability (max 30). Alter Fate (1/initiative, 1/short rest): roll 2d4; add or subtract result from any d20 roll within 60 ft.' },
       { id:'dono-offensiva', it:'Dono dell\'Offensiva Irresistibile', en:'Epic Boon of Irresistible Offense',
         prereq: { level:19, _epicBoon:true },
-        descIt:'+1 FOR o DES (max 30). I tuoi danni contundenti/perforanti/taglienti ignorano la resistenza. Con un 20 naturale: infliggi danni extra = mod. della caratteristica aumentata.',
-        descEn:'+1 STR or DEX (max 30). Your B/P/S damage ignores resistance. On a natural 20: deal extra damage = raised ability modifier.' },
+        descIt:'+1 FOR o DES (max 30). I tuoi danni contundenti/perforanti/taglienti ignorano la resistenza. Con un 20 naturale: danni extra pari al PUNTEGGIO (non al modificatore) della caratteristica aumentata, dello stesso tipo dei danni inflitti.',
+        descEn:'+1 STR or DEX (max 30). Your B/P/S damage ignores resistance. On a natural 20: extra damage equals the raised ability SCORE (not modifier), same damage type.' },
       { id:'dono-recupero', it:'Dono del Recupero', en:'Epic Boon of Recovery',
         prereq: { level:19, _epicBoon:true },
         descIt:'+1 a una caratteristica (max 30). Incrollabile (1/riposo lungo): quando scendi a 0 PF resti a 1 PF e recuperi metà dei PF massimi. Riserva 10d10: azione bonus per spendere dadi e recuperare PF.',
@@ -2969,8 +2969,8 @@ const FFEATS_DATA_V2 = [
         descEn:'+1 to one ability (max 30). Blink Steps: immediately after an Attack or Magic action, teleport up to 30 ft to an unoccupied visible space.' },
       { id:'dono-abilita-combattimento', it:'Dono delle Abilità di Combattimento', en:'Epic Boon of Combat Prowess',
         prereq: { level:19, _epicBoon:true },
-        descIt:'+1 a una caratteristica (max 30). Colpo infallibile: quando manchi con un attacco con arma, infliggi comunque danni al bersaglio pari al modificatore della caratteristica aumentata con questo talento.',
-        descEn:'+1 to one ability (max 30). Unerring Strike: when you miss with a weapon attack, you still deal damage equal to the ability modifier raised by this feat.' },
+        descIt:'+1 a una caratteristica (max 30). Mira impareggiabile: quando il tiro per colpire manca, puoi colpire comunque (il colpo va a segno e infligge i danni normali). Riutilizzabile a partire dal turno successivo.',
+        descEn:'+1 to one ability (max 30). Peerless Aim: when you miss with an attack roll, you can hit instead. Usable again at the start of your next turn.' },
       { id:'dono-vista-pura', it:'Dono della Vista Pura', en:'Epic Boon of Truesight',
         prereq: { level:19, _epicBoon:true },
         descIt:'+1 a una caratteristica (max 30). Vista pura entro 18 m: vedi nel buio magico, attraverso le illusioni, i trasformati, i piani sovrapposti e le creature invisibili.',
@@ -3117,12 +3117,18 @@ const SRD_PHB_ONLY = {
   subclasses: ["albero-mondo","cuore-selvaggio","zelota","danza","fascino","valore","luce","inganno","guerra","luna","mare","stelle","maestro-battaglia","cavaliere-mistico","guerriero-psionico","abjuration","divination","illusion","shadow","elements","mercy","ancients","vengeance","glory","beast","gloom","fey","assassin","arcane","soul","wild","clockwork","aberrant","archfey","great","celestial"],
   species: ["aasimar"],
   backgrounds: ["artigiano","ciarlatano","contadino","eremita","guardia","guida","intrattenitore","marinaio","mercante","nobile","scriba","viandante"],
-  feats: ["fortunato","guaritore","lavoro-manuale","lottatore-taverna","musicista","robusto","atleta","attore","bisturi-battaglia","carica","combattente-due-armi","duellante-difensivo","esperto-balestre","maestro-armi-possenti","maestro-armi","maestro-scudi","maestro-armi-asta","sentinella","sterminatore-maghi","stile-penetrante","martello-vivente","tiratore-scelto","appostato","combattente-sella","competenza-armi-guerra","adepto-elementale","cecchino-magico","contaminazione-fatata","contaminazione-oscura","incantatore-guerra","incantatore-rituale","telecinesi","telepatia","abilita-impeccabile","corazze-leggere","corazze-medie","corazze-pesanti","maestro-armature-medie","maestro-armature-pesanti","resiliente","tenace","osservatore","mente-acuta","condottiero-ispiratore","rapidita","cuoco","maestria-veleni","st-duellare","st-intercettazione","st-protezione","st-cieca","st-disarmato","st-lancio","dono-abilita","dono-recupero","dono-resistenza","dono-tempra","dono-velocita"]
+  feats: ["fortunato","guaritore","lavoro-manuale","lottatore-taverna","musicista","robusto","atleta","attore","bisturi-battaglia","carica","combattente-due-armi","duellante-difensivo","esperto-balestre","maestro-armi-possenti","maestro-armi","maestro-scudi","maestro-armi-asta","sentinella","sterminatore-maghi","stile-penetrante","martello-vivente","tiratore-scelto","appostato","combattente-sella","competenza-armi-guerra","adepto-elementale","cecchino-magico","contaminazione-fatata","contaminazione-oscura","incantatore-guerra","incantatore-rituale","telecinesi","telepatia","abilita-impeccabile","corazze-leggere","corazze-medie","corazze-pesanti","maestro-armature-medie","maestro-armature-pesanti","resiliente","tenace","osservatore","mente-acuta","condottiero-ispiratore","rapidita","cuoco","maestria-veleni","st-duellare","st-intercettazione","st-protezione","st-cieca","st-disarmato","st-lancio","duellare","protezione","intercettazione","combattere-cieca","combattere-disarmato","combattere-armi-lancio","dono-abilita","dono-recupero","dono-resistenza","dono-tempra","dono-velocita"]
 };
 function fIsSRD(cat, id){ const l=SRD_PHB_ONLY[cat]; return !l || !l.includes(id); }
 var SRD_BUILD_MODE = (typeof window!=='undefined' && window.SRD_BUILD_MODE) ? window.SRD_BUILD_MODE : 'full';
 function fSrdAllowed(cat, id){ return SRD_BUILD_MODE !== 'srd' || fIsSRD(cat, id); }
 
+const CLASS_PRIMARY = {
+  barbarian:{it:"FOR",en:"STR"}, bard:{it:"CAR",en:"CHA"}, cleric:{it:"SAG",en:"WIS"},
+  druid:{it:"SAG",en:"WIS"}, fighter:{it:"FOR o DES",en:"STR or DEX"}, rogue:{it:"DES",en:"DEX"},
+  wizard:{it:"INT",en:"INT"}, monk:{it:"DES e SAG",en:"DEX & WIS"}, paladin:{it:"FOR e CAR",en:"STR & CHA"},
+  ranger:{it:"DES e SAG",en:"DEX & WIS"}, sorcerer:{it:"CAR",en:"CHA"}, warlock:{it:"CAR",en:"CHA"}
+};
 const CLASSES=[
   {id:"barbarian",it:"Barbaro",en:"Barbarian",icon:"⚔️",hd:"d12",savesIt:"FOR, COS",savesEn:"STR, CON",armorIt:"Leggera, Media, Scudi",armorEn:"Light, Medium, Shields",weaponsIt:"Armi semplici e da guerra",weaponsEn:"Simple and martial weapons",toolsIt:"—",toolsEn:"—",masteryCount:2,expertiseCount:0,skillsIt:"Scegli 2: Addestr. Animali, Atletica, Intimidire, Natura, Percezione, Sopravvivenza",skillsEn:"Choose 2: Animal Handling, Athletics, Intimidation, Nature, Perception, Survival",featIt:"Ira (res. C/P/T, vantaggio FOR); Attacco Extra Lv.5; Recuperare Energie",featEn:"Rage (B/P/S resistance, advantage STR); Extra Attack Lv.5; Second Wind",descIt:"Guerriero feroce alimentato dall\'ira primordiale",descEn:"Fierce warrior fueled by primal rage",subclasses:[{id:"berserker",it:"Cammino del Berserker",en:"Path of the Berserker"},{id:"albero-mondo",it:"Cammino dell\'Albero del Mondo",en:"Path of the World Tree"},{id:"cuore-selvaggio",it:"Cammino del Cuore Selvaggio",en:"Path of the Wild Heart"},{id:"zelota",it:"Cammino dello Zelota",en:"Path of the Zealot"}]},
   {id:"bard",it:"Bardo",en:"Bard",icon:"🎵",hd:"d8",savesIt:"DES, CAR",savesEn:"DEX, CHA",armorIt:"Leggera",armorEn:"Light",weaponsIt:"Armi semplici",weaponsEn:"Simple weapons",toolsIt:"Tre strumenti musicali a scelta",toolsEn:"Three musical instruments",masteryCount:0,expertiseCount:2,skillsIt:"Scegli 3 abilità qualsiasi",skillsEn:"Choose any 3 skills",featIt:"Ispirazione Bardica d6; Factotum (Lv.2); Segreti Magici (Lv.10)",featEn:"Bardic Inspiration d6; Jack of All Trades (Lv.2); Magical Secrets (Lv.10)",descIt:"Artista magico che ispira con musica e magia",descEn:"Magical performer inspiring allies through music and magic",subclasses:[{id:"danza",it:"Collegio della Danza",en:"College of Dance"},{id:"fascino",it:"Collegio del Fascino",en:"College of Glamour"},{id:"sapienza",it:"Collegio della Sapienza",en:"College of Lore"},{id:"valore",it:"Collegio del Valore",en:"College of Valor"}]},
@@ -3531,9 +3537,9 @@ const FFEATS_DATA=[
   ]},
   {cat:"epic",it:"Doni Epici (Lv.19+)",en:"Epic Boons (Lv.19+)",locked:true,feats:[
     {id:"dono-abilita",it:"Dono dell'Abilità",en:"Epic Boon of Ability",prereqIt:"Lv.19+",prereqEn:"Lv.19+",desc:"+1 a una caratteristica (max 30). Competenza in tutte le abilità. Maestria in una."},
-    {id:"dono-abilita-combattimento",it:"Dono delle Abilità di Combattimento",en:"Epic Boon of Combat Prowess",prereqIt:"Lv.19+",prereqEn:"Lv.19+",desc:"+1 a una caratteristica (max 30). Quando manchi con arma: infliggi danni = mod. caratteristica."},
+    {id:"dono-abilita-combattimento",it:"Dono delle Abilità di Combattimento",en:"Epic Boon of Combat Prowess",prereqIt:"Lv.19+",prereqEn:"Lv.19+",desc:"+1 a una caratteristica (max 30). Mira impareggiabile: quando il tiro per colpire manca, colpisci comunque."},
     {id:"dono-fato",it:"Dono del Fato",en:"Epic Boon of Fate",prereqIt:"Lv.19+",prereqEn:"Lv.19+",desc:"+1 a una caratteristica (max 30). Fato migliorato: 2d4 come bonus/penalità su prove d20."},
-    {id:"dono-offensiva",it:"Dono dell'Offensiva Irresistibile",en:"Epic Boon of Irresistible Offense",prereqIt:"Lv.19+",prereqEn:"Lv.19+",desc:"+1 FOR o DES (max 30). Ignora resistenze a contund./perfor./taglienti. Critico: +mod. caratteristica."},
+    {id:"dono-offensiva",it:"Dono dell'Offensiva Irresistibile",en:"Epic Boon of Irresistible Offense",prereqIt:"Lv.19+",prereqEn:"Lv.19+",desc:"+1 FOR o DES (max 30). Ignora resistenze a contund./perfor./taglienti. Con un 20 naturale: danni extra pari al punteggio della caratteristica aumentata."},
     {id:"dono-recupero",it:"Dono del Recupero",en:"Epic Boon of Recovery",prereqIt:"Lv.19+",prereqEn:"Lv.19+",desc:"+1 a una caratteristica (max 30). A 0 PF: rimani a 1 PF (1/riposo lungo). Riserva 10d10 PF."},
     {id:"dono-resistenza",it:"Dono della Resistenza all'Energia",en:"Epic Boon of Energy Resistance",prereqIt:"Lv.19+",prereqEn:"Lv.19+",desc:"+1 a una caratteristica (max 30). Resistenza a un tipo danno. Cambiabile 1/riposo lungo."},
     {id:"dono-richiamo",it:"Dono del Richiamo degli Incantesimi",en:"Epic Boon of Spell Recall",prereqIt:"Lv.19+",prereqEn:"Lv.19+",desc:"+1 INT/SAG/CAR (max 30). 1/turno: lancia incantesimo 1° senza slot."},
@@ -6383,6 +6389,7 @@ function fRS0cl(){
     html += `<div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px;font-size:11px;color:var(--muted)">
       <span>🎲 <strong>${cl.hd}</strong> per livello</span>
       <span>🛡️ TS: <strong>${isIt?cl.savesIt:cl.savesEn}</strong></span>
+      <span>⭐ ${isIt?'Car. primaria':'Primary'}: <strong>${(typeof CLASS_PRIMARY!=='undefined'&&CLASS_PRIMARY[cl.id])?(isIt?CLASS_PRIMARY[cl.id].it:CLASS_PRIMARY[cl.id].en):'—'}</strong></span>
       <span>⚔️ ${isIt?cl.armorIt:cl.armorEn}</span>
     </div>`;
 
