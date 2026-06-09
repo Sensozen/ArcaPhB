@@ -52,7 +52,7 @@ body{
   background:rgba(7,7,13,0.95);
   border-bottom:1px solid var(--border-strong);
   backdrop-filter:blur(12px);
-  padding:0 2rem;
+  padding:env(safe-area-inset-top,0px) 2rem 0;
 }
 .header-inner{
   max-width:1400px;margin:0 auto;
@@ -550,7 +550,7 @@ tr.desc-row td{
 ═══════════════════════════════════════════════════ */
 @media(max-width:600px){
   /* ── Header mobile ── */
-  .site-header{padding:0 .75rem}
+  .site-header{padding:env(safe-area-inset-top,0px) .75rem 0}
   .header-inner{
     display:grid;
     grid-template-columns:auto 1fr auto;
@@ -1196,7 +1196,7 @@ function pwCheck(){
 <div class="toast" id="toast"></div>
 
 <div id="export-modal" style="display:none;position:fixed;inset:0;z-index:500;background:#0d0a06;overflow-y:auto;-webkit-overflow-scrolling:touch">
-  <div style="position:sticky;top:0;background:rgba(13,10,6,.98);border-bottom:1px solid #5a3a1a;padding:12px 14px;z-index:10">
+  <div style="position:sticky;top:0;background:rgba(13,10,6,.98);border-bottom:1px solid #5a3a1a;padding:calc(12px + env(safe-area-inset-top,0px)) 14px 12px;z-index:10">
     <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px">
       <span style="font-family:'Comfortaa', sans-serif;color:#c8a45a;font-size:13px">📄 <span id="exp-title">Scheda Personaggio</span></span>
       <button onclick="closeExport()" style="background:rgba(26,18,8,.85);border:1px solid #8B5A2B;color:#e8d5b0;padding:6px 12px;font-family:'Comfortaa', system-ui, sans-serif;font-size:13px;cursor:pointer;border-radius:2px">✕ <span id="exp-close">Chiudi</span></button>
@@ -3153,19 +3153,19 @@ const CLASSES=[
 ];
 
 const BACKGROUNDS=[
-  {id:"accolito",it:"Accolito",en:"Acolyte",icon:"🕯️",statsIt:"INT, SAG, CAR",statsEn:"INT, WIS, CHA",skillsIt:"Intuizione e Religione",skillsEn:"Insight and Religion",toolsIt:"Scorte da calligrafo",toolsEn:"Calligrapher\'s supplies",langsCount:2,featIt:"Iniziato alla Magia (Chierico)",featId:"iniziato-magia",featEn:"Magic Initiate (Cleric)",descIt:"Ha servito un tempio celebrando riti divini.",descEn:"Served a temple celebrating divine rites."},
+  {id:"accolito",it:"Accolito",en:"Acolyte",icon:"🕯️",statsIt:"INT, SAG, CAR",statsEn:"INT, WIS, CHA",skillsIt:"Intuizione e Religione",skillsEn:"Insight and Religion",toolsIt:"Scorte da calligrafo",toolsEn:"Calligrapher\'s supplies",langsCount:2,featIt:"Iniziato alla Magia (Chierico)",featId:"iniziato-magia",featList:"Chierico",featEn:"Magic Initiate (Cleric)",descIt:"Ha servito un tempio celebrando riti divini.",descEn:"Served a temple celebrating divine rites."},
   {id:"artigiano",it:"Artigiano",en:"Artisan",icon:"⚒️",statsIt:"FOR, DES, INT",statsEn:"STR, DEX, INT",skillsIt:"Indagare e Persuasione",skillsEn:"Investigation and Persuasion",toolsIt:"Strumenti da artigiano",toolsEn:"Artisan\'s tools",langsCount:2,featIt:"Lavoro manuale",featId:"lavoro-manuale",featEn:"Crafter",descIt:"Apprendista in bottega, impara a creare con cura.",descEn:"Workshop apprentice, learning to craft with precision."},
   {id:"ciarlatano",it:"Ciarlatano",en:"Charlatan",icon:"🎭",statsIt:"DES, COS, CAR",statsEn:"DEX, CON, CHA",skillsIt:"Inganno e Rapidità di Mano",skillsEn:"Deception and Sleight of Hand",toolsIt:"Arnesi da falsario",toolsEn:"Forgery kit",langsCount:2,featIt:"Abile",featId:"abile",featEn:"Skilled",descIt:"Impara ad approfittare degli sfortunati con bugie.",descEn:"Learned to take advantage with comforting lies."},
   {id:"contadino",it:"Contadino",en:"Farmer",icon:"🌾",statsIt:"FOR, COS, SAG",statsEn:"STR, CON, WIS",skillsIt:"Addestrare Animali e Natura",skillsEn:"Animal Handling and Nature",toolsIt:"Strumenti da falegname",toolsEn:"Carpenter\'s tools",langsCount:2,featIt:"Robusto",featId:"robusto",featEn:"Tough",descIt:"Cresciuto a contatto con la terra e gli animali.",descEn:"Grew up connected to the land and animals."},
   {id:"criminale",it:"Criminale",en:"Criminal",icon:"🔓",statsIt:"DES, COS, INT",statsEn:"DEX, CON, INT",skillsIt:"Rapidità di Mano e Furtività",skillsEn:"Sleight of Hand and Stealth",toolsIt:"Arnesi da scasso",toolsEn:"Thieves' tools",langsCount:2,featIt:"Allerta",featId:"allerta",featEn:"Alert",descIt:"Sopravvissuto nei vicoli più bui.",descEn:"Survived in the darkest alleys."},
   {id:"eremita",it:"Eremita",en:"Hermit",icon:"🧘",statsIt:"COS, SAG, CAR",statsEn:"CON, WIS, CHA",skillsIt:"Medicina e Religione",skillsEn:"Medicine and Religion",toolsIt:"Borsa da erborista",toolsEn:"Herbalism kit",langsCount:2,featIt:"Guaritore",featId:"guaritore",featEn:"Healer",descIt:"Anni in isolamento a riflettere sui misteri.",descEn:"Years in seclusion reflecting on mysteries."},
   {id:"guardia",it:"Guardia",en:"Guard",icon:"🛡️",statsIt:"FOR, INT, SAG",statsEn:"STR, INT, WIS",skillsIt:"Atletica e Percezione",skillsEn:"Athletics and Perception",toolsIt:"Set da gioco",toolsEn:"Gaming set",langsCount:2,featIt:"Allerta",featId:"allerta",featEn:"Alert",descIt:"Innumerevoli ore di guardia nelle torri.",descEn:"Countless hours on watch towers."},
-  {id:"guida",it:"Guida",en:"Guide",icon:"🗺️",statsIt:"DES, COS, SAG",statsEn:"DEX, CON, WIS",skillsIt:"Furtività e Sopravvivenza",skillsEn:"Stealth and Survival",toolsIt:"Strumenti da cartografo",toolsEn:"Cartographer\'s tools",langsCount:2,featIt:"Iniziato alla Magia (Druido)",featId:"iniziato-magia",featEn:"Magic Initiate (Druid)",descIt:"Cresciuto all\'aperto esplorando le terre selvagge.",descEn:"Grew up outdoors exploring the wilderness."},
+  {id:"guida",it:"Guida",en:"Guide",icon:"🗺️",statsIt:"DES, COS, SAG",statsEn:"DEX, CON, WIS",skillsIt:"Furtività e Sopravvivenza",skillsEn:"Stealth and Survival",toolsIt:"Strumenti da cartografo",toolsEn:"Cartographer\'s tools",langsCount:2,featIt:"Iniziato alla Magia (Druido)",featId:"iniziato-magia",featList:"Druido",featEn:"Magic Initiate (Druid)",descIt:"Cresciuto all\'aperto esplorando le terre selvagge.",descEn:"Grew up outdoors exploring the wilderness."},
   {id:"intrattenitore",it:"Intrattenitore",en:"Entertainer",icon:"🎪",statsIt:"FOR, DES, CAR",statsEn:"STR, DEX, CHA",skillsIt:"Acrobazia e Intrattenere",skillsEn:"Acrobatics and Performance",toolsIt:"Strumento musicale",toolsEn:"Musical instrument",langsCount:2,featIt:"Musicista",featId:"musicista",featEn:"Musician",descIt:"Gioventù tra fiere e carnevali.",descEn:"Youth at fairs and carnivals."},
   {id:"marinaio",it:"Marinaio",en:"Sailor",icon:"⚓",statsIt:"FOR, DES, SAG",statsEn:"STR, DEX, WIS",skillsIt:"Acrobazia e Percezione",skillsEn:"Acrobatics and Perception",toolsIt:"Strumenti da navigatore",toolsEn:"Navigator\'s tools",langsCount:2,featIt:"Lottatore da Taverna",featId:"lottatore-taverna",featEn:"Tavern Brawler",descIt:"Vissuto per mare sfidando tempeste.",descEn:"Lived at sea braving storms."},
   {id:"mercante",it:"Mercante",en:"Merchant",icon:"💰",statsIt:"COS, INT, CAR",statsEn:"CON, INT, CHA",skillsIt:"Addestrare Animali e Persuasione",skillsEn:"Animal Handling and Persuasion",toolsIt:"Strumenti da navigatore",toolsEn:"Navigator\'s tools",langsCount:2,featIt:"Fortunato",featId:"fortunato",featEn:"Lucky",descIt:"Viaggiato comprando e vendendo merci.",descEn:"Traveled buying and selling goods."},
   {id:"nobile",it:"Nobile",en:"Noble",icon:"👑",statsIt:"FOR, INT, CAR",statsEn:"STR, INT, CHA",skillsIt:"Storia e Persuasione",skillsEn:"History and Persuasion",toolsIt:"Set da gioco",toolsEn:"Gaming set",langsCount:2,featIt:"Abile",featId:"abile",featEn:"Skilled",descIt:"Cresciuto con ricchezze e privilegi.",descEn:"Grew up with wealth and privilege."},
-  {id:"sapiente",it:"Sapiente",en:"Sage",icon:"📚",statsIt:"COS, INT, SAG",statsEn:"CON, INT, WIS",skillsIt:"Arcano e Storia",skillsEn:"Arcana and History",toolsIt:"Scorte da calligrafo",toolsEn:"Calligrapher\'s supplies",langsCount:2,featIt:"Iniziato alla Magia (Mago)",featId:"iniziato-magia",featEn:"Magic Initiate (Wizard)",descIt:"Gioventù tra biblioteche a svelare i misteri.",descEn:"Youth in libraries uncovering mysteries."},
+  {id:"sapiente",it:"Sapiente",en:"Sage",icon:"📚",statsIt:"COS, INT, SAG",statsEn:"CON, INT, WIS",skillsIt:"Arcano e Storia",skillsEn:"Arcana and History",toolsIt:"Scorte da calligrafo",toolsEn:"Calligrapher\'s supplies",langsCount:2,featIt:"Iniziato alla Magia (Mago)",featId:"iniziato-magia",featList:"Mago",featEn:"Magic Initiate (Wizard)",descIt:"Gioventù tra biblioteche a svelare i misteri.",descEn:"Youth in libraries uncovering mysteries."},
   {id:"scriba",it:"Scriba",en:"Scribe",icon:"✒️",statsIt:"DES, INT, SAG",statsEn:"DEX, INT, WIS",skillsIt:"Indagare e Percezione",skillsEn:"Investigation and Perception",toolsIt:"Scorte da calligrafo",toolsEn:"Calligrapher\'s supplies",langsCount:2,featIt:"Abile",featId:"abile",featEn:"Skilled",descIt:"Arte della calligrafia in uno scriptorium.",descEn:"Calligraphy craft in a scriptorium."},
   {id:"soldato",it:"Soldato",en:"Soldier",icon:"🎖️",statsIt:"FOR, DES, COS",statsEn:"STR, DEX, CON",skillsIt:"Atletica e Intimidire",skillsEn:"Athletics and Intimidation",toolsIt:"Set da gioco",toolsEn:"Gaming set",langsCount:2,featIt:"Aggressore Selvaggio",featId:"aggressore-selvaggio",featEn:"Savage Attacker",descIt:"Addestramento militare fin dall\'adolescenza.",descEn:"Military training from early age."},
   {id:"viandante",it:"Viandante",en:"Wayfarer",icon:"🐾",statsIt:"DES, SAG, CAR",statsEn:"DEX, WIS, CHA",skillsIt:"Intuizione e Furtività",skillsEn:"Insight and Stealth",toolsIt:"Arnesi da scasso",toolsEn:"Thieves' tools",langsCount:2,featIt:"Fortunato",featId:"fortunato",featEn:"Lucky",descIt:"Cresciuto in strada tra emarginati.",descEn:"Grew up on the streets among outcasts."}
@@ -7466,28 +7466,52 @@ function closeExport(){
   document.getElementById('export-modal').style.display='none';
   document.body.style.overflow='';
 }
-function fSaveJSON(){
-  try{
-    var name=(C.name||'personaggio').replace(/\s+/g,'_').toLowerCase();
-    var data=JSON.stringify(C,null,2);
-    var blob=new Blob([data],{type:'application/json'});
-    var url=URL.createObjectURL(blob);
-    var a=document.createElement('a');
-    a.href=url;
-    a.download=name+'_arcana.json';
-    a.style.display='none';
-    document.body.appendChild(a);   // alcuni browser richiedono l'elemento nel DOM
-    a.click();
-    // Rimuovi l'elemento e revoca l'URL DOPO che il download è partito,
-    // altrimenti revocare subito può annullarlo silenziosamente.
-    setTimeout(function(){
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-    }, 1500);
-  }catch(err){
-    alert('Salvataggio non riuscito: '+(err&&err.message?err.message:err));
-  }
-}
+async function fSaveJSON(){
+        var name=(C.name||'personaggio').replace(/\s+/g,'_').toLowerCase();
+        var data=JSON.stringify(C,null,2);
+        var fname=name+'_arcana.json';
+        var cap=window.Capacitor;
+        // APK: usa il selettore di sistema "Salva con nome" (SAF) tramite il
+        //  plugin nativo FileSaver. Nessun permesso: l'utente sceglie cartella e nome.
+        if(cap&&cap.isNativePlatform&&cap.isNativePlatform()){
+          var P=cap.Plugins||{};
+          if(P.FileSaver&&P.FileSaver.saveFile){
+            try{
+              await P.FileSaver.saveFile({filename:fname,mimeType:'application/json',data:data});
+              return; // salvato dall'utente (o annullato: gestito nel catch)
+            }catch(err){
+              var m=(err&&err.message?err.message:''+err).toLowerCase();
+              if(m.indexOf('cancel')>=0||m.indexOf('annull')>=0) return; // annullato
+              // plugin presente ma errore: ripiega sulla condivisione qui sotto
+            }
+          }
+          // Fallback (plugin nativo assente o errore): salva in cache e apri la condivisione.
+          if(P.Filesystem&&P.Share){
+            try{
+              var res=await P.Filesystem.writeFile({path:fname,data:data,directory:'CACHE',encoding:'utf8'});
+              await P.Share.share({title:'Backup Arcana',url:res.uri,dialogTitle:'Salva o condividi il backup'});
+            }catch(e2){
+              var mm=(e2&&e2.message?e2.message:''+e2).toLowerCase();
+              if(mm.indexOf('cancel')<0&&mm.indexOf('annull')<0)
+                alert('Salvataggio non riuscito: '+(e2&&e2.message?e2.message:e2));
+            }
+          }
+          return;
+        }
+        // Web: download classico via blob
+        try{
+          var blob=new Blob([data],{type:'application/json'});
+          var url=URL.createObjectURL(blob);
+          var a=document.createElement('a');
+          a.href=url; a.download=fname; a.style.display='none';
+          document.body.appendChild(a);
+          a.click();
+          setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(url); }, 1500);
+        }catch(err){
+          alert('Salvataggio non riuscito: '+(err&&err.message?err.message:err));
+        }
+      }
+
 function fLoadJSON(evt){
   var file=evt.target.files[0]; if(!file) return;
   var reader=new FileReader();
@@ -7531,7 +7555,7 @@ function fLoadJSON(evt){
   };
   reader.readAsText(file);
 }
-function doPrint(){ window.print(); }
+function doPrint(){ var cap=window.Capacitor; if(cap&&cap.isNativePlatform&&cap.isNativePlatform()&&cap.Plugins&&cap.Plugins.WebviewPrint){ cap.Plugins.WebviewPrint.print({name:((C&&C.name)||'scheda')+'_arcana'}).catch(function(e){alert('Stampa non riuscita: '+(e&&e.message?e.message:e));}); return; } window.print(); }
 
 // ─── F5: Risorse di Classe nella scheda di stampa ─────────────────────────
 function fBuildClassResourcesPrint(){
@@ -10003,11 +10027,11 @@ function fRSheet(){
       })()}
     ${fEquipACSelector()}
     <details class="box" style="cursor:pointer">
-      <summary style="font-family:'Comfortaa',sans-serif;color:var(--gold);font-size:13px;list-style:none;outline:none">⚔️ ${ft("Tabella Armi ("+fEd()+")","Weapons Table ("+fEd()+")")} <span style="font-size:9px;color:var(--vdim)">▾ tocca per espandere</span></summary>
+      <summary style="font-family:'Comfortaa',sans-serif;color:var(--gold);font-size:13px;list-style:none;outline:none">⚔️ ${ft("Tabella Armi","Weapons Table")} <span style="font-size:9px;color:var(--vdim)">▾ tocca per espandere</span></summary>
       <div style="margin-top:8px">${fEquipWeaponsRef()}</div>
     </details>
     <details class="box" style="cursor:pointer">
-      <summary style="font-family:'Comfortaa',sans-serif;color:var(--gold);font-size:13px;list-style:none;outline:none">🛡️ ${ft("Tabella Armature & Scudi ("+fEd()+")","Armor & Shields Table ("+fEd()+")")} <span style="font-size:9px;color:var(--vdim)">▾ tocca per espandere</span></summary>
+      <summary style="font-family:'Comfortaa',sans-serif;color:var(--gold);font-size:13px;list-style:none;outline:none">🛡️ ${ft("Tabella Armature & Scudi","Armor & Shields Table")} <span style="font-size:9px;color:var(--vdim)">▾ tocca per espandere</span></summary>
       <div style="margin-top:8px">${fEquipArmorRef()}</div>
     </details>
 ${C.backstory?`<div class="box"><div class="box-title">📜 ${ft('Storia','Backstory')}</div><div style="font-size:13px;color:var(--text);font-style:italic;line-height:1.7">${C.backstory}</div></div>`:''}
@@ -12058,6 +12082,11 @@ function fRFeatChoices(feat){
   if(meta.spellList === 'choice'){
     const ch = (C.featChoices?.[feat.uid]) || {};
     const chosenList = ch.imList || null;            // 'Chierico' | 'Druido' | 'Mago'
+    // Se il talento deriva dall'origine (Accolito/Guida/Sapiente) la lista è imposta
+    // e non modificabile; se è scelto da Umano/ASI resta libera.
+    const bgObj = (feat.fromBg && typeof fgBg==='function') ? fgBg() : null;
+    const forcedList = (bgObj && bgObj.featList) ? bgObj.featList : null;
+    const effList = forcedList || chosenList;
     const chosenAbil = ch.imAbility || null;          // 'INT' | 'WIS' | 'CHA'
     const chosenCantrips = Array.isArray(ch.imCantrips) ? ch.imCantrips : [];
     const chosenSpell1 = ch.imSpell1 || null;
@@ -12078,20 +12107,28 @@ function fRFeatChoices(feat){
     html += '<div style="margin-top:6px;padding:6px 8px;background:rgba(100,180,200,.07);border-left:2px solid #3498db;border-radius:2px">';
     // Lista incantesimi
     html += '<div style="font-size:10px;color:#3498db;margin-bottom:4px">📖 '+(isIt?'Lista incantesimi':'Spell list')+'</div>';
-    html += '<div style="display:flex;flex-wrap:wrap;gap:3px;margin-bottom:6px">'
-      + lists.map(l=>pill(chosenList===l.id, l.lbl, "fSetFeatIMList('"+feat.uid+"','"+l.id+"')", false)).join('')
-      + '</div>';
+    if(forcedList){
+      const lblFor = (lists.find(l=>l.id===forcedList)||{lbl:forcedList}).lbl;
+      html += '<div style="display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin-bottom:6px">'
+        + '<span style="font-size:10px;padding:2px 8px;border:1px solid #3498db;background:rgba(52,152,219,.2);color:#3498db;border-radius:3px">'+lblFor+'</span>'
+        + '<span style="font-size:9px;color:var(--vdim);font-style:italic">'+(isIt?'fissata dall\'origine':'set by background')+'</span>'
+        + '</div>';
+    } else {
+      html += '<div style="display:flex;flex-wrap:wrap;gap:3px;margin-bottom:6px">'
+        + lists.map(l=>pill(chosenList===l.id, l.lbl, "fSetFeatIMList('"+feat.uid+"','"+l.id+"')", false)).join('')
+        + '</div>';
+    }
     // Caratteristica da incantatore
     html += '<div style="font-size:10px;color:#3498db;margin-bottom:4px">🎲 '+(isIt?'Caratteristica da incantatore':'Spellcasting ability')+'</div>';
     html += '<div style="display:flex;flex-wrap:wrap;gap:3px;margin-bottom:6px">'
       + abils.map(a=>pill(chosenAbil===a.id, a.lbl, "fSetFeatIMAbility('"+feat.uid+"','"+a.id+"')", false)).join('')
       + '</div>';
 
-    if(!chosenList){
+    if(!effList){
       html += '<div style="font-size:10px;color:var(--vdim);font-style:italic">'+(isIt?'Scegli prima una lista per vedere gli incantesimi.':'Choose a list first to see spells.')+'</div>';
     } else {
       const allSp = (typeof SPELLS !== 'undefined' ? SPELLS : []);
-      const inList = sp => Array.isArray(sp.classi) && sp.classi.indexOf(chosenList) >= 0;
+      const inList = sp => Array.isArray(sp.classi) && sp.classi.indexOf(effList) >= 0;
       const cantripPool = allSp.filter(sp=>sp.livello===0 && inList(sp)).sort((a,b)=>(a.nome||'').localeCompare(b.nome||''));
       const lvl1Pool    = allSp.filter(sp=>sp.livello===1 && inList(sp)).sort((a,b)=>(a.nome||'').localeCompare(b.nome||''));
       // Trucchetti (selezione multipla, max nCant)
@@ -12106,7 +12143,11 @@ function fRFeatChoices(feat){
       // Incantesimo di 1° (selezione singola)
       html += '<div style="font-size:10px;color:#3498db;margin:2px 0 4px">🔮 '+(isIt?'Incantesimo di 1°':'1st-level spell')+' ('+(chosenSpell1?1:0)+'/'+nSp1+')</div>';
       html += '<div style="max-height:110px;overflow-y:auto;display:flex;flex-wrap:wrap;gap:2px">'
-        + lvl1Pool.map(sp=>pill(chosenSpell1===sp.nome, sp.nome, "fSetFeatIMSpell1('"+feat.uid+"','"+fHtmlEsc(sp.nome)+"')", false)).join('')
+        + lvl1Pool.map(sp=>{
+            const sel = chosenSpell1===sp.nome;
+            const dis = !sel && !!chosenSpell1;
+            return pill(sel, sp.nome, "fSetFeatIMSpell1('"+feat.uid+"','"+fHtmlEsc(sp.nome)+"')", dis);
+          }).join('')
         + '</div>';
     }
     html += '</div>';
@@ -12396,6 +12437,12 @@ function fSelBg(id){
     // uid stabile = featId + '_bg': necessario per la selezione abilità (es. Abile)
     const bgFeatUid = newBg.featId + '_bg';
     C.feats.push({id: newBg.featId, uid: bgFeatUid, nameIt: featIt, nameEn: featEn, fromBg: true, cat: 'origin'});
+    // Iniziato alla Magia da origine: la lista incantesimi è imposta dal background
+    // (Accolito→Chierico, Guida→Druido, Sapiente→Mago) e non è modificabile.
+    if(newBg.featList){
+      if(!C.featChoices) C.featChoices = {};
+      C.featChoices[bgFeatUid] = { imList: newBg.featList, imCantrips: [], imSpell1: null };
+    }
   }
   if(typeof fSanitizeExpertise==='function') fSanitizeExpertise();
   re();
@@ -12902,6 +12949,26 @@ function lgParsePrompt(prompt){
   return res;
 }
 
+// ── Estrae un nome esplicito dal prompt ("di nome Theron", "chiamato X",
+//    "named X", "nome: X"). Restituisce null se non trovato. Usa il prompt
+//    ORIGINALE per preservare le maiuscole dei nomi propri.
+function lgParseName(prompt){
+  if(!prompt) return null;
+  var KW = "(?:di\\s+nome|si\\s+chiama(?:no)?|chiamat[oa]|chiamal[oa]|nome\\s*[:=]?|named|called|name\\s*[:=]?)";
+  var UP = "A-Z\u00C0\u00C1\u00C2\u00C3\u00C4\u00C5\u00C8\u00C9\u00CA\u00CB\u00CC\u00CD\u00CE\u00CF\u00D2\u00D3\u00D4\u00D5\u00D6\u00D9\u00DA\u00DB\u00DC\u00C7\u00D1";
+  var LO = "a-z\u00E0\u00E1\u00E2\u00E3\u00E4\u00E5\u00E8\u00E9\u00EA\u00EB\u00EC\u00ED\u00EE\u00EF\u00F2\u00F3\u00F4\u00F5\u00F6\u00F9\u00FA\u00FB\u00FC\u00E7\u00F1";
+  var WORD = "["+UP+"]["+LO+UP+"'\u2019\\-]*";
+  // 1) Nome con iniziale maiuscola, fino a 3 parole.
+  var re1 = new RegExp(KW+"\\s+[\"'\u00AB]?("+WORD+"(?:\\s+"+WORD+"){0,2})");
+  var m = prompt.match(re1);
+  if(m && m[1]) return m[1].replace(/["'\u00BB]+$/,'').trim();
+  // 2) Fallback: una sola parola dopo la keyword, anche minuscola -> capitalizza.
+  var re2 = new RegExp(KW+"\\s+[\"'\u00AB]?(["+LO+UP+"]["+LO+UP+"'\u2019\\-]*)");
+  m = prompt.match(re2);
+  if(m && m[1]){ var w = m[1].replace(/["'\u00BB]+$/,'').trim(); return w.charAt(0).toUpperCase()+w.slice(1); }
+  return null;
+}
+
 // Scelta classe coerente con eventuale ruolo
 function lgPickClass(role){
   const byRole = {
@@ -13184,7 +13251,7 @@ function fGenerateLocal(prompt){
   }
 
   return {
-    name: 'Avventuriero',
+    name: lgParseName(prompt) || 'Avventuriero',
     species: spId, subrace,
     cls: clsId, subclass, classes,
     bg: bgObj.id, alignment, level,
@@ -13356,7 +13423,11 @@ function fDoAI(){
       if(ai.stats && typeof ai.stats==='object') merged.stats = ai.stats;
       if(Array.isArray(ai.classSkills) && ai.classSkills.length) merged.classSkills = ai.classSkills;
       // Narrativa: l'AI vince sempre (è il suo punto di forza).
-      ['name','trait','ideal','bond','flaw','backstory'].forEach(k=>{ if(ai[k]) merged[k]=ai[k]; });
+      ['trait','ideal','bond','flaw','backstory'].forEach(k=>{ if(ai[k]) merged[k]=ai[k]; });
+      // Nome: se l'utente l'ha indicato nel prompt ha PRIORITA' sull'AI; altrimenti vince l'AI.
+      const _userName = lgParseName(prompt);
+      if(_userName) merged.name = _userName;
+      else if(ai.name) merged.name = ai.name;
       // MULTICLASSE: se l'utente l'ha richiesto esplicitamente (la base locale
       // l'ha già parsato), quella richiesta ha PRIORITÀ. Altrimenti accetta
       // l'array classes[] dell'AI se valido.
@@ -14394,7 +14465,7 @@ function fRS11(cl){
     .filter(Boolean);
   return`<div>
     <div class="sec-title">🎒 ${ft("13 · Equipaggiamento","13 · Equipment")}</div>
-    <div style="text-align:center;font-size:11px;color:var(--vdim);margin:-4px 0 10px;font-style:italic">${ft("Equipaggiamento iniziale di classe · strumenti dell'origine ("+fEd()+")","Class starting equipment · origin tools ("+fEd()+")")}</div>
+    <div style="text-align:center;font-size:11px;color:var(--vdim);margin:-4px 0 10px;font-style:italic">${ft("Equipaggiamento iniziale di classe · strumenti dell'origine","Class starting equipment · origin tools")}</div>
     ${cl&&eq?`<div class="box"><div class="box-title">${cl.icon} ${ft("Classe","Class")}: ${lang==="it"?cl.it:cl.en}</div><div style="color:var(--text);font-size:13px;line-height:1.7">${lang==="it"?eq.it:eq.en}</div></div>`:`<div class="box"><div class="box-title">⚔️ ${ft("Classe","Class")}</div><div style="color:var(--muted);font-size:12px">${ft("Seleziona una classe per vedere l'equipaggiamento.","Select a class to see its equipment.")}</div></div>`}
     ${bg?`<div class="box"><div class="box-title">${bg.icon} ${ft("Origine","Origin")}: ${lang==="it"?bg.it:bg.en}</div><div style="color:var(--text);font-size:13px;line-height:1.7">${ft("Strumenti","Tools")}: ${hasTools?bgTools:ft("nessuno","none")}</div></div>`:`<div class="box"><div class="box-title">🎭 ${ft("Origine","Origin")}</div><div style="color:var(--muted);font-size:12px">${ft("Seleziona un'origine per vedere gli strumenti.","Select an origin to see its tools.")}</div></div>`}
     ${featToolNames.length?`<div class="box"><div class="box-title">✨ ${ft("Strumenti da talenti","Tools from Feats")}</div><div style="color:var(--text);font-size:13px;line-height:1.7">${featToolNames.join(', ')}</div></div>`:""}
@@ -14404,7 +14475,20 @@ function fRS11(cl){
 
 // ── STEP 6: Livello & Talenti ──
 
+// Config nativa Android (solo nell'APK): impedisce che la barra di stato copra l'header
+function fInitNative(){
+  var cap=window.Capacitor;
+  if(!(cap&&cap.isNativePlatform&&cap.isNativePlatform()&&cap.Plugins)) return;
+  if(cap.Plugins.StatusBar){
+    try{
+      cap.Plugins.StatusBar.setOverlaysWebView({overlay:true});
+      cap.Plugins.StatusBar.setBackgroundColor({color:'#07070d'});
+      cap.Plugins.StatusBar.setStyle({style:'DARK'});
+    }catch(e){}
+  }
+}
 // ═══ AVVIO APP (spostato a fine script: dopo tutte le costanti, evita errori di inizializzazione) ═══
+fInitNative();
 _arcanaRestore(); // PERSISTENZA: ripristina il personaggio salvato prima del primo render
 fSyncClassDerived(); // MULTICLASSE: garantisce C.classes coerente all'avvio
 re();
