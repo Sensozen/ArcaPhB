@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Arcana — Suite D&D 5e Italiana</title>
-<script>window.BUILD_VERSION = "25/06/2026 · 00:43"; /* >>> AGGIORNARE A OGNI BUILD: data e ora di consegna (UTC+2) <<< */</script>
+<script>window.BUILD_VERSION = "25/06/2026 · 01:30"; /* >>> AGGIORNARE A OGNI BUILD: data e ora di consegna (UTC+2) <<< */</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -915,114 +915,7 @@ tr.desc-row td{
 </head>
 <body>
 
-<style>
-#pw-overlay {
-  position:fixed; inset:0; z-index:99999;
-  background:#07070d;
-  display:flex; flex-direction:column;
-  align-items:center; justify-content:center;
-  font-family:'Comfortaa', sans-serif;
-}
-#pw-overlay.hidden { display:none; }
-#pw-box {
-  background:#0f0f18;
-  border:1px solid rgba(201,168,71,0.35);
-  border-radius:18px;
-  padding:40px 32px;
-  width:min(340px, 90vw);
-  text-align:center;
-  box-shadow:0 0 60px rgba(201,168,71,0.08);
-}
-#pw-logo {
-  font-size:2rem; font-weight:700;
-  color:var(--gold); margin-bottom:6px;
-  letter-spacing:.04em;
-}
-#pw-sub {
-  font-size:.8rem; color:#555; margin-bottom:8px;
-}
-#pw-ip { font-size:.62rem; color:#4a4a55; margin-bottom:2px; letter-spacing:.02em; }
-#pw-version { font-size:.62rem; color:#5a5a66; margin-bottom:26px; letter-spacing:.04em; }
-#pw-input {
-  width:100%; padding:12px 16px;
-  background:#161622; border:1px solid #333;
-  border-radius:10px; color:#e8e0d0;
-  font-family:'Comfortaa', sans-serif;
-  font-size:1rem; outline:none;
-  margin-bottom:14px; box-sizing:border-box;
-  text-align:center; letter-spacing:.1em;
-}
-#pw-input:focus { border-color:var(--gold)55; }
-#pw-btn {
-  width:100%; padding:12px;
-  background:linear-gradient(135deg,#c9a84c,#8b6914);
-  border:none; border-radius:10px;
-  color:#07070d; font-weight:700;
-  font-family:'Comfortaa', sans-serif;
-  font-size:1rem; cursor:pointer;
-  transition:opacity .2s;
-}
-#pw-btn:hover { opacity:.85; }
-#pw-err {
-  color:#c04040; font-size:.8rem;
-  margin-top:12px; min-height:18px;
-}
-#pw-hint {
-  font-size:.7rem; color:#333;
-  margin-top:20px;
-}
-</style>
-
-<div id="pw-overlay">
-  <div id="pw-box">
-    <div id="pw-logo">⚔️ Arcana</div>
-    <div id="pw-sub">D&amp;D 5.5e 2024 — Suite Italiana</div>
-    <div id="pw-ip">Creazione originale di Natale · Tutti i diritti riservati</div>
-    <div id="pw-version"></div>
-    <input id="pw-input" type="password" placeholder="Password"
-      onkeydown="if(event.key==='Enter')pwCheck()">
-    <button id="pw-btn" onclick="pwCheck()">Accedi</button>
-    <div id="pw-err"></div>
-    <div id="pw-hint">Uso privato — accesso riservato</div>
-  </div>
-</div>
-
-<script>
-(function(){
-  try{ var _v=document.getElementById('pw-version'); if(_v&&window.BUILD_VERSION) _v.textContent='vers. '+window.BUILD_VERSION; }catch(e){}
-  const HASH = 'ec3471459e6bec66c87c800239aa2db1e075dfa180a5fdcc019309277ec623fc';
-  // Controlla se già autenticato in questa sessione
-  if(sessionStorage.getItem('arcana_auth') === HASH){
-    document.getElementById('pw-overlay').classList.add('hidden');
-    return;
-  }
-  // Blocca scroll del body mentre overlay è visibile
-  document.body.style.overflow = 'hidden';
-})();
-
-function pwCheck(){
-  const val = document.getElementById('pw-input').value;
-  // Hash SHA-256 della password inserita
-  async function sha256(msg){
-    const buf = await crypto.subtle.digest('SHA-256',
-      new TextEncoder().encode(msg));
-    return Array.from(new Uint8Array(buf))
-      .map(b => b.toString(16).padStart(2,'0')).join('');
-  }
-  sha256(val).then(h => {
-    if(h === 'ec3471459e6bec66c87c800239aa2db1e075dfa180a5fdcc019309277ec623fc'){
-      sessionStorage.setItem('arcana_auth', h);
-      document.getElementById('pw-overlay').classList.add('hidden');
-      document.body.style.overflow = '';
-    } else {
-      document.getElementById('pw-err').textContent = 'Password non corretta';
-      document.getElementById('pw-input').value = '';
-      document.getElementById('pw-input').focus();
-      setTimeout(() => document.getElementById('pw-err').textContent = '', 2000);
-    }
-  });
-}
-</script>
+<!-- [build full-nopass] blocco password rimosso -->
 
 
 <!-- ══════════ HEADER ══════════ -->
@@ -6064,11 +5957,13 @@ function fRCredits(){
 // Free: fino a ROSTER_FREE_LIMIT personaggi · Pro: illimitato
 // ═══════════════════════════════════════
 var ROSTER_FREE_LIMIT = 3;
+// Web (vetrina) = solo 1 personaggio salvabile (assaggio); APK = limite pieno
+function fRosterLimit(){ return fIsNative() ? ROSTER_FREE_LIMIT : 1; }
 var _rosterConfirmDel = null;
 function fRosterList(){ var l=fPrefGet('roster',[]); return Array.isArray(l)?l:[]; }
 function fRosterSave(list){ fPrefSet('roster', list); }
 function fRosterCount(){ return fRosterList().length; }
-function fRosterCanAdd(){ return fIsPro() || fRosterCount() < ROSTER_FREE_LIMIT; }
+function fRosterCanAdd(){ return fIsPro() || fRosterCount() < fRosterLimit(); }
 function fRosterSummary(){
   var cl = (typeof fClassDisplay==='function') ? (fClassDisplay(true)||'') : '';
   var lvl = (typeof fTotalLevel==='function') ? fTotalLevel() : (C.level||1);
@@ -6122,7 +6017,7 @@ function fRRoster(){
   var list=fRosterList(); var pro=fIsPro(); var canAdd=fRosterCanAdd();
   var counter = pro
     ? (list.length+' '+ft('salvati \u00b7 illimitato','saved \u00b7 unlimited'))
-    : (list.length+' / '+ROSTER_FREE_LIMIT);
+    : (list.length+' / '+fRosterLimit());
   var rows = list.length ? list.map(function(e){
     var confirming = (_rosterConfirmDel===e.id);
     var del = confirming
@@ -6388,8 +6283,10 @@ function fRPro(){
     +'</div>'
     +(pro
       ? '<button class="btn full" onclick="fSetPro(false);re()">'+ft('Disattiva Pro (test)','Disable Pro (test)')+'</button>'
-      : '<button class="btn primary full" onclick="fSetPro(true);re()">'+ft('Sblocca Pro (anteprima)','Unlock Pro (preview)')+'</button>')
-    +'<p style="color:var(--vdim);font-size:11px;line-height:1.55;margin-top:10px;text-align:center">'+ft('Nota: questo pulsante \u00e8 temporaneo per le prove. L\u2019acquisto reale arriver\u00e0 tramite Google Play.','Note: this button is temporary for testing. Real purchase will come via Google Play.')+'</p>'
+      : (fIsNative()
+          ? '<button class="btn primary full" onclick="fSetPro(true);re()">'+ft('Sblocca Pro (anteprima)','Unlock Pro (preview)')+'</button>'
+          : '<p style="color:var(--muted);font-size:13px;line-height:1.6;text-align:center;padding:4px 0">'+ft('\u2728 Pro si sblocca nell\u2019app per dispositivi. Scarica l\u2019app per queste funzioni.','\u2728 Pro unlocks in the device app. Download the app for these features.')+'</p>'))
+    +(fIsNative() ? ('<p style="color:var(--vdim);font-size:11px;line-height:1.55;margin-top:10px;text-align:center">'+ft('Nota: questo pulsante \u00e8 temporaneo per le prove. L\u2019acquisto reale arriver\u00e0 tramite Google Play.','Note: this button is temporary for testing. Real purchase will come via Google Play.')+'</p>') : '')
     +'<button class="btn full" style="margin-top:14px" onclick="screen=\'home\';re()">\u2190 '+ft('Torna alla Home','Back to Home')+'</button>'
   +'</div>';
 }
@@ -8034,6 +7931,7 @@ function fToggleSubclassSkill(skillEn, max){
 // EXPORT / PRINT FUNCTIONS
 // ═══════════════════════════════════════
 function fOpenExport(){
+  if(!fIsNative()){ try{ alert(ft('L\u2019export PDF \u00e8 disponibile nell\u2019app per dispositivi.','PDF export is available in the device app.')); }catch(e){} return; }
   if(!fIsPro()){ screen='pro'; re(); return; }   // gating Pro: Stampa/Export PDF
   const modal=document.getElementById('export-modal');
   const preview=document.getElementById('exp-preview');
@@ -8920,6 +8818,9 @@ function _capPrefBoot(){
     }).catch(function(){ --pending; });
   });
 }
+
+// ── Piattaforma: true=APK nativo (Capacitor), false=web/browser ──
+function fIsNative(){ try{ var cap=window.Capacitor; return !!(cap&&cap.isNativePlatform&&cap.isNativePlatform()); }catch(e){ return false; } }
 
 // ── Stato Pro (gating in roadmap, passo 4) ──
 function fIsPro(){ return fPrefGet('pro', false) === true; }
