@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Arcana — Suite D&D 5e Italiana</title>
-<script>window.BUILD_VERSION = "25/06/2026 · 20:12"; /* >>> AGGIORNARE A OGNI BUILD: data e ora di consegna (UTC+2) <<< */</script>
+<script>window.BUILD_VERSION = "26/06/2026 · 10:36"; /* >>> AGGIORNARE A OGNI BUILD: data e ora di consegna (UTC+2) <<< */</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -8038,8 +8038,9 @@ function fToggleSubclassSkill(skillEn, max){
 // EXPORT / PRINT FUNCTIONS
 // ═══════════════════════════════════════
 function fOpenExport(){
-  if(!fIsNative() && !IS_FULL_BUILD){ try{ alert(ft('L\u2019export PDF \u00e8 disponibile nell\u2019app per dispositivi.','PDF export is available in the device app.')); }catch(e){} return; }
-  if(!fIsPro()){ screen='pro'; re(); return; }   // gating Pro: Stampa/Export PDF
+  // Vetrina web della SRD: stampa concessa come "assaggio" con filigrana e rimando all'app.
+  var webSrdPreview = (!fIsNative() && !IS_FULL_BUILD);
+  if(!webSrdPreview && !fIsPro()){ screen='pro'; re(); return; }   // gating Pro su app/FULL (non sull'assaggio web SRD)
   const modal=document.getElementById('export-modal');
   const preview=document.getElementById('exp-preview');
   document.getElementById('exp-title').textContent='Scheda — '+(C.name||'Personaggio');
@@ -8253,6 +8254,8 @@ function fBuildClassResourcesPrint(){
 }
 
 function fBuildPrintSheet(){
+  // Assaggio vetrina web SRD: filigrana + rimando all'app (la FULL e l'APK non hanno filigrana)
+  const isWebSrdPreview = (typeof fIsNative==='function') && !fIsNative() && (typeof IS_FULL_BUILD!=='undefined') && !IS_FULL_BUILD;
   const sp=fgSp(),cl=fgCl(),bg=fgBg(),sr=fgSr(),al=fgAl(),sc=fgSc();
   const hpMax=fMaxHP(cl,fTotalStat('CON'),C.level);
   const pb=fpb(C.level);
@@ -8389,12 +8392,12 @@ function fBuildPrintSheet(){
 /* main 3-col */
 .pmain{display:grid;grid-template-columns:40mm 1fr 42mm;gap:2mm}
 /* stat block */
-.pstat{border:1px solid #666;border-radius:3px;padding:1mm;margin-bottom:1mm;background:#fafafa}
+.pstat{border:1px solid #666;border-radius:3px;padding:0.6mm;margin-bottom:0.6mm;background:#fafafa}
 .pstat-n{font-size:5.5pt;text-transform:uppercase;letter-spacing:0.4px;color:#444;text-align:center}
-.pstat-v{font-size:18pt;font-weight:bold;text-align:center;line-height:1}
-.pstat-c{font-size:10pt;font-weight:bold;text-align:center;border:1.5px solid #333;border-radius:50%;width:8mm;height:8mm;line-height:8mm;margin:0.5mm auto 0.5mm}
+.pstat-v{font-size:13pt;font-weight:bold;text-align:center;line-height:1}
+.pstat-c{font-size:8.5pt;font-weight:bold;text-align:center;border:1.2px solid #333;border-radius:50%;width:6mm;height:6mm;line-height:6mm;margin:0.4mm auto 0.4mm}
 /* skills */
-.psk{display:flex;align-items:center;gap:1mm;font-size:6.5pt;padding:0.2mm 0;border-top:0.3px solid #e8e8e8}
+.psk{display:flex;align-items:center;gap:1mm;font-size:6.2pt;padding:0.1mm 0;border-top:0.3px solid #e8e8e8}
 .psd{font-size:7pt;min-width:4mm;text-align:center}.psn{flex:1}.psm{font-weight:bold;min-width:5mm;text-align:right}
 /* section title */
 .pst{font-size:5.5pt;text-transform:uppercase;letter-spacing:0.5px;color:#333;border-bottom:0.5px solid #999;margin:1.5mm 0 0.8mm;font-weight:bold}
@@ -8428,15 +8431,23 @@ function fBuildPrintSheet(){
 .pmn{display:grid;grid-template-columns:repeat(5,1fr);gap:0.8mm}
 .pmncl{border:1px solid #666;text-align:center;padding:0.5mm;border-radius:2px;background:#fafafa}
 .pmncl .pl{font-size:5.5pt;color:#555;text-transform:uppercase}
+/* filigrana assaggio web SRD */
+.pswm{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-30deg);font-size:46pt;color:rgba(0,0,0,0.06);font-weight:bold;letter-spacing:5px;z-index:9999;pointer-events:none;white-space:nowrap}
+.psbn{border:1px dashed #a83;background:#fcf3e0;color:#6a4a00;border-radius:2px;padding:1mm 2mm;font-size:6.5pt;text-align:center;margin-bottom:1.5mm;letter-spacing:.3px}
 </style>
 <div class="ps">
+${isWebSrdPreview?'<div class="pswm">ARCANA · '+ft('VERSIONE WEB','WEB VERSION')+'</div>':''}
 
 <!-- ══════════════ PAGINA 1 ══════════════ -->
 <div class="psp">
-  ${C.portrait?'<div style="text-align:center;margin-bottom:1mm"><img src="'+C.portrait+'" style="width:18mm;height:18mm;object-fit:cover;border:1px solid #333;border-radius:50%"></div>':''}
-  <div style="text-align:center;font-size:6pt;letter-spacing:2px;text-transform:uppercase;color:#555;margin-bottom:1mm">DUNGEONS &amp; DRAGONS · 5.5e 2024 · SCHEDA PERSONAGGIO</div>
-
-  <div class="phdr">
+  ${isWebSrdPreview?'<div class="psbn">'+ft('Anteprima dalla versione web \u00b7 Sblocca l\u2019app Arcana per l\u2019export senza filigrana','Preview from the web version \u00b7 Unlock the Arcana app for watermark-free export')+'</div>':''}
+  <div style="display:grid;grid-template-columns:20mm 1fr;gap:2mm;align-items:stretch;margin-bottom:2mm">
+    <div style="border:1px solid #333;border-radius:3px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#fafafa;min-height:20mm">
+      ${C.portrait?'<img src="'+C.portrait+'" style="width:100%;height:100%;object-fit:cover">':'<span style="font-size:5pt;color:#aaa;letter-spacing:1px;text-transform:uppercase">Ritratto</span>'}
+    </div>
+    <div>
+      <div style="font-size:5.5pt;letter-spacing:2px;text-transform:uppercase;color:#555;margin-bottom:0.8mm">DUNGEONS &amp; DRAGONS \u00b7 5.5e 2024 \u00b7 SCHEDA PERSONAGGIO</div>
+      <div class="phdr" style="margin-bottom:0">
     <div class="phdr1">
       <div class="phc"><div class="pl">Nome del Personaggio</div><div class="pv">${C.name||'—'}</div></div>
       <div class="phc"><div class="pl">Background</div><div class="pv">${bgName}</div></div>
@@ -8450,6 +8461,8 @@ function fBuildPrintSheet(){
       <div class="phc"><div class="pl">PE</div><div class="pv">0</div></div>
       <div class="phc"><div class="pl">Taglia</div><div class="pv">${spSize}</div></div>
       <div class="phc"><div class="pl">Velocità</div><div class="pv">${spSpeed}</div></div>
+    </div>
+      </div>
     </div>
   </div>
 
