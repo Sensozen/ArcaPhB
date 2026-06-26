@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Arcana — Suite D&D 5e Italiana</title>
-<script>window.BUILD_VERSION = "26/06/2026 · 10:36"; /* >>> AGGIORNARE A OGNI BUILD: data e ora di consegna (UTC+2) <<< */</script>
+<script>window.BUILD_VERSION = "26/06/2026 · 11:43"; /* >>> AGGIORNARE A OGNI BUILD: data e ora di consegna (UTC+2) <<< */</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -849,6 +849,19 @@ tr.desc-row td{
 
 
 @keyframes spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+
+/* Cropper ritratto */
+#crop-modal{display:none;position:fixed;inset:0;z-index:700;background:rgba(0,0,0,.8);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:16px}
+.crop-box{background:var(--panel-bg);border:1px solid var(--gold2);border-radius:8px;padding:16px;max-width:340px;width:100%;display:flex;flex-direction:column;align-items:center;gap:12px;box-shadow:0 8px 40px rgba(0,0,0,.8)}
+.crop-title{font-family:'Comfortaa', sans-serif;color:var(--gold);font-size:15px}
+.crop-stage{position:relative;overflow:hidden;border-radius:50%;border:2px solid var(--gold);background:#000;touch-action:none;cursor:grab;flex-shrink:0}
+.crop-stage:active{cursor:grabbing}
+.crop-stage img{position:absolute;top:0;left:0;max-width:none;user-select:none;-webkit-user-select:none;-webkit-user-drag:none}
+.crop-zoom{display:flex;align-items:center;gap:10px;width:100%;color:var(--gold)}
+.crop-zoom input{flex:1;accent-color:var(--gold)}
+.crop-actions{display:flex;gap:10px;width:100%}
+.crop-actions .btn{flex:1}
+.crop-hint{font-size:11px;color:var(--vdim);text-align:center}
 </style>
 <style id="rules-style">
 #regole .rules-wrap{max-width:860px;margin:0 auto;padding:1rem .8rem 3rem}
@@ -6329,23 +6342,100 @@ function fPortraitLoad(input){
     var reader = new FileReader();
     reader.onload = function(ev){
       var img = new Image();
-      img.onload = function(){
-        try{
-          var MAX=512, w=img.width, h=img.height;
-          if(w>h && w>MAX){ h=Math.round(h*MAX/w); w=MAX; }
-          else if(h>=w && h>MAX){ w=Math.round(w*MAX/h); h=MAX; }
-          var cv=document.createElement('canvas'); cv.width=w; cv.height=h;
-          cv.getContext('2d').drawImage(img,0,0,w,h);
-          C.portrait = cv.toDataURL('image/jpeg', 0.72);
-          re();
-        }catch(e){ console.error('portrait canvas', e); alert(ft('Immagine non valida.','Invalid image.')); }
-      };
+      img.onload = function(){ try{ fCropOpen(img); }catch(e){ console.error('crop open', e); alert(ft('Immagine non valida.','Invalid image.')); } };
       img.onerror = function(){ alert(ft('Immagine non valida.','Invalid image.')); };
       img.src = ev.target.result;
     };
     reader.onerror = function(){ alert(ft('Lettura immagine non riuscita.','Image read failed.')); };
     reader.readAsDataURL(file);
+    try{ input.value=''; }catch(e){} // consente di ricaricare lo stesso file
   }catch(e){ console.error('portrait load', e); }
+}
+
+// ── Cropper ritratto: inquadratura quadrata con pan + zoom; salva 256×256 ──
+var _crop = null;
+function fCropOpen(img){
+  var V = 260; // lato del riquadro di inquadratura (px)
+  var sb = V / Math.min(img.naturalWidth||1, img.naturalHeight||1); // "copri il quadrato" a zoom 1
+  _crop = { img:img, V:V, scaleBase:sb, zoom:1, ox:0, oy:0, drag:null };
+  fCropCenter();
+  var ov=document.getElementById('crop-modal');
+  if(!ov){ ov=document.createElement('div'); ov.id='crop-modal'; document.body.appendChild(ov); }
+  ov.innerHTML = fCropHTML();
+  ov.style.display='flex';
+  document.body.style.overflow='hidden';
+  if(!_crop._listen){
+    _crop._mv=function(e){ fCropPointerMove(e); };
+    _crop._up=function(){ fCropPointerUp(); };
+    window.addEventListener('pointermove', _crop._mv, {passive:false});
+    window.addEventListener('pointerup', _crop._up);
+    _crop._listen=true;
+  }
+  fCropRender();
+}
+function fCropCenter(){
+  var c=_crop, s=c.scaleBase*c.zoom;
+  c.ox=(c.V - c.img.naturalWidth*s)/2;
+  c.oy=(c.V - c.img.naturalHeight*s)/2;
+  fCropClamp();
+}
+function fCropClamp(){
+  var c=_crop, s=c.scaleBase*c.zoom;
+  var minX=c.V - c.img.naturalWidth*s, minY=c.V - c.img.naturalHeight*s;
+  if(c.ox>0) c.ox=0; if(c.ox<minX) c.ox=minX;
+  if(c.oy>0) c.oy=0; if(c.oy<minY) c.oy=minY;
+}
+function fCropHTML(){
+  var V=_crop.V;
+  return '<div class="crop-box">'
+    +'<div class="crop-title">'+ft('Inquadra il ritratto','Frame the portrait')+'</div>'
+    +'<div class="crop-stage" id="crop-stage" style="width:'+V+'px;height:'+V+'px" onpointerdown="fCropPointerDown(event)">'
+      +'<img id="crop-img" src="'+_crop.img.src+'" draggable="false">'
+    +'</div>'
+    +'<div class="crop-zoom"><span style="font-size:18px">\u2212</span><input type="range" id="crop-zoom" min="1" max="3" step="0.01" value="'+_crop.zoom+'" oninput="fCropZoom(this.value)"><span style="font-size:18px">+</span></div>'
+    +'<div class="crop-hint">'+ft('Trascina per spostare \u00b7 usa lo zoom','Drag to move \u00b7 use the zoom')+'</div>'
+    +'<div class="crop-actions">'
+      +'<button class="btn sm" onclick="fCropCancel()">'+ft('Annulla','Cancel')+'</button>'
+      +'<button class="btn primary sm" onclick="fCropConfirm()">'+ft('Conferma','Confirm')+'</button>'
+    +'</div>'
+  +'</div>';
+}
+function fCropRender(){
+  var c=_crop; if(!c) return;
+  var im=document.getElementById('crop-img'); if(!im) return;
+  var s=c.scaleBase*c.zoom;
+  im.style.width=(c.img.naturalWidth*s)+'px';
+  im.style.height=(c.img.naturalHeight*s)+'px';
+  im.style.transform='translate('+c.ox+'px,'+c.oy+'px)';
+}
+function fCropZoom(v){
+  var c=_crop; if(!c) return;
+  var s0=c.scaleBase*c.zoom, cx=(c.V/2-c.ox)/s0, cy=(c.V/2-c.oy)/s0;
+  c.zoom=parseFloat(v)||1;
+  var s1=c.scaleBase*c.zoom;
+  c.ox=c.V/2-cx*s1; c.oy=c.V/2-cy*s1; fCropClamp(); fCropRender();
+}
+function fCropPointerDown(e){ var c=_crop; if(!c) return; var p=(e.touches&&e.touches[0])||e; c.drag={x:p.clientX,y:p.clientY,ox:c.ox,oy:c.oy}; }
+function fCropPointerMove(e){ var c=_crop; if(!c||!c.drag) return; var p=(e.touches&&e.touches[0])||e; c.ox=c.drag.ox+(p.clientX-c.drag.x); c.oy=c.drag.oy+(p.clientY-c.drag.y); fCropClamp(); fCropRender(); if(e.cancelable) e.preventDefault(); }
+function fCropPointerUp(){ var c=_crop; if(c) c.drag=null; }
+function fCropConfirm(){
+  var c=_crop; if(!c) return;
+  try{
+    var OUT=256, s=c.scaleBase*c.zoom;
+    var sx=-c.ox/s, sy=-c.oy/s, sSize=c.V/s;
+    var cv=document.createElement('canvas'); cv.width=OUT; cv.height=OUT;
+    var ctx=cv.getContext('2d'); ctx.fillStyle='#fff'; ctx.fillRect(0,0,OUT,OUT);
+    ctx.drawImage(c.img, sx, sy, sSize, sSize, 0, 0, OUT, OUT);
+    C.portrait = cv.toDataURL('image/jpeg', 0.78);
+  }catch(e){ console.error('crop confirm', e); alert(ft('Ritaglio non riuscito.','Crop failed.')); }
+  fCropClose(); re();
+}
+function fCropCancel(){ fCropClose(); }
+function fCropClose(){
+  if(_crop && _crop._listen){ try{ window.removeEventListener('pointermove', _crop._mv); window.removeEventListener('pointerup', _crop._up); }catch(e){} }
+  _crop=null;
+  var ov=document.getElementById('crop-modal'); if(ov){ ov.style.display='none'; ov.innerHTML=''; }
+  document.body.style.overflow='';
 }
 function fPortraitHTML(){
   var has = !!C.portrait;
@@ -8442,7 +8532,7 @@ ${isWebSrdPreview?'<div class="pswm">ARCANA · '+ft('VERSIONE WEB','WEB VERSION'
 <div class="psp">
   ${isWebSrdPreview?'<div class="psbn">'+ft('Anteprima dalla versione web \u00b7 Sblocca l\u2019app Arcana per l\u2019export senza filigrana','Preview from the web version \u00b7 Unlock the Arcana app for watermark-free export')+'</div>':''}
   <div style="display:grid;grid-template-columns:20mm 1fr;gap:2mm;align-items:stretch;margin-bottom:2mm">
-    <div style="border:1px solid #333;border-radius:3px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#fafafa;min-height:20mm">
+    <div style="border:1px solid #333;border-radius:3px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#fafafa;width:20mm;height:20mm;align-self:start">
       ${C.portrait?'<img src="'+C.portrait+'" style="width:100%;height:100%;object-fit:cover">':'<span style="font-size:5pt;color:#aaa;letter-spacing:1px;text-transform:uppercase">Ritratto</span>'}
     </div>
     <div>
