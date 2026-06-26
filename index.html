@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Arcana — Suite D&D 5e Italiana</title>
-<script>window.BUILD_VERSION = "26/06/2026 · 11:43"; /* >>> AGGIORNARE A OGNI BUILD: data e ora di consegna (UTC+2) <<< */</script>
+<script>window.BUILD_VERSION = "26/06/2026 · 12:47"; /* >>> AGGIORNARE A OGNI BUILD: data e ora di consegna (UTC+2) <<< */</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -3227,8 +3227,8 @@ const FEAT_METADATA = {
   'sentinella':              { cat:'general', prereq:'lv4', statBonus:{any:'STR_DEX', val:1}, max:20 },
   'sterminatore-maghi':      { cat:'general', prereq:'lv4', statBonus:{any:'STR_DEX', val:1}, max:20 },
   'stile-penetrante':        { cat:'general', prereq:'lv4', statBonus:{any:'STR_DEX', val:1}, max:20 },
-  'telecinesi':              { cat:'general', prereq:'lv4', statBonus:{any:'INT_WIS_CHA', val:1}, max:20 },
-  'telepatia':               { cat:'general', prereq:'lv4', statBonus:{any:'INT_WIS_CHA', val:1}, max:20 },
+  'telecinesi':              { cat:'general', prereq:'lv4', statBonus:{any:'INT_WIS_CHA', val:1}, max:20, fixedSpells:['Mano magica'] },
+  'telepatia':               { cat:'general', prereq:'lv4', statBonus:{any:'INT_WIS_CHA', val:1}, max:20, fixedSpells:['Individuazione dei pensieri'] },
   'tenace':                  { cat:'general', prereq:'lv4', statBonus:{stat:'CON', val:1}, max:20 },
   'tiratore-scelto':         { cat:'general', prereq:'lv4,DEX_13', statBonus:{any:'DEX', val:1}, max:20 },
 
@@ -8435,7 +8435,27 @@ function fBuildPrintSheet(){
       <td></td>
     </tr>`;
   }).join('');
-  const emptyN=Math.max(0,32-allIds.length);
+  // Incantesimi SEMPRE PREPARATI da specie/talenti/sottoclasse/stile (non tra i preparati manuali)
+  const _prepSet=new Set(allIds);
+  const _srcLbl={species:'specie',feat:'talento',subclass:'sottocl.',style:'stile'};
+  const alwaysList=(typeof fGetAlwaysPrepared==='function'?fGetAlwaysPrepared():[])
+    .map(e=>{ const s=SPELLS.find(x=>x.nome.toLowerCase()===e.nome.toLowerCase()); return s?{s:s,fonte:e.fonte}:null; })
+    .filter(e=>e && !_prepSet.has(e.s.id));
+  // dedup per id (uno stesso incantesimo può arrivare da più fonti)
+  const _seenAlw=new Set();
+  const alwaysRows=alwaysList.filter(e=>{ if(_seenAlw.has(e.s.id))return false; _seenAlw.add(e.s.id); return true; }).map(e=>{
+    const s=e.s; const lv=s.livello===0?'T':s.livello+'°';
+    return`<tr>
+      <td class="tc">${lv}</td>
+      <td>${fSpN(s)} <span style="font-size:5pt;color:#777">◆${_srcLbl[e.fonte]||''}</span></td>
+      <td>${s.tempoLancio||'—'}</td>
+      <td>${s.gittata||'—'}</td>
+      <td class="tc" style="white-space:nowrap;font-size:5.5pt;">${s.concentrazione?'●C':'○C'} ${s.rituale?'●R':'○R'} ${s.materiale?'●M':'○M'}</td>
+      <td></td>
+    </tr>`;
+  }).join('');
+  const _usedRows=allIds.length+_seenAlw.size;
+  const emptyN=Math.max(0,32-_usedRows);
   const emptyRows=Array(emptyN).fill(`<tr><td></td><td></td><td></td><td></td><td class="tc" style="font-size:5.5pt;">○C ○R ○M</td><td></td></tr>`).join('');
 
   // Class features
@@ -8658,6 +8678,21 @@ ${(function(){
     var cName=C.name||'—';
     var equipTxt2=C.equipNotes||(fgCl()?fgCl().equipIt||'':'');
     var backstoryTxt=C.backstory||'';
+    // Incantesimi concessi da SPECIE/TALENTI a un personaggio NON incantatore
+    var _apNM=(typeof fGetAlwaysPrepared==='function'?fGetAlwaysPrepared():[]);
+    var _seenNM={};
+    var _apRowsNM=_apNM.map(function(e){
+      var s=SPELLS.find(function(x){return x.nome.toLowerCase()===e.nome.toLowerCase();});
+      if(!s||_seenNM[s.id]) return ''; _seenNM[s.id]=1;
+      var lv=s.livello===0?'Truc.':(s.livello+'\u00b0');
+      var src={species:'specie',feat:'talento',subclass:'sottocl.',style:'stile'}[e.fonte]||'';
+      return '<div style="border-bottom:0.3px solid #ccc;padding:0.8mm 0;font-size:6pt;line-height:1.25">'
+        +'<b>'+fSpN(s)+'</b> <span style="color:#777">\u00b7 '+lv+' \u00b7 \u25c6'+src+'</span><br>'
+        +'<span style="color:#666;font-size:5.5pt">'+(s.tempoLancio||'\u2014')+' \u00b7 '+(s.gittata||'\u2014')+'</span></div>';
+    }).join('');
+    var featSpellsBlockNM=_apRowsNM
+      ? '<div class="pst">Incantesimi (Specie/Talenti)</div><div class="ptx" style="min-height:0;margin-bottom:2mm">'+_apRowsNM+'</div>'
+      : '';
     return `<div class="psp" style="page-break-before:always">
   <div style="text-align:center;font-size:6pt;letter-spacing:2px;text-transform:uppercase;color:#555;margin-bottom:1.5mm">${cName} · Note &amp; Equipaggiamento</div>
   <div style="display:grid;grid-template-columns:1fr 1.4fr 0.75fr;gap:3mm;min-height:268mm">
@@ -8686,6 +8721,7 @@ ${(function(){
 
     <!-- COLONNA DESTRA: Denari + PNG + Condizioni -->
     <div style="overflow:hidden">
+      ${featSpellsBlockNM}
       <div class="pst">Denari</div>
       <div class="pmn" style="flex-direction:column;gap:1mm">
         <div class="pmncl"><div class="pl">MR</div></div>
@@ -8752,7 +8788,7 @@ ${(function(){
           <th style="width:13%" class="tc">C / R / M</th>
           <th>Note / Danni</th>
         </tr></thead>
-        <tbody>${spellRows}${emptyRows}</tbody>
+        <tbody>${spellRows}${alwaysRows}${emptyRows}</tbody>
       ${(function(){if(C.cls!=='warlock')return '';var arcs=fGetWarlockArcanaLevels(C.level||1);if(!arcs.length)return '';var rows=arcs.map(function(l){var nm=(C.arcanaSpells&&C.arcanaSpells[l])||'--';var used=(C.arcanaUsed&&C.arcanaUsed[l])?'USATO':'';return '<tr><td class="tc">'+l+'</td><td>'+nm+'</td><td class="tc">'+used+'</td></tr>';}).join('');return '<div class="pst">Arcana Mistici Warlock</div><table class="pspt"><thead><tr><th style="width:12%">Lv.</th><th>Incantesimo</th><th style="width:20%">Stato</th></tr></thead><tbody>'+rows+'</tbody></table>';})()}
       </table>
     </div>
@@ -11254,18 +11290,18 @@ const ALWAYS_PREPARED_SUBCLASS = {
 // ── Incantesimi SEMPRE PREPARATI da specie/sottospecie ───────────────────
 const ALWAYS_PREPARED_SPECIES = {
   elfo: {
-    'elfo-alto':   { 3:['Individuazione del Magico'], 5:['Passo Nebbia'] },
-    'elfo-boschi': { 3:['Andatura del Vento'],        5:['Passare senza Tracce'] },
-    'drow':        { 3:['Luci Fatue'],                5:['Oscurità'] },
+    'elfo-alto':   { 1:['Prestidigitazione'], 3:['Individuazione del magico'], 5:['Passo velato'] },
+    'elfo-boschi': { 1:['Artificio druidico'], 3:['Passo veloce'],             5:['Passare senza tracce'] },
+    'drow':        { 1:['Luci danzanti'],      3:['Luminescenza'],             5:['Oscurità'] },
   },
   tiefling: {
-    'infernale': { 3:['Rivincita Infernale'], 5:['Oscurità'] },
-    'abissale':  { 3:['Raggio di Malattia'],  5:['Blocca Persone'] },
-    'ctonio':    { 3:['Falsa Vita'],          5:['Raggio di Affaticamento'] },
+    'infernale': { 1:['Taumaturgia','Dardo di fuoco'],   3:['Intimorire infernale'], 5:['Oscurità'] },
+    'abissale':  { 1:['Taumaturgia','Spruzzo velenoso'], 3:['Raggio di infermità'],  5:['Blocca persone'] },
+    'ctonio':    { 1:['Taumaturgia','Tocco gelido'],     3:['Vita falsata'],         5:['Raggio di affaticamento'] },
   },
   gnomo: {
     'gnomo-rocce':   { 1:['Riparare','Prestidigitazione'] },
-    'gnomo-foreste': { 1:['Illusione Minore'] },
+    'gnomo-foreste': { 1:['Illusione minore','Parlare con gli animali'] },
   },
   aasimar: { 'null': { 1:['Luce'] } },
 };
@@ -11604,6 +11640,14 @@ function fGetFeatSpells(){
       if(f.id === 'contaminazione-fatata') add('Passo velato');
       if(f.id === 'contaminazione-oscura') add('Invisibilità');
       add(ch.spell1);
+    }
+    // Telecinesi / Telepatia ecc.: incantesimo concesso in modo fisso dal talento
+    if(Array.isArray(meta.fixedSpells)){
+      meta.fixedSpells.forEach(add);
+    }
+    // Incantesimi fissi concessi dal talento (es. Telecinesi→Mano magica, Telepatia→Individuazione dei pensieri)
+    if(Array.isArray(meta.fixedSpells)){
+      meta.fixedSpells.forEach(add);
     }
   });
   return out;
