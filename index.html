@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Arcana — Suite D&D 5e Italiana</title>
-<script>window.BUILD_VERSION = "01/07/2026 · 18:46"; /* >>> AGGIORNARE A OGNI BUILD: data e ora di consegna (UTC+2) <<< */</script>
+<script>window.BUILD_VERSION = "03/07/2026 · 00:07"; /* >>> AGGIORNARE A OGNI BUILD: data e ora di consegna (UTC+2) <<< */</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -2302,7 +2302,7 @@ wizard: [
   { lv:1,  it:"Adepto dei Rituali", en:"Ritual Adept",
     desc:"Può lanciare come Rituale qualsiasi incantesimo con il descrittore Rituale presente nel libro degli incantesimi, anche se non è preparato (deve poterlo leggere).", descSrdIt:"Il mago può lanciare come rituale qualsiasi incantesimo che possieda il descrittore rituale e sia presente nel suo libro degli incantesimi. Non è necessario che sia preparato, ma per lanciarlo in questo modo deve leggere il libro.", descEn:"You can cast any spell as a Ritual if that spell has the Ritual tag and is in your spellbook. You needn't have the spell prepared, but you must read from the book to cast it this way." },
   { lv:1,  it:"Recupero Arcano", en:"Arcane Recovery",
-    desc:"Una volta per giorno durante un riposo breve: recupera slot incantesimo esauriti per un totale di livelli ≤ metà del livello mago (arr. per eccesso). Nessuno slot di 6° livello o superiore. Dopo l'utilizzo: 1/riposo lungo.", descSrdIt:"Studiando il libro degli incantesimi, quando completa un riposo breve il mago sceglie quali slot incantesimo spesi recuperare. Gli slot recuperati possono avere un livello totale pari o inferiore alla metà del livello da mago (arrotondato per eccesso) e nessuno può essere di 6º livello o superiore. Dopo l'uso non può riutilizzarlo prima di un riposo lungo.", descEn:"By studying your spellbook when you finish a Short Rest, you can choose expended spell slots to recover. The recovered slots can have a combined level of no more than half your Wizard level (rounded up), and none can be level 6 or higher. Once you use this feature, you can't do so again until you finish a Long Rest." },
+    desc:"Al termine di un riposo breve: recupera slot incantesimo spesi per un totale di livelli ≤ metà del livello da mago (arr. per eccesso). Nessuno slot di 6° livello o superiore. 1×/riposo lungo.", descSrdIt:"Studiando il libro degli incantesimi, quando completa un riposo breve il mago sceglie quali slot incantesimo spesi recuperare. Gli slot recuperati possono avere un livello totale pari o inferiore alla metà del livello da mago (arrotondato per eccesso) e nessuno può essere di 6º livello o superiore. Dopo l'uso non può riutilizzarlo prima di un riposo lungo.", descEn:"By studying your spellbook when you finish a Short Rest, you can choose expended spell slots to recover. The recovered slots can have a combined level of no more than half your Wizard level (rounded up), and none can be level 6 or higher. Once you use this feature, you can't do so again until you finish a Long Rest." },
   { lv:2,  it:"Studioso", en:"Scholar",
     desc:"Sceglie 1 abilità tra Arcano, Indagare, Medicina, Natura, Religione o Storia: ottiene Maestria in quell'abilità (se già competente).", descSrdIt:"Durante lo studio della magia, il mago si è specializzato anche in un'altra disciplina. Sceglie un'abilità in cui ha competenza tra Arcano, Indagare, Medicina, Natura, Religione o Storia: ottiene maestria nell'abilità selezionata.", descEn:"While studying magic, you also specialized in another field. Choose one skill in which you have proficiency among Arcana, History, Investigation, Medicine, Nature, or Religion: you have Expertise in the chosen skill." },
   { lv:3,  it:"Sottoclasse del Mago", en:"Wizard Subclass",
@@ -2419,7 +2419,7 @@ const SUBCLASS_FEATURES = {
 "terra": [
   { lv:3,  it:"Ausilio dalla Terra", en:"Land's Aid", desc:"Az. di Magia + 1 uso Forma Selvatica: in un punto entro 18 m appaiono istantaneamente fiori (istantaneo, non dura 1 min). Ogni creatura dell'area (r.3 m) a scelta → TS COS (CD inc.): 2d6 necrotici in fallimento, metà in successo. Una creatura a scelta recupera 2d6 PF. Danni/guarigione: Lv.10 → 3d6, Lv.14 → 4d6.", descSrdIt:"Come azione di Magia, può spendere un utilizzo di Forma selvatica e scegliere un punto entro 18 metri da sé. Per un istante, in una sfera del raggio di 3 metri centrata su quel punto appaiono fiori che donano vitalità e spine che risucchiano la vita. Ogni creatura nella sfera a scelta del druido deve effettuare un tiro salvezza su Costituzione contro la CD del tiro salvezza sul suo incantesimo. La creatura subisce 2d6 danni necrotici in caso di fallimento, o la metà in caso di successo. Una creatura a scelta del druido in quell'area recupera 2d6 punti ferita. I danni e la guarigione del personaggio aumentano di 1d6 quando raggiunge il 10º (3d6) e il 14º (4d6) livello da druido.", descEn:"As a Magic action, you can expend a use of your Wild Shape and choose a point within 60 feet of yourself. Vitality-giving flowers and life-draining thorns appear for a moment in a 10-foot-radius Sphere centered on that point. Each creature of your choice in the Sphere must make a Constitution saving throw against your spell save DC, taking 2d6 Necrotic damage on a failed save or half as much damage on a successful one. One creature of your choice in that area regains 2d6 Hit Points. The damage and healing increase by 1d6 when you reach Druid levels 10 (3d6) and 14 (4d6)." },
   { lv:3,  it:"Incantesimi del Circolo della Terra", en:"Circle of the Land Spells", desc:"A fine riposo lungo scegli tipo: Arida, Polare, Temperata o Tropicale. Preparati per tipo — Arida Lv.3: dardo fuoco, mani brucianti, sfocatura · Lv.5: palla di fuoco · Lv.7: inaridire · Lv.9: muro di pietra. Polare Lv.3: blocca persone, nube di nebbia, raggio di gelo · Lv.5: tempesta di nevischio · Lv.7: tempesta di ghiaccio · Lv.9: cono di freddo. Temperata Lv.3: passo velato, sonno, stretta folgorante · Lv.5: fulmine · Lv.7: libertà di movimento · Lv.9: traslazione arborea. Tropicale Lv.3: fiotto acido, raggio di infermità, ragnatela · Lv.5: nube maleodorante · Lv.7: metamorfosi · Lv.9: piaga degli insetti.", descSrdIt:"Terra Al termine di un riposo lungo, il druido sceglie un tipo di terra: arida, polare, temperata o tropicale. Consulta la tabella qui di seguito corrispondente al tipo di terra scelto; gli incantesimi elencati per il livello da druido attuale e per i livelli inferiori si considerano preparati. Terra arida Livello da druido Incantesimi del Circolo 3 Dardo di fuoco, mani brucianti, sfocatura 5 Palla di fuoco 7 Inaridire 9 Muro di pietra Terra polare Livello da druido Incantesimi del Circolo 3 Blocca persone, nube di nebbia, raggio di gelo 5 Tempesta di nevischio 7 Tempesta di ghiaccio 9 Cono di freddo Terra temperata Livello da druido Incantesimi del Circolo 3 Passo velato, sonno e stretta folgorante 5 Fulmine 7 Libertà di movimento 9 Traslazione arborea Terra tropicale Livello da druido Incantesimi del Circolo 3 Fiotto acido, raggio di infermità, ragnatela 5 Nube maleodorante 7 Metamorfosi 9 Piaga degli insetti", descEn:"Whenever you finish a Long Rest, choose one type of land: arid, polar, temperate, or tropical. Consult the table below that corresponds to the chosen type; you have the spells listed for your Druid level and lower prepared. Arid Land Druid Level Circle Spells 3 Blur, Burning Hands, Fire Bolt 5 Fireball 7 Blight 9 Wall of Stone Polar Land Druid Level Circle Spells 3 Fog Cloud, Hold Person, Ray of Frost 5 Sleet Storm 7 Ice Storm 9 Cone of Cold Temperate Land Druid Level Circle Spells 3 Misty Step, Shocking Grasp, Sleep 5 Lightning Bolt 7 Freedom of Movement 9 Tree Stride Tropical Land Druid Level Circle Spells 3 Acid Splash, Ray of Sickness, Web 5 Stinking Cloud 7 Polymorph 9 Insect Plague" },
-  { lv:6,  it:"Recupero Naturale", en:"Natural Recovery", desc:"Riposo breve: recupera slot per totale livelli ≤ metà livello druido (max 6°). 1/riposo lungo. Inoltre può lanciare 1 incantesimo del Circolo senza slot (1/riposo lungo).", descSrdIt:"Il druido può lanciare uno degli incantesimi di 1º livello o superiore che ha preparato con il privilegio Incantesimi del Circolo senza spendere uno slot incantesimo; deve completare un riposo lungo prima di poterlo fare di nuovo. Inoltre, quando completa un riposo breve, sceglie quali slot incantesimo spesi desidera recuperare. Questi slot incantesimo possono avere un livello totale pari o inferiore alla metà del livello da druido (arrotondato per eccesso) e nessuno slot può essere di livello superiore al 6º. Per esempio, se il personaggio è un druido di 6º livello, può recuperare slot incantesimo per un valore totale di tre livelli. Il druido può recuperare uno slot incantesimo di 3º livello, uno slot incantesimo di 2º livello e uno di 1º livello, o tre slot incantesimo di 1º livello. Dopo aver recuperato gli slot incantesimo con questo privilegio, il druido non può farlo di nuovo prima di aver completato un riposo lungo.", descEn:"You can cast one of the level 1+ spells that you have prepared from your Circle Spells feature without expending a spell slot, and you must finish a Long Rest before you do so again. In addition, when you finish a Short Rest, you can choose expended spell slots to recover. The spell slots can have a combined level that is equal to or less than half your Druid level (round up), and none of them can be level 6+. For example, if you’re a level 6 Druid, you can recover up to three levels’ worth of spell slots. You can recover a level 3 spell slot, a level 2 and a level 1 spell slot, or three level 1 spell slots. Once you recover spell slots with this feature, you can’t do so again until you finish a Long Rest." },
+  { lv:6,  it:"Recupero Naturale", en:"Natural Recovery", desc:"Riposo breve: recupera slot per totale livelli ≤ metà livello druido (max 5°). 1/riposo lungo. Inoltre può lanciare 1 incantesimo del Circolo senza slot (1/riposo lungo).", descSrdIt:"Il druido può lanciare uno degli incantesimi di 1º livello o superiore che ha preparato con il privilegio Incantesimi del Circolo senza spendere uno slot incantesimo; deve completare un riposo lungo prima di poterlo fare di nuovo. Inoltre, quando completa un riposo breve, sceglie quali slot incantesimo spesi desidera recuperare. Questi slot incantesimo possono avere un livello totale pari o inferiore alla metà del livello da druido (arrotondato per eccesso) e nessuno slot può essere di livello superiore al 6º. Per esempio, se il personaggio è un druido di 6º livello, può recuperare slot incantesimo per un valore totale di tre livelli. Il druido può recuperare uno slot incantesimo di 3º livello, uno slot incantesimo di 2º livello e uno di 1º livello, o tre slot incantesimo di 1º livello. Dopo aver recuperato gli slot incantesimo con questo privilegio, il druido non può farlo di nuovo prima di aver completato un riposo lungo.", descEn:"You can cast one of the level 1+ spells that you have prepared from your Circle Spells feature without expending a spell slot, and you must finish a Long Rest before you do so again. In addition, when you finish a Short Rest, you can choose expended spell slots to recover. The spell slots can have a combined level that is equal to or less than half your Druid level (round up), and none of them can be level 6+. For example, if you’re a level 6 Druid, you can recover up to three levels’ worth of spell slots. You can recover a level 3 spell slot, a level 2 and a level 1 spell slot, or three level 1 spell slots. Once you recover spell slots with this feature, you can’t do so again until you finish a Long Rest." },
   { lv:10, it:"Interdizione della Natura", en:"Nature's Ward", desc:"Immune alla condizione avvelenato; resistenza a un tipo di danno in base al terreno scelto. Arida → Fuoco, Polare → Freddo, Temperata → Fulmine, Tropicale → Veleno.", descSrdIt:"Il druido è immune alla condizione avvelenato ed è dotato di resistenza a un tipo di danno associato alla terra che ha scelto per il privilegio Incantesimi del Circolo, come indicato nella tabella Interdizione della Natura. Interdizione della Natura Tipo di terra Resistenza Arida Fuoco Polare Freddo Tipo di terra Resistenza Temperata Fulmine Tropicale Veleno", descEn:"You are immune to the Poisoned condition, and you have Resistance to a damage type associated with your current land choice in the Circle Spells feature, as shown in the Nature’s Ward table. Nature’s Ward Land Type Resistance Arid Fire Polar Cold Land Type Resistance Temperate Lightning Tropical Poison" },
   { lv:14, it:"Rifugio della Natura", en:"Nature's Sanctuary", desc:"Az. di Magia + 1 uso Forma Selvatica: alberi e viticci in cubo 4,5 m entro 36 m per 1 min. Lui e alleati nell'area: mezza copertura + resistenza del terreno. Az. bonus: muove il cubo fino a 18 m.", descSrdIt:"Come azione di Magia, il druido può spendere un utilizzo della sua Forma selvatica per far apparire alberi e viticci spettrali in un cubo con spigolo di 4,5 metri in un punto del terreno entro 36 metri da sé. La vegetazione permane per 1 minuto, o finché il druido non è incapacitato o morto. Mentre si trovano in quell'area, il druido e i suoi alleati ottengono mezza copertura, e gli alleati ottengono la resistenza conferita da Interdizione della Natura. Come azione bonus, il druido può muovere il cubo fino a 18 metri sul terreno entro 36 metri da sé.", descEn:"As a Magic action, you can expend a use of your Wild Shape and cause spectral trees and vines to appear in a 15-foot Cube on the ground within 120 feet of yourself. They last there for 1 minute or until you have the Incapacitated condition or die. You and your allies have Half Cover while in that area, and your allies gain the current Resistance of your Nature’s Ward while there. As a Bonus Action, you can move the Cube up to 60 feet to ground within 120 feet of yourself." },
 ],
@@ -4100,7 +4100,7 @@ function fLongRest(){
   C.charmMagic={used:0};C.cloakMajesty={used:0};C.unbreakableMajesty={used:0}; // Bardo Fascino/Sapienza
   C.wildShapeUsed=0;C.starDartUsed=0;C.moonStepUsed=0;C.cosmicOmenUsed=0;C.nemesisMark={used:0};C.sorcPoints={used:0};
   C.innateUsed=0;C.arcanaUsed={};C.slotsUsed={};C.bonusSlots={};
-  C.divPunish={used:false};C.arcaneRecovUsed=false;C.warPriestUsed=0;C.coronaLuceUsed=0;C.bagliorUsed=0;
+  C.divPunish={used:false};C.arcaneRecovUsed=false;C.natRecovUsed=false;C.natRecovCastUsed=false;C.natureMagicianUsed=false;C._slotRecov=null;C.warPriestUsed=0;C.coronaLuceUsed=0;C.bagliorUsed=0;
   if(C.arcaneWardHP)C.arcaneWardHP.cur=C.arcaneWardHP.max;
   C.presageUsed=[false,false,false];C.thirdEyeUsed=false;
   C.spettralCreatUsed=false;C.phantomDoppUsed=false;C.overchargeUsed=0;C.luckyStrike={used:0};
@@ -4347,6 +4347,63 @@ function fConvertSPtoSlot(slotLv,cost){
   if(!C.bonusSlots)C.bonusSlots={};
   C.bonusSlots[slotLv]=(C.bonusSlots[slotLv]||0)+1;
   fShowSorcMsg(cost+' PS → +1 slot '+slotLv+'° (temporaneo, fino al riposo lungo)',false);
+}
+// ── RECUPERO SLOT GUIDATO (Recupero Arcano · Mago / Recupero Naturale · Druido Terra) ──
+// Motore condiviso e parametrizzato (PHB 2024, Mago p.111): al termine di un riposo
+// breve il PG sceglie slot SPESI da recuperare, per un totale di livelli pari o
+// inferiore a ⌈livello di classe / 2⌉; nessuno slot di 6° o superiore; una volta
+// per riposo lungo. Stato transiente in C._slotRecov={classId,flag,spent}.
+function fSlotRecovBudget(classId){
+  var l=(typeof fClassLevel==='function'&&fClassLevel(classId)>0)?fClassLevel(classId):(C.level||1);
+  return Math.max(1,Math.ceil(l/2));
+}
+// Slot spesi (quindi recuperabili) di un dato livello — mai oltre il 5° (PHB)
+function fSlotRecovSpent(slv){
+  if(slv>5)return 0;
+  var totals=(typeof fNormalSlotTotals==='function')?fNormalSlotTotals():[];
+  if((totals[slv-1]||0)<=0)return 0;
+  return Math.min((C.slotsUsed&&C.slotsUsed[slv])||0,totals[slv-1]||0);
+}
+function fSlotRecovStart(classId,flag){
+  if(C[flag])return;                       // uso già consumato: serve un riposo lungo
+  C._slotRecov={classId:classId,flag:flag,spent:0};re();
+}
+function fSlotRecovPick(slv){
+  var s=C._slotRecov;if(!s)return;
+  var remaining=fSlotRecovBudget(s.classId)-s.spent;
+  if(slv>5||slv>remaining)return;          // vincoli PHB: max 5° e budget residuo
+  if(fSlotRecovSpent(slv)<=0)return;       // nessuno slot speso di quel livello
+  if(!C.slotsUsed)C.slotsUsed={};
+  C.slotsUsed[slv]=Math.max(0,(C.slotsUsed[slv]||0)-1); // ripristina davvero lo slot
+  s.spent+=slv;
+  // Auto-chiusura: budget esaurito o nessun altro slot recuperabile entro il residuo
+  remaining=fSlotRecovBudget(s.classId)-s.spent;
+  var more=false;
+  for(var i=1;i<=Math.min(5,remaining);i++){if(fSlotRecovSpent(i)>0){more=true;break;}}
+  if(!more){fSlotRecovClose();return;}
+  re();
+}
+function fSlotRecovClose(){
+  var s=C._slotRecov;if(!s)return;
+  if(s.spent>0)C[s.flag]=true;             // l'uso si consuma solo se qualcosa è stato recuperato
+  C._slotRecov=null;re();
+}
+// ── MAGO DELLA NATURA (Arcidruido Lv.20 · PHB p.83): converte N utilizzi NON spesi di
+// Forma Selvatica in UN singolo slot incantesimo di livello N×2 (nessuna azione richiesta),
+// 1×/riposo lungo. Lo slot extra usa il layer C.bonusSlots (stesso della Fonte di Magia).
+function fNatureMagician(uses){
+  if(C.natureMagicianUsed)return;
+  var dlv=(typeof fClassLevel==='function')?fClassLevel('druid'):0;
+  if(dlv<20)return;
+  var avail=fMaxWildShape(dlv)-(C.wildShapeUsed||0);
+  uses=Math.floor(uses)||0;
+  if(uses<1||uses>avail)return;
+  var slotLv=Math.min(9,uses*2);
+  C.wildShapeUsed=(C.wildShapeUsed||0)+uses;        // consuma gli utilizzi convertiti
+  if(!C.bonusSlots)C.bonusSlots={};
+  C.bonusSlots[slotLv]=(C.bonusSlots[slotLv]||0)+1; // slot bonus (azzerato al riposo lungo)
+  C.natureMagicianUsed=true;
+  re();
 }
 function fUseClockworkEquil(){if(!C.clockworkEquil)C.clockworkEquil={used:0};var m=Math.max(1,Math.floor((fTotalStat('CHA')-10)/2));if(C.clockworkEquil.used<m)C.clockworkEquil.used++;re();}
 function fRestoreClockworkEquil(){if(C.clockworkEquil&&C.clockworkEquil.used>0)C.clockworkEquil.used--;re();}
@@ -5243,7 +5300,25 @@ function fRClassBlock(){
     // Incantesimi Bestiali (Lv.18)
     if(lv>=18) html+='<div style="font-size:10px;color:var(--gold2);margin-top:3px">🐾 '+(isIt?'Incantesimi Bestiali (Lv.18): puoi lanciare incantesimi in Forma Selvatica':'Beast Spells (Lv.18): you can cast spells in Wild Shape')+'</div>';
     // Arcidruido (Lv.20)
-    if(lv>=20) html+='<div style="font-size:10px;color:var(--gold2);margin-top:3px">🌿 '+(isIt?'Arcidruido (Lv.20): Forma Selvatica sempreverde · Mago della natura · Corpo senza tempo':'Archdruid (Lv.20): evergreen Wild Shape · Nature Magician · Timeless Body')+'</div>';
+    if(lv>=20){
+      html+='<div style="font-size:10px;color:var(--gold2);margin-top:3px">🌿 '+(isIt?'Arcidruido (Lv.20): Forma Selvatica sempreverde · Corpo senza tempo':'Archdruid (Lv.20): evergreen Wild Shape · Timeless Body')+'</div>';
+      // Mago della Natura (PHB p.83): N utilizzi non spesi → 1 slot di livello N×2, 1×/riposo lungo
+      var nmAvail=fMaxWildShape(lv)-(C.wildShapeUsed||0);
+      html+='<div style="margin-top:5px;padding:6px 8px;background:rgba(39,174,96,.08);border:1px solid rgba(39,174,96,.3);border-radius:3px">';
+      html+='<span style="font-size:11px;color:#27ae60;font-weight:700">🍃 '+(isIt?'Mago della Natura':'Nature Magician')+'</span> ';
+      if(C.natureMagicianUsed){
+        html+='<span style="font-size:10px;color:var(--vdim)">'+(isIt?'Usato (riposo lungo)':'Used (Long Rest)')+' <button onclick="C.natureMagicianUsed=false;re()" style="background:none;border:none;color:var(--vdim);font-size:10px;cursor:pointer;text-decoration:underline">↩</button></span>';
+      } else if(nmAvail<1){
+        html+='<span style="font-size:10px;color:var(--vdim)">'+(isIt?'Nessun utilizzo di Forma Selvatica disponibile':'No Wild Shape uses available')+'</span>';
+      } else {
+        html+='<span style="font-size:9px;color:var(--vdim)">'+(isIt?'Converte utilizzi di Forma Selvatica in 1 slot (2 liv./utilizzo)':'Convert Wild Shape uses into 1 slot (2 levels/use)')+'</span><div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:4px">';
+        for(var nmU=1;nmU<=nmAvail;nmU++){
+          html+='<button onclick="fNatureMagician('+nmU+')" style="background:rgba(39,174,96,.15);border:1px solid rgba(39,174,96,.4);border-radius:3px;color:#27ae60;font-size:10px;padding:3px 8px;cursor:pointer">'+nmU+' → '+(isIt?'slot '+(nmU*2)+'°':(nmU*2)+(nmU*2===2?'nd':'th')+' slot')+'</button>';
+        }
+        html+='</div>';
+      }
+      html+='</div>';
+    }
 
     // Circolo della Luna: Forme del Circolo (CA e PF temp potenziati)
     if(sc==='luna'){
@@ -5286,6 +5361,45 @@ function fRClassBlock(){
       html+='</div>';
       if(C.circleTerrainType){var cur=tTypes.find(function(t){return t.id===C.circleTerrainType;});if(cur)html+='<div style="font-size:10px;color:var(--muted);margin-top:4px">'+(isIt?'Resist. ':'Resist. ')+(isIt?cur.r:cur.rEn)+(isIt?' (Lv.10: Interdizione della Natura)':' (Lv.10: Nature\'s Ward)')+'</div>';}
       html+='</div>';
+      // ── LV.6: RECUPERO NATURALE (PHB p.89 · recupero guidato reale, motore fSlotRecov*) ──
+      if(lv>=6){
+        if(C.natRecovUsed==null)C.natRecovUsed=false;
+        if(C.natRecovCastUsed==null)C.natRecovCastUsed=false;
+        var natMax=fSlotRecovBudget('druid');
+        var natOpen=!!(C._slotRecov&&C._slotRecov.flag==='natRecovUsed');
+        html+='<div style="'+boxS+';border-color:rgba(39,174,96,.4)">';
+        html+='<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px">';
+        html+='<span style="font-size:11px;color:#27ae60;font-weight:700">🌿 '+(isIt?'Recupero Naturale (Lv.6)':'Natural Recovery (Lv.6)')+'</span>';
+        if(C.natRecovUsed){html+='<span style="font-size:10px;color:var(--vdim)">'+(isIt?'Usato (riposo lungo)':'Used (Long Rest)')+' <button onclick="C.natRecovUsed=false;re()" style="background:none;border:none;color:var(--vdim);font-size:10px;cursor:pointer;text-decoration:underline">↩</button></span>';}
+        else if(!natOpen){html+='<button onclick="fSlotRecovStart(\'druid\',\'natRecovUsed\')" style="background:rgba(39,174,96,.15);border:1px solid rgba(39,174,96,.4);border-radius:3px;color:#27ae60;font-size:11px;padding:3px 9px;cursor:pointer">'+(isIt?'Recupera slot':'Recover slots')+'</button>';}
+        html+='</div>';
+        if(natOpen){
+          var natRem=natMax-C._slotRecov.spent;
+          html+='<div style="margin-top:6px;padding:6px 8px;background:rgba(39,174,96,.08);border:1px solid rgba(39,174,96,.3);border-radius:3px">';
+          html+='<div style="font-size:10px;color:#27ae60;font-weight:700;margin-bottom:5px">'+(isIt?'Budget residuo: ':'Remaining budget: ')+natRem+(isIt?' livelli di slot':' slot levels')+'</div>';
+          html+='<div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">';
+          var natShown=0;
+          for(var nl=1;nl<=5;nl++){
+            var natSp=fSlotRecovSpent(nl);
+            if(natSp<=0)continue;
+            natShown++;
+            var natOk=nl<=natRem;
+            var ordNl=isIt?(nl+'°'):(nl===1?'1st':nl===2?'2nd':nl===3?'3rd':nl+'th');
+            html+='<button '+(natOk?'onclick="fSlotRecovPick('+nl+')"':'disabled')+' style="background:rgba(39,174,96,.12);border:1px solid rgba(39,174,96,.35);border-radius:3px;color:#27ae60;font-size:10px;padding:3px 8px;cursor:'+(natOk?'pointer':'default')+';opacity:'+(natOk?'1':'.35')+'">+1 '+(isIt?'slot ':'slot ')+ordNl+' <span style="color:var(--vdim)">('+natSp+(isIt?' spesi':' spent')+')</span></button>';
+          }
+          if(natShown===0)html+='<span style="font-size:10px;color:var(--vdim)">'+(isIt?'Nessuno slot speso da recuperare':'No spent slots to recover')+'</span>';
+          html+='<button onclick="fSlotRecovClose()" style="background:rgba(200,164,90,.1);border:1px solid rgba(200,164,90,.3);border-radius:3px;color:var(--gold2);font-size:10px;padding:3px 8px;cursor:pointer">'+(C._slotRecov.spent>0?(isIt?'✓ Fine':'✓ Done'):(isIt?'Annulla':'Cancel'))+'</button>';
+          html+='</div></div>';
+        }
+        html+='<div style="font-size:10px;color:var(--muted);margin-top:3px">'+(isIt?'Riposo breve: recupera slot spesi, tot. livelli ≤ ':'Short Rest: regain spent slots, total levels ≤ ')+natMax+(isIt?' (max 5°) · 1×/riposo lungo':' (max 5th) · 1×/Long Rest')+'</div>';
+        // Lancio gratuito di un Incantesimo del Circolo (1×/riposo lungo)
+        html+='<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-top:6px;padding-top:6px;border-top:1px dashed rgba(39,174,96,.25)">';
+        html+='<span style="font-size:10px;color:var(--muted)">✨ '+(isIt?'Lancio gratuito: 1 Incantesimo del Circolo (1°+) senza slot':'Free cast: 1 Circle Spell (level 1+) without a slot')+'</span>';
+        if(C.natRecovCastUsed){html+='<span style="font-size:10px;color:var(--vdim)">'+(isIt?'Usato (riposo lungo)':'Used (Long Rest)')+' <button onclick="C.natRecovCastUsed=false;re()" style="background:none;border:none;color:var(--vdim);font-size:10px;cursor:pointer;text-decoration:underline">↩</button></span>';}
+        else{html+='<button onclick="C.natRecovCastUsed=true;re()" style="background:rgba(39,174,96,.15);border:1px solid rgba(39,174,96,.4);border-radius:3px;color:#27ae60;font-size:10px;padding:3px 8px;cursor:pointer">'+(isIt?'Usa':'Use')+'</button>';}
+        html+='</div>';
+        html+='</div>';
+      }
     }
     // Circolo delle Stelle: tracker dardo tracciante (Carta Celeste)
     if(sc==='stelle'){
@@ -5486,16 +5600,35 @@ function fRClassBlock(){
   if(cl==='wizard'){
     var intMod=Math.floor((fTotalStat('INT')-10)/2);
 
-    // ── LV.1: RECUPERO ARCANO ──────────────────────────────────────────────
+    // ── LV.1: RECUPERO ARCANO (recupero guidato reale, PHB p.111) ──────────
     if(C.arcaneRecovUsed==null)C.arcaneRecovUsed=false;
-    var arcMax=Math.max(1,Math.ceil(lv/2));
+    var arcMax=fSlotRecovBudget('wizard');
+    var arcOpen=!!(C._slotRecov&&C._slotRecov.flag==='arcaneRecovUsed');
     html+='<div style="'+boxS+'">';
     html+='<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px">';
     html+='<span style="font-size:11px;color:var(--gold2);font-weight:700">📖 '+(isIt?'Recupero Arcano (Lv.1)':'Arcane Recovery (Lv.1)')+'</span>';
-    if(!C.arcaneRecovUsed){html+='<button onclick="C.arcaneRecovUsed=true;re()" style="background:rgba(52,152,219,.15);border:1px solid rgba(52,152,219,.4);border-radius:3px;color:#3498db;font-size:11px;padding:3px 9px;cursor:pointer">'+(isIt?'Usa':'Use')+'</button>';}
-    else{html+='<span style="font-size:10px;color:var(--vdim)">'+(isIt?'Usato (riposo lungo)':'Used (Long Rest)')+' <button onclick="C.arcaneRecovUsed=false;re()" style="background:none;border:none;color:var(--vdim);font-size:10px;cursor:pointer;text-decoration:underline">↩</button></span>';}
+    if(C.arcaneRecovUsed){html+='<span style="font-size:10px;color:var(--vdim)">'+(isIt?'Usato (riposo lungo)':'Used (Long Rest)')+' <button onclick="C.arcaneRecovUsed=false;re()" style="background:none;border:none;color:var(--vdim);font-size:10px;cursor:pointer;text-decoration:underline">↩</button></span>';}
+    else if(!arcOpen){html+='<button onclick="fSlotRecovStart(\'wizard\',\'arcaneRecovUsed\')" style="background:rgba(52,152,219,.15);border:1px solid rgba(52,152,219,.4);border-radius:3px;color:#3498db;font-size:11px;padding:3px 9px;cursor:pointer">'+(isIt?'Recupera slot':'Recover slots')+'</button>';}
     html+='</div>';
-    html+='<div style="font-size:10px;color:var(--muted);margin-top:3px">'+(isIt?'Riposo breve: recupera slot tot. livelli ≤ ':'Short Rest: regain slots with total levels ≤ ')+arcMax+(isIt?' (max 5°) · 1×/giorno':' (max 5th) · 1×/day')+'</div>';
+    if(arcOpen){
+      var arcRem=arcMax-C._slotRecov.spent;
+      html+='<div style="margin-top:6px;padding:6px 8px;background:rgba(52,152,219,.08);border:1px solid rgba(52,152,219,.3);border-radius:3px">';
+      html+='<div style="font-size:10px;color:#3498db;font-weight:700;margin-bottom:5px">'+(isIt?'Budget residuo: ':'Remaining budget: ')+arcRem+(isIt?' livelli di slot':' slot levels')+'</div>';
+      html+='<div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">';
+      var arcShown=0;
+      for(var al=1;al<=5;al++){
+        var arcSp=fSlotRecovSpent(al);
+        if(arcSp<=0)continue;
+        arcShown++;
+        var arcOk=al<=arcRem;
+        var ordAl=isIt?(al+'°'):(al===1?'1st':al===2?'2nd':al===3?'3rd':al+'th');
+        html+='<button '+(arcOk?'onclick="fSlotRecovPick('+al+')"':'disabled')+' style="background:rgba(52,152,219,.12);border:1px solid rgba(52,152,219,.35);border-radius:3px;color:#3498db;font-size:10px;padding:3px 8px;cursor:'+(arcOk?'pointer':'default')+';opacity:'+(arcOk?'1':'.35')+'">+1 '+(isIt?'slot ':'slot ')+ordAl+' <span style="color:var(--vdim)">('+arcSp+(isIt?' spesi':' spent')+')</span></button>';
+      }
+      if(arcShown===0)html+='<span style="font-size:10px;color:var(--vdim)">'+(isIt?'Nessuno slot speso da recuperare':'No spent slots to recover')+'</span>';
+      html+='<button onclick="fSlotRecovClose()" style="background:rgba(200,164,90,.1);border:1px solid rgba(200,164,90,.3);border-radius:3px;color:var(--gold2);font-size:10px;padding:3px 8px;cursor:pointer">'+(C._slotRecov.spent>0?(isIt?'✓ Fine':'✓ Done'):(isIt?'Annulla':'Cancel'))+'</button>';
+      html+='</div></div>';
+    }
+    html+='<div style="font-size:10px;color:var(--muted);margin-top:3px">'+(isIt?'Riposo breve: recupera slot spesi, tot. livelli ≤ ':'Short Rest: regain spent slots, total levels ≤ ')+arcMax+(isIt?' (max 5°) · 1×/riposo lungo':' (max 5th) · 1×/Long Rest')+'</div>';
     html+='</div>';
 
     // ── LV.1: ADEPTO DEI RITUALI ───────────────────────────────────────────
@@ -5964,6 +6097,7 @@ let C={
   divPunish:{used:false},           // Paladino: Punizione Divina senza slot
   palLayHands:null,                 // Paladino: Imposizione delle Mani {max,cur}
   arcaneRecovUsed:false,arcaneWardHP:null,presageUsed:[false,false,false],thirdEyeUsed:false,spettralCreatUsed:false,phantomDoppUsed:false,overchargeUsed:0,            // Mago: Recupero Arcano usato
+  natRecovUsed:false,natRecovCastUsed:false, // Druido Terra: Recupero Naturale (recupero slot / lancio gratuito Incantesimo del Circolo)
   arcaneWardHP:null,                // Abiuratore: PF Interdizione Arcana {max,cur}
   presageUsed:[false,false,false],  // Divinatore: dadi Portento usati
   thirdEyeUsed:false,               // Divinatore: Terzo Occhio usato
@@ -6753,7 +6887,7 @@ function nuovoPersonaggio(){
     warlockSlotsUsed:0,
     pactBoon:null,warlockInvocations:[],arcanaSpells:{},arcanaUsed:{},
     // ── Risorse di classe ────────────────────────────────────────────────
-    rage:{used:0},rageActive:false,rageImplacableCD:10,primordialKnowledge:null,wildHeartAspect:null,wildHeartNature:null,wildHeartPower:null,zealotDivineType:null,zealotDivinePool:{used:0},berserkerIntimUsed:false,worldTreeTeleUsed:false,zealotPresenceUsed:false,zealotRageUsed:false,brutalStrike:null,hunterPrey:null,hunterDefense:null,divIntUsed:false,divPunish:{used:false},palLayHands:null,arcaneRecovUsed:false,clockworkEquil:{used:0},lastWildSurge:null,
+    rage:{used:0},rageActive:false,rageImplacableCD:10,primordialKnowledge:null,wildHeartAspect:null,wildHeartNature:null,wildHeartPower:null,zealotDivineType:null,zealotDivinePool:{used:0},berserkerIntimUsed:false,worldTreeTeleUsed:false,zealotPresenceUsed:false,zealotRageUsed:false,brutalStrike:null,hunterPrey:null,hunterDefense:null,divIntUsed:false,divPunish:{used:false},palLayHands:null,arcaneRecovUsed:false,natRecovUsed:false,natRecovCastUsed:false,clockworkEquil:{used:0},lastWildSurge:null,
     secondWind:{used:0},actionSurge:{used:0},maneuvers:[],superiorityDice:{used:0},psiDice:{used:0},
     ki:{used:0},bardicInsp:{used:0},channelDiv:{used:0},
     divOrder:null,blessedStrikes:null,taumaturgoBonusSkill:null,
@@ -8454,6 +8588,10 @@ function fBuildClassResourcesPrint(){
     if(C.primordialOrder) lines.push('Ordine: '+(C.primordialOrder==='custode'?'Custode':'Mago'));
     if(C.elementalFury) lines.push('Furia El.: '+(C.elementalFury==='colpo'?'Colpo Primordiale':'Inc. Potenti'));
     if(sc==='terra'&&C.circleTerrainType) lines.push('Terra: '+C.circleTerrainType);
+    if(sc==='terra'&&lv>=6){
+      lines.push('RECUPERO NATURALE: 1×/riposo lungo (slot spesi tot. ≤ ⌈Lv/2⌉, max 5°)'+circ(1));
+      lines.push('  + lancio gratuito di 1 Incantesimo del Circolo (1°+), 1×/riposo lungo'+circ(1));
+    }
   }
   if(cl==='ranger'){
     var nm=lv>=17?6:lv>=13?5:lv>=9?4:lv>=5?3:2;
@@ -8489,7 +8627,7 @@ function fBuildClassResourcesPrint(){
     }
   }
   if(cl==='wizard'){
-    lines.push('RECUPERO ARCANO: 1×/giorno (slot tot. ≤ ⌈Lv/2⌉)'+circ(1));
+    lines.push('RECUPERO ARCANO: 1×/riposo lungo (slot spesi tot. ≤ ⌈Lv/2⌉, max 5°)'+circ(1));
     if(sc==='divination'&&C.divinatorPresage){
       var p=C.divinatorPresage;
       lines.push('PORTENTO: d1='+( p[0]||'?')+' d2='+(p[1]||'?')+(p[2]?' d3='+p[2]:''));
