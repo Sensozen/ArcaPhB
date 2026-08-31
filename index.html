@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Arcana — Suite D&D 5e Italiana</title>
-<script>window.BUILD_VERSION = "26/07/2026 · 13:45"; /* >>> AGGIORNARE A OGNI BUILD: data e ora di consegna (UTC+2) <<< */</script>
+<script>window.BUILD_VERSION = "31/08/2026 · 21:30"; /* >>> AGGIORNARE A OGNI BUILD: data e ora di consegna (UTC+2) <<< */</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -8846,7 +8846,7 @@ function fBuildPrintSheet(){
   const initStr=(initMod>=0?'+':'')+initMod;
   const percMod=fcmod(fTotalStat('WIS'));
   const isPercProf=skillProfs.includes('Perception');
-  const passPerc=10+percMod+(isPercProf?pb:0);
+  const passPerc=10+fSkillMod('Perception','WIS');
 
   // stat skills map (per colonna sinistra)
   const STAT_SKL={
@@ -8868,7 +8868,7 @@ function fBuildPrintSheet(){
     const skRows=(STAT_SKL[stat]||[]).map(sk=>{
       const isP=skillProfs.includes(sk.en);
       const isExp=fHasExpertise(sk.en);
-      const skMod=isExp?mod+pb*2:isP?mod+pb:mod;
+      const skMod=fSkillMod(sk.en, stat);
       return`<div class="psk"><span class="psd" style="color:${isExp?'#b8860b':isP?'#222':'#999'}">${isExp?'●●':isP?'●':'○'}</span><span class="psn" style="font-weight:${isP||isExp?'600':'400'}">${fpick(sk.it,sk.en,sk.es,sk.fr,sk.de)}</span><span class="psm">${(skMod>=0?'+':'')+skMod}</span></div>`;
     }).join('');
     return`<div class="pstat">
