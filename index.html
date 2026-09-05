@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Arcana — Suite D&D 5e Italiana</title>
-<script>window.BUILD_VERSION = "31/08/2026 · 21:30"; /* >>> AGGIORNARE A OGNI BUILD: data e ora di consegna (UTC+2) <<< */</script>
+<script>window.BUILD_VERSION = "05/09/2026 · 16:23"; /* >>> AGGIORNARE A OGNI BUILD: data e ora di consegna (UTC+2) <<< */</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -2550,6 +2550,7 @@ const SUBCLASS_FEATURES = {
 
 // ══ PALADINO ════════════════════════════════════════════════════
 "ancients": [
+  { lv:3,  it:"Incantesimi del Giuramento degli Antichi", en:"Oath of the Ancients Spells", desc:"La magia del giuramento consente di avere sempre pronti determinati incantesimi: una volta raggiunto il livello indicato, saranno sempre considerati come preparati. Lv.3 colpo intrappolante, parlare con gli animali \u00b7 Lv.5 passo velato, bagliore lunare \u00b7 Lv.9 crescita vegetale, protezione dall'energia \u00b7 Lv.13 tempesta di ghiaccio, pelle di pietra \u00b7 Lv.17 comunione con la natura, traslazione arborea." },
   { lv:3,  it:"Furia della Natura", desc:"Azione di Magia: spende un uso di Incanalare Divinità per evocare rampicanti spettrali attorno alle creature vicine. Le creature a scelta entro 4,5 m devono superare un TS su FOR (CD incantesimi) o sono trattenute per 1 minuto. Ripetono il TS alla fine di ogni loro turno." },
   { lv:7,  it:"Aura Guardiana", desc:"Il paladino e i suoi alleati entro 3 m (9 m al Lv.18) nell'Aura di Protezione ottengono resistenza ai danni necrotici, psichici e radiosi." },
   { lv:15, it:"Sentinella Imperitura", desc:"Quando scende a 0 PF e non viene ucciso, può scendere invece a 1 PF e avere un numero di PF pari a 3 × livello da paladino. 1/riposo lungo. Non può invecchiare magicamente." },
@@ -2563,6 +2564,7 @@ const SUBCLASS_FEATURES = {
   { lv:20, it:"Nube Sacra", en:"Holy Nimbus", de:"Heiliger Nimbus", descDe:"Als Bonusaktion kannst du deine Aura des Schutzes mit heiliger Macht versehen, welche zehn Minuten lang – oder bis du sie beendest (keine Aktion erforderlich) – die unten beschriebenen Vorzüge gewährt. Du kannst dieses Merkmal erst nach einer langen Rast erneut verwenden. Alternativ kannst du die Anwendung wiederherstellen, indem du einen Zauberplatz des 5. Grades verbrauchst (keine Aktion erforderlich). Gleißender Schaden: Wann immer ein Gegner seinen Zug in der Aura beginnt, erleidet er gleißenden Schaden in Höhe deines Charismamodifikators plus deines Übungsbonus. Heiliger Schutz: Du bist bei allen Rettungswürfen im Vorteil, zu denen Unholde oder Untote dich zwingen. Sonnenlicht: Die Aura ist von hellem Licht erfüllt, bei dem es sich um Sonnenlicht handelt.", fr:"Nimbe sacré", es:"Halo sagrado", descEs:"Como acción adicional, puedes imbuir de poder divino tu Aura de protección, lo que otorga los beneficios indicados a continuación durante 10 minutos o hasta que les pongas fin (no requiere acción). Cuando uses este rasgo, no podrás volver a hacerlo hasta que finalices un descanso largo. También puedes restablecer su uso gastando un espacio de conjuro de nivel 5 (no requiere acción). Daño radiante. Siempre que un enemigo comience su turno dentro del aura, esa criatura recibirá una cantidad de daño radiante igual a tu modificador por Carisma más tu bonificador por competencia. Luz solar. El aura está llena de luz brillante del sol. Protección sagrada. Tienes ventaja en las tiradas de salvación que te obliguen a hacer infernales o muertos vivientes.", desc:"Azione bonus: infonde l'Aura di Protezione con potere sacro per 10 minuti. Danni radiosi (mod. CAR + comp) alle creature ostili all'inizio del loro turno nell'aura; Luce del sole (l'aura emette luce solare intensa); Sentinella sacra (vantaggio ai TS contro immondi e non-morti). 1/riposo lungo (recuperabile con slot 5°).", descSrdIt:"Come azione bonus, il paladino può infondere la sua Aura di protezione con del potere sacro, conferendo i benefici sottostanti per 10 minuti o finché non vengono interrotti (nessuna azione richiesta). Dopo aver utilizzato questo privilegio, il personaggio non può riutilizzarlo prima di aver completato un riposo lungo. Tuttavia, è possibile ripristinarne l'uso consumando uno slot incantesimo di 5º livello (nessuna azione richiesta). Danni radiosi. Se un nemico comincia il suo turno all'interno dell'aura, subisce danni radiosi pari al modificatore di Carisma più il bonus di competenza del paladino. Luce del sole. L'aura rifulge di luce intensa, ovvero la luce solare. Sentinella sacra. Se costretto a effettuare dei tiri salvezza da un immondo o un non morto, il paladino dispone di vantaggio.", descEn:"As a Bonus Action, you can imbue your Aura of Protection with holy power, granting the benefits below for 10 minutes or until you end them (no action required). Once you use this feature, you can’t use it again until you finish a Long Rest. You can also restore your use of it by expending a level 5 spell slot (no action required). Holy Ward. You have Advantage on any saving throw you are forced to make by a Fiend or an Undead. Radiant Damage. Whenever an enemy starts its turn in the aura, that creature takes Radiant damage equal to your Charisma modifier plus your Proficiency Bonus. Sunlight. The aura is filled with Bright Light that is sunlight.", descFr:"Par une action Bonus, votre Aura de protection est renforcée de puissance sacrée, ce qui octroie les bénéfices ci-après pendant 10 minutes ou jusqu’à ce que vous décidiez d’y mettre fin (pas d’action requise). Une fois que vous avez utilisé cette aptitude, vous devez terminer un Repos long pour pouvoir y recourir de nouveau. Vous pouvez également retrouver son usage en dépensant un emplacement de sort du 5e niveau (pas d’action requise). Dégâts radiants. Chaque fois qu’un ennemi débute son tour dans l’aura, cette créature subit un total de dégâts radiants égal à votre modificateur de Charisme + votre bonus de maîtrise. Lumière du soleil. L’aura est inondée d’une Lumière vive qui est la lumière du soleil. Périmètre sacré. Vous bénéficiez de l’Avantage à tout jet de sauvegarde que vous contraint d’effectuer un Fiélon ou un Mort-vivant." },
 ],
 "glory": [
+  { lv:3,  it:"Incantesimi del Giuramento di Gloria", en:"Oath of Glory Spells", desc:"La magia del giuramento consente di avere sempre pronti determinati incantesimi: una volta raggiunto il livello indicato, saranno sempre considerati come preparati. Lv.3 dardo tracciante, eroismo \u00b7 Lv.5 caratteristica potenziata, arma magica \u00b7 Lv.9 velocit\u00e0, protezione dall'energia \u00b7 Lv.13 compulsione, libert\u00e0 di movimento \u00b7 Lv.17 conoscenza delle leggende, presenza regale di Yolande." },
   { lv:3,  it:"Atleta Impareggiabile", desc:"Azione bonus: spende un uso di Incanalare Divinità per migliorare le doti atletiche per 1 ora: vantaggio su prove di FOR (Atletica) e DES (Acrobazia), salto in lungo e in alto +3 m." },
   { lv:3,  it:"Punizione Ispiratrice", desc:"Subito dopo aver lanciato punizione divina, può consumare 1 uso di Incanalare Divinità e distribuire PF temporanei pari a 2d8 + livello da paladino tra creature a scelta entro 9 m (incluso sé stesso)." },
   { lv:7,  it:"Aura di Alacrità", desc:"La velocità del paladino aumenta di 3 m. Quando un alleato entra nell'Aura di Protezione per la prima volta in un turno oppure comincia lì, la sua velocità aumenta di 3 m fino alla fine del suo prossimo turno." },
@@ -2570,6 +2572,7 @@ const SUBCLASS_FEATURES = {
   { lv:20, it:"Leggenda Vivente", desc:"Azione bonus: ottiene benefici per 10 minuti. Carismatico (vantaggio in tutte le prove CAR), Colpo infallibile (una volta per turno se manca, trasforma il colpo in un successo), Ripete il tiro salvezza (reazione se fallisce un TS, può ripeterlo). 1/riposo lungo (recuperabile con slot 5°)." },
 ],
 "vengeance": [
+  { lv:3,  it:"Incantesimi del Giuramento di Vendetta", en:"Oath of Vengeance Spells", desc:"La magia del giuramento consente di avere sempre pronti determinati incantesimi: una volta raggiunto il livello indicato, saranno sempre considerati come preparati. Lv.3 anatema, marchio del cacciatore \u00b7 Lv.5 blocca persone, passo velato \u00b7 Lv.9 velocit\u00e0, protezione dall'energia \u00b7 Lv.13 esilio, porta dimensionale \u00b7 Lv.17 blocca mostri, scrutare." },
   { lv:3,  it:"Voto di Inimicizia", desc:"Quando effettua l'azione di Attacco: consuma 1 uso di Incanalare Divinità per pronunciare un voto contro una creatura visibile entro 9 m. Ottiene vantaggio ai tiri per colpire contro di essa per 1 minuto, o finché non usa di nuovo questo privilegio. Trasferibile se la creatura scende a 0 PF (nessuna azione)." },
   { lv:7,  it:"Vendetta Implacabile", desc:"Quando colpisce con un OA, può ridurre la velocità del bersaglio a 0 fino alla fine del turno. Come parte della stessa reazione, può muoversi fino alla metà della velocità senza OA." },
   { lv:15, it:"Anima Vendicativa", desc:"Reazione: subito dopo che una creatura sotto Voto di Inimicizia mette a segno o manca un colpo con un tiro per colpire (contro qualsiasi bersaglio), può effettuare un attacco in mischia contro di essa se si trova a portata." },
@@ -3233,7 +3236,7 @@ const FEAT_METADATA = {
   // ═══════════════════════════════════════════════════════════════════
   'abile':                   { cat:'origin', grants:{skillsOrTools:3}, repeatable:true },
   'aggressore-selvaggio':    { cat:'origin' },
-  'allerta':                 { cat:'origin' },
+  'allerta':                 { cat:'origin', initProf:true },
   'fortunato':               { cat:'origin' },
   'guaritore':               { cat:'origin' },
   'iniziato-magia':          { cat:'origin', repeatable:true, spellList:'choice', cantrips:2, lvl1Spell:1 },
@@ -3374,15 +3377,15 @@ const CLASS_PRIMARY = {
 };
 const CLASSES=[
   {id:"barbarian",it:"Barbaro",en:"Barbarian",es:"Bárbaro",icon:"⚔️",hd:"d12",savesIt:"FOR, COS",savesEn:"STR, CON",savesEs:"FUE, CON",armorIt:"Leggera, Media, Scudi",armorEn:"Light, Medium, Shields",armorEs:"Ligera, Intermedia, Escudos",weaponsIt:"Armi semplici e da guerra",weaponsEn:"Simple and martial weapons",weaponsEs:"Armas sencillas y marciales",toolsIt:"—",toolsEn:"—",toolsEs:"—",masteryCount:2,expertiseCount:0,skillsIt:"Scegli 2: Addestr. Animali, Atletica, Intimidire, Natura, Percezione, Sopravvivenza",skillsEn:"Choose 2: Animal Handling, Athletics, Intimidation, Nature, Perception, Survival",skillsEs:"Elige 2: Trato con Animales, Atletismo, Intimidación, Naturaleza, Percepción, Supervivencia",featIt:"Ira (res. C/P/T, vantaggio FOR); Difesa Senza Armatura; Padronanza d\'Armi; Attacco Extra (Lv.5)",featEn:"Rage (B/P/S resistance, advantage STR); Unarmored Defense; Weapon Mastery; Extra Attack (Lv.5)",featEs:"Furia (resist. C/P/C, ventaja FUE); Defensa sin armadura; Maestría con armas; Ataque adicional (niv. 5)",descIt:"Guerriero feroce alimentato dall\'ira primordiale",descEn:"Fierce warrior fueled by primal rage",descEs:"Guerrero feroz alimentado por la furia primigenia",fr:"Barbare",savesFr:"FOR, CON",armorFr:"Légère, Intermédiaire, Boucliers",weaponsFr:"Armes courantes et armes de guerre",toolsFr:"—",skillsFr:"Choisissez 2 : Athlétisme, Dressage, Intimidation, Nature, Perception, Survie",featFr:"Rage (rés. C/P/T, Avantage en Force) ; Défense sans armure ; Bottes d’arme ; Attaque supplémentaire (Nv.5)",descFr:"Guerrier féroce animé par une rage primitive",de:"Barbar",savesDe:"STÄ, KON",armorDe:"Leichte und mittelschwere Rüstungen, Schilde",weaponsDe:"Einfache Waffen und Kriegswaffen",toolsDe:"—",skillsDe:"Wähle 2: Athletik, Einschüchtern, Mit Tieren umgehen, Naturkunde, Überlebenskunst, Wahrnehmung",featDe:"Kampfrausch (Res. Wucht/Stich/Hieb, Vorteil auf STÄ); Ungerüstete Verteidigung; Waffenbeherrschung; Zusätzlicher Angriff (Stufe 5)",descDe:"Wilder Krieger, angetrieben von urtümlichem Zorn",subclasses:[{id:"berserker",it:"Cammino del Berserker",en:"Path of the Berserker",es:"Senda del Berserker",fr:"Voie du Berserker",de:"Pfad des Berserkers"},{id:"albero-mondo",it:"Cammino dell\'Albero del Mondo",en:"Path of the World Tree"},{id:"cuore-selvaggio",it:"Cammino del Cuore Selvaggio",en:"Path of the Wild Heart"},{id:"zelota",it:"Cammino dello Zelota",en:"Path of the Zealot"}]},
-  {id:"bard",it:"Bardo",en:"Bard",es:"Bardo",icon:"🎵",hd:"d8",savesIt:"DES, CAR",savesEn:"DEX, CHA",savesEs:"DES, CAR",armorIt:"Leggera",armorEn:"Light",armorEs:"Ligera",weaponsIt:"Armi semplici",weaponsEn:"Simple weapons",weaponsEs:"Armas sencillas",toolsIt:"Tre strumenti musicali a scelta",toolsEn:"Three musical instruments",toolsEs:"Tres instrumentos musicales a elección",masteryCount:0,expertiseCount:2,skillsIt:"Scegli 3 abilità qualsiasi",skillsEn:"Choose any 3 skills",skillsEs:"Elige 3 habilidades cualesquiera",featIt:"Ispirazione Bardica d6; Factotum (Lv.2); Segreti Magici (Lv.10)",featEn:"Bardic Inspiration d6; Jack of All Trades (Lv.2); Magical Secrets (Lv.10)",featEs:"Inspiración bárdica d6; Aprendiz de mucho (niv. 2); Secretos mágicos (niv. 10)",descIt:"Artista magico che ispira con musica e magia",descEn:"Magical performer inspiring allies through music and magic",descEs:"Artista mágico que inspira con música y magia",fr:"Barde",savesFr:"DEX, CHA",armorFr:"Légère",weaponsFr:"Armes courantes",toolsFr:"Trois instruments de musique au choix",skillsFr:"Choisissez 3 compétences quelconques",featFr:"Inspiration bardique d6 ; Touche-à-tout (Nv.2) ; Secrets magiques (Nv.10)",descFr:"Artiste magique qui inspire par la musique et la magie",de:"Barde",savesDe:"GES, CHA",armorDe:"Leichte Rüstung",weaponsDe:"Einfache Waffen",toolsDe:"Drei Musikinstrumente deiner Wahl",skillsDe:"Wähle 3 beliebige Fertigkeiten",featDe:"Bardische Inspiration W6; Alleskönner (Stufe 2); Magische Geheimnisse (Stufe 10)",descDe:"Magischer Künstler, der mit Musik und Magie inspiriert",subclasses:[{id:"danza",it:"Collegio della Danza",en:"College of Dance"},{id:"fascino",it:"Collegio del Fascino",en:"College of Glamour"},{id:"sapienza",it:"Collegio della Sapienza",en:"College of Lore",es:"Colegio del Conocimiento",fr:"Collège du Savoir",de:"Schule des Wissens"},{id:"valore",it:"Collegio del Valore",en:"College of Valor"}]},
+  {id:"bard",it:"Bardo",en:"Bard",es:"Bardo",icon:"🎵",hd:"d8",savesIt:"DES, CAR",savesEn:"DEX, CHA",savesEs:"DES, CAR",armorIt:"Leggera",armorEn:"Light",armorEs:"Ligera",weaponsIt:"Armi semplici",weaponsEn:"Simple weapons",weaponsEs:"Armas sencillas",toolsIt:"Tre strumenti musicali a scelta",toolsEn:"Three musical instruments",toolsEs:"Tres instrumentos musicales a elección",masteryCount:0,expertiseCount:2,skillsIt:"Scegli 3 abilità qualsiasi",skillsEn:"Choose any 3 skills",skillsEs:"Elige 3 habilidades cualesquiera",featIt:"Ispirazione Bardica {BARDIC_DIE}; Factotum (Lv.2); Segreti Magici (Lv.10)",featEn:"Bardic Inspiration {BARDIC_DIE}; Jack of All Trades (Lv.2); Magical Secrets (Lv.10)",featEs:"Inspiración bárdica {BARDIC_DIE}; Aprendiz de mucho (niv. 2); Secretos mágicos (niv. 10)",descIt:"Artista magico che ispira con musica e magia",descEn:"Magical performer inspiring allies through music and magic",descEs:"Artista mágico que inspira con música y magia",fr:"Barde",savesFr:"DEX, CHA",armorFr:"Légère",weaponsFr:"Armes courantes",toolsFr:"Trois instruments de musique au choix",skillsFr:"Choisissez 3 compétences quelconques",featFr:"Inspiration bardique {BARDIC_DIE} ; Touche-à-tout (Nv.2) ; Secrets magiques (Nv.10)",descFr:"Artiste magique qui inspire par la musique et la magie",de:"Barde",savesDe:"GES, CHA",armorDe:"Leichte Rüstung",weaponsDe:"Einfache Waffen",toolsDe:"Drei Musikinstrumente deiner Wahl",skillsDe:"Wähle 3 beliebige Fertigkeiten",featDe:"Bardische Inspiration {BARDIC_DIE}; Alleskönner (Stufe 2); Magische Geheimnisse (Stufe 10)",descDe:"Magischer Künstler, der mit Musik und Magie inspiriert",subclasses:[{id:"danza",it:"Collegio della Danza",en:"College of Dance"},{id:"fascino",it:"Collegio del Fascino",en:"College of Glamour"},{id:"sapienza",it:"Collegio della Sapienza",en:"College of Lore",es:"Colegio del Conocimiento",fr:"Collège du Savoir",de:"Schule des Wissens"},{id:"valore",it:"Collegio del Valore",en:"College of Valor"}]},
   {id:"cleric",it:"Chierico",en:"Cleric",es:"Clérigo",icon:"⛪",hd:"d8",savesIt:"SAG, CAR",savesEn:"WIS, CHA",savesEs:"SAB, CAR",armorIt:"Leggera, Media, Scudi",armorEn:"Light, Medium, Shields",armorEs:"Ligera, Intermedia, Escudos",weaponsIt:"Armi semplici",weaponsEn:"Simple weapons",weaponsEs:"Armas sencillas",toolsIt:"—",toolsEn:"—",toolsEs:"—",masteryCount:0,expertiseCount:0,skillsIt:"Scegli 2: Intuizione, Medicina, Persuasione, Religione, Storia",skillsEn:"Choose 2: Insight, Medicine, Persuasion, Religion, History",skillsEs:"Elige 2: Perspicacia, Medicina, Persuasión, Religión, Historia",featIt:"Magie (SAG); Incanalare Divinità (Lv.2); Intervento Divino (Lv.10)",featEn:"Spellcasting (WIS); Channel Divinity (Lv.2); Divine Intervention (Lv.10)",featEs:"Conjuros (SAB); Canalizar divinidad (niv. 2); Intercesión divina (niv. 10)",descIt:"Incantatore divino che canalizza la magia dei Piani Esterni",descEn:"Divine spellcaster channeling the magic of the Outer Planes",descEs:"Lanzador divino que canaliza la magia de los Planos Exteriores",fr:"Clerc",savesFr:"SAG, CHA",armorFr:"Légère, Intermédiaire, Boucliers",weaponsFr:"Armes courantes",toolsFr:"—",skillsFr:"Choisissez 2 : Intuition, Médecine, Persuasion, Religion, Histoire",featFr:"Sorts (SAG) ; Conduit divin (Nv.2) ; Intervention divine (Nv.10)",descFr:"Lanceur de sorts divin qui canalise la magie des Plans extérieurs",de:"Kleriker",savesDe:"WEI, CHA",armorDe:"Leichte und mittelschwere Rüstungen, Schilde",weaponsDe:"Einfache Waffen",toolsDe:"—",skillsDe:"Wähle 2: Geschichte, Heilkunde, Motiv erkennen, Religion, Überzeugen",featDe:"Zauberwirken (WEI); Göttliche Macht fokussieren (Stufe 2); Göttliche Intervention (Stufe 10)",descDe:"Göttlicher Zauberwirker, der die Magie der Äußeren Ebenen kanalisiert",subclasses:[{id:"vita",it:"Dominio della Vita",en:"Life Domain",es:"Dominio de la Vida",fr:"Domaine de la Vie",de:"Domäne des Lebens"},{id:"luce",it:"Dominio della Luce",en:"Light Domain"},{id:"inganno",it:"Dominio dell\'Inganno",en:"Trickery Domain"},{id:"guerra",it:"Dominio della Guerra",en:"War Domain"}]},
   {id:"druid",it:"Druido",en:"Druid",es:"Druida",icon:"🌿",hd:"d8",savesIt:"INT, SAG",savesEn:"INT, WIS",savesEs:"INT, SAB",armorIt:"Leggera, Scudi",armorEn:"Light, Shields",armorEs:"Ligera, Escudos",weaponsIt:"Armi semplici",weaponsEn:"Simple weapons",weaponsEs:"Armas sencillas",toolsIt:"Borsa da erborista",toolsEn:"Herbalism kit",toolsEs:"Útiles de herborista",masteryCount:0,expertiseCount:0,skillsIt:"Scegli 2: Arcano, Addestr. Animali, Intuizione, Medicina, Natura, Percezione, Religione, Sopravvivenza",skillsEn:"Choose 2: Arcana, Animal Handling, Insight, Medicine, Nature, Perception, Religion, Survival",skillsEs:"Elige 2: Arcanos, Trato con Animales, Perspicacia, Medicina, Naturaleza, Percepción, Religión, Supervivencia",featIt:"Magie (SAG); Forma Selvatica (Lv.2, azione bonus); Rinascita Selvatica (Lv.5)",featEn:"Spellcasting (WIS); Wild Shape (Lv.2, bonus action); Wild Resurgence (Lv.5)",featEs:"Conjuros (SAB); Forma salvaje (niv. 2, acción adicional); Resurgimiento salvaje (niv. 5)",descIt:"Mutaforma che canalizza la magia della natura",descEn:"Shapeshifter channeling nature\'s magic",descEs:"Cambiaformas que canaliza la magia de la naturaleza",fr:"Druide",savesFr:"INT, SAG",armorFr:"Légère, Boucliers",weaponsFr:"Armes courantes",toolsFr:"Matériel d’herboriste",skillsFr:"Choisissez 2 : Arcanes, Dressage, Intuition, Médecine, Nature, Perception, Religion, Survie",featFr:"Sorts (SAG) ; Forme sauvage (Nv.2, action Bonus) ; Regain sauvage (Nv.5)",descFr:"Métamorphe qui canalise la magie de la nature",de:"Druide",savesDe:"INT, WEI",armorDe:"Leichte Rüstung, Schilde",weaponsDe:"Einfache Waffen",toolsDe:"Kräuterkundeausrüstung",skillsDe:"Wähle 2: Arkane Kunde, Heilkunde, Mit Tieren umgehen, Motiv erkennen, Naturkunde, Religion, Überlebenskunst, Wahrnehmung",featDe:"Zauberwirken (WEI); Tiergestalt (Stufe 2, Bonusaktion); Wilde Wiederkehr (Stufe 5)",descDe:"Gestaltwandler, der die Magie der Natur kanalisiert",subclasses:[{id:"luna",it:"Circolo della Luna",en:"Circle of the Moon"},{id:"terra",it:"Circolo della Terra",en:"Circle of the Land",es:"Círculo de la Tierra",fr:"Cercle de la Terre",de:"Zirkel des Landes"},{id:"mare",it:"Circolo del Mare",en:"Circle of the Sea"},{id:"stelle",it:"Circolo delle Stelle",en:"Circle of the Stars"}]},
   {id:"fighter",it:"Guerriero",en:"Fighter",es:"Guerrero",icon:"🛡️",hd:"d10",savesIt:"FOR, COS",savesEn:"STR, CON",savesEs:"FUE, CON",armorIt:"Tutte le armature, Scudi",armorEn:"All armor, Shields",armorEs:"Todas las armaduras, Escudos",weaponsIt:"Armi semplici e da guerra",weaponsEn:"Simple and martial weapons",weaponsEs:"Armas sencillas y marciales",toolsIt:"—",toolsEn:"—",toolsEs:"—",masteryCount:3,expertiseCount:0,skillsIt:"Scegli 2: Acrobatica, Addestr. Animali, Atletica, Storia, Intuizione, Intimidire, Percezione, Persuasione, Sopravvivenza",skillsEn:"Choose 2: Acrobatics, Animal Handling, Athletics, History, Insight, Intimidation, Perception, Persuasion, Survival",skillsEs:"Elige 2: Acrobacias, Trato con Animales, Atletismo, Historia, Perspicacia, Intimidación, Percepción, Persuasión, Supervivencia",featIt:"Padronanza d\'Armi; Recuperare Energie; Stile Combattimento; Attacco Extra (Lv.5)",featEn:"Weapon Mastery; Second Wind; Fighting Style; Extra Attack (Lv.5)",featEs:"Maestría con armas; Tomar aliento; Estilo de combate; Ataque adicional (niv. 5)",descIt:"Padrone di tutte le armi e armature",descEn:"Master of all weapons and armor",descEs:"Maestro de todas las armas y armaduras",fr:"Guerrier",savesFr:"FOR, CON",armorFr:"Toutes les armures, Boucliers",weaponsFr:"Armes courantes et armes de guerre",toolsFr:"—",skillsFr:"Choisissez 2 : Acrobaties, Dressage, Athlétisme, Histoire, Intuition, Intimidation, Perception, Persuasion, Survie",featFr:"Bottes d’arme ; Second souffle ; Style de combat ; Attaque supplémentaire (Nv.5)",descFr:"Maître de toutes les armes et armures",de:"Kämpfer",savesDe:"STÄ, KON",armorDe:"Alle Rüstungen, Schilde",weaponsDe:"Einfache Waffen und Kriegswaffen",toolsDe:"—",skillsDe:"Wähle 2: Akrobatik, Athletik, Einschüchtern, Geschichte, Mit Tieren umgehen, Motiv erkennen, Überlebenskunst, Überzeugen, Wahrnehmung",featDe:"Waffenbeherrschung; Durchschnaufen; Kampfstil; Zusätzlicher Angriff (Stufe 5)",descDe:"Meister aller Waffen und Rüstungen",subclasses:[{id:"campione",it:"Campione",en:"Champion",es:"Campeón",fr:"Champion",de:"Champion"},{id:"maestro-battaglia",it:"Maestro di Battaglia",en:"Battle Master"},{id:"cavaliere-mistico",it:"Cavaliere Mistico",en:"Eldritch Knight"},{id:"guerriero-psionico",it:"Guerriero Psionico",en:"Psi Warrior"}]},
   {id:"wizard",it:"Mago",en:"Wizard",es:"Mago",icon:"📚",hd:"d6",savesIt:"INT, SAG",savesEn:"INT, WIS",savesEs:"INT, SAB",armorIt:"Nessuna",armorEn:"None",armorEs:"Ninguna",weaponsIt:"Armi semplici",weaponsEn:"Simple weapons",weaponsEs:"Armas sencillas",toolsIt:"—",toolsEn:"—",toolsEs:"—",masteryCount:0,expertiseCount:0,skillsIt:"Scegli 2: Arcano, Indagare, Intuizione, Medicina, Natura, Religione, Storia",skillsEn:"Choose 2: Arcana, Investigation, Insight, Medicine, Nature, Religion, History",skillsEs:"Elige 2: Arcanos, Investigación, Perspicacia, Medicina, Naturaleza, Religión, Historia",featIt:"Incantesimi (INT); Adepto dei Rituali; Recupero Arcano; Studioso (Lv.2); Maestria negli Incantesimi (Lv.18)",featEn:"Spellcasting (INT); Ritual Adept; Arcane Recovery; Scholar (Lv.2); Spell Mastery (Lv.18)",featEs:"Conjuros (INT); Adepto en rituales; Recuperación arcana; Académico (niv. 2); Maestría sobre conjuros (niv. 18)",descIt:"Studioso maestro della magia arcana",descEn:"Scholarly master of arcane magic",descEs:"Erudito maestro de la magia arcana",fr:"Magicien",savesFr:"INT, SAG",armorFr:"Aucune",weaponsFr:"Armes courantes",toolsFr:"—",skillsFr:"Choisissez 2 : Arcanes, Investigation, Intuition, Médecine, Nature, Religion, Histoire",featFr:"Sorts (INT) ; Savoir rituel ; Restauration magique ; Érudition (Nv.2) ; Maîtrise des sorts (Nv.18)",descFr:"Érudit maître de la magie arcanique",de:"Magier",savesDe:"INT, WEI",armorDe:"Keine",weaponsDe:"Einfache Waffen",toolsDe:"—",skillsDe:"Wähle 2: Arkane Kunde, Geschichte, Heilkunde, Motiv erkennen, Nachforschungen, Naturkunde, Religion",featDe:"Zauberwirken (INT); Ritual-Adept; Arkane Erholung; Gelehrter (Stufe 2); Zaubermeisterschaft (Stufe 18)",descDe:"Gelehrter Meister der arkanen Magie",subclasses:[{id:"abjuration",it:"Abiuratore",en:"Abjurer"},{id:"divination",it:"Divinatore",en:"Diviner"},{id:"illusion",it:"Illusionista",en:"Illusionist"},{id:"evocation",it:"Invocatore",en:"Evoker",es:"Evocador",fr:"Évocateur",de:"Hervorrufer"}]},
-  {id:"monk",it:"Monaco",en:"Monk",es:"Monje",icon:"👊",hd:"d8",savesIt:"FOR, DES",savesEn:"STR, DEX",savesEs:"FUE, DES",armorIt:"Nessuna",armorEn:"None",armorEs:"Ninguna",weaponsIt:"Armi semplici; armi da guerra con proprietà Leggera",weaponsEn:"Simple weapons; martial weapons with the Light property",weaponsEs:"Armas sencillas; armas marciales con la propiedad Ligera",toolsIt:"Un tipo di strumento da artigiano o strumento musicale",toolsEn:"One artisan's tool or musical instrument",toolsEs:"Un tipo de herramienta de artesano o instrumento musical",masteryCount:0,expertiseCount:0,skillsIt:"Scegli 2: Acrobazia, Atletica, Furtività, Intuizione, Religione, Storia",skillsEn:"Choose 2: Acrobatics, Athletics, Stealth, Insight, Religion, History",skillsEs:"Elige 2: Acrobacias, Atletismo, Sigilo, Perspicacia, Religión, Historia",featIt:"Arti Marziali d6; Difesa Senza Armatura (10+DES+SAG); Concentrazione Monaco (Lv.2); Colpo Stordente (Lv.5)",featEn:"Martial Arts d6; Unarmored Defense (10+DEX+WIS); Monk\'s Focus (Lv.2); Stunning Strike (Lv.5)",featEs:"Artes marciales d6; Defensa sin armadura (10+DES+SAB); Concentración de monje (niv. 2); Golpe aturdidor (niv. 5)",descIt:"Artista marziale potenziato dalla concentrazione interiore",descEn:"Martial artist powered by inner focus",descEs:"Artista marcial potenciado por la concentración interior",fr:"Moine",savesFr:"FOR, DEX",armorFr:"Aucune",weaponsFr:"Armes courantes ; armes de guerre dotées de la propriété Légère",toolsFr:"Un type d’outils d’artisan ou un instrument de musique",skillsFr:"Choisissez 2 : Acrobaties, Athlétisme, Discrétion, Intuition, Religion, Histoire",featFr:"Arts martiaux d6 ; Défense sans armure (10+DEX+SAG) ; Credo du Moine (Nv.2) ; Frappe étourdissante (Nv.5)",descFr:"Artiste martial porté par sa concentration intérieure",de:"Mönch",savesDe:"STÄ, GES",armorDe:"Keine",weaponsDe:"Einfache Waffen; Kriegswaffen mit der Eigenschaft Leicht",toolsDe:"Eine Art Handwerkszeug oder ein Musikinstrument",skillsDe:"Wähle 2: Akrobatik, Athletik, Geschichte, Heimlichkeit, Motiv erkennen, Religion",featDe:"Kampfkünste W6; Ungerüstete Verteidigung (10+GES+WEI); Mönchsfokus (Stufe 2); Betäubender Schlag (Stufe 5)",descDe:"Kampfkünstler, angetrieben von innerem Fokus",subclasses:[{id:"open",it:"Guerriero della Mano Aperta",en:"Warrior of the Open Hand",es:"Guerrero de la Mano Abierta",fr:"Credo de la Paume",de:"Krieger der Offenen Hand"},{id:"shadow",it:"Guerriero dell\'Ombra",en:"Warrior of Shadow"},{id:"elements",it:"Guerriero degli Elementi",en:"Warrior of the Elements"},{id:"mercy",it:"Guerriero della Misericordia",en:"Warrior of Mercy"}]},
+  {id:"monk",it:"Monaco",en:"Monk",es:"Monje",icon:"👊",hd:"d8",savesIt:"FOR, DES",savesEn:"STR, DEX",savesEs:"FUE, DES",armorIt:"Nessuna",armorEn:"None",armorEs:"Ninguna",weaponsIt:"Armi semplici; armi da guerra con proprietà Leggera",weaponsEn:"Simple weapons; martial weapons with the Light property",weaponsEs:"Armas sencillas; armas marciales con la propiedad Ligera",toolsIt:"Un tipo di strumento da artigiano o strumento musicale",toolsEn:"One artisan's tool or musical instrument",toolsEs:"Un tipo de herramienta de artesano o instrumento musical",masteryCount:0,expertiseCount:0,skillsIt:"Scegli 2: Acrobazia, Atletica, Furtività, Intuizione, Religione, Storia",skillsEn:"Choose 2: Acrobatics, Athletics, Stealth, Insight, Religion, History",skillsEs:"Elige 2: Acrobacias, Atletismo, Sigilo, Perspicacia, Religión, Historia",featIt:"Arti Marziali {MARTIAL_DIE}; Difesa Senza Armatura (10+DES+SAG); Concentrazione Monaco (Lv.2); Colpo Stordente (Lv.5)",featEn:"Martial Arts {MARTIAL_DIE}; Unarmored Defense (10+DEX+WIS); Monk\'s Focus (Lv.2); Stunning Strike (Lv.5)",featEs:"Artes marciales {MARTIAL_DIE}; Defensa sin armadura (10+DES+SAB); Concentración de monje (niv. 2); Golpe aturdidor (niv. 5)",descIt:"Artista marziale potenziato dalla concentrazione interiore",descEn:"Martial artist powered by inner focus",descEs:"Artista marcial potenciado por la concentración interior",fr:"Moine",savesFr:"FOR, DEX",armorFr:"Aucune",weaponsFr:"Armes courantes ; armes de guerre dotées de la propriété Légère",toolsFr:"Un type d’outils d’artisan ou un instrument de musique",skillsFr:"Choisissez 2 : Acrobaties, Athlétisme, Discrétion, Intuition, Religion, Histoire",featFr:"Arts martiaux {MARTIAL_DIE} ; Défense sans armure (10+DEX+SAG) ; Credo du Moine (Nv.2) ; Frappe étourdissante (Nv.5)",descFr:"Artiste martial porté par sa concentration intérieure",de:"Mönch",savesDe:"STÄ, GES",armorDe:"Keine",weaponsDe:"Einfache Waffen; Kriegswaffen mit der Eigenschaft Leicht",toolsDe:"Eine Art Handwerkszeug oder ein Musikinstrument",skillsDe:"Wähle 2: Akrobatik, Athletik, Geschichte, Heimlichkeit, Motiv erkennen, Religion",featDe:"Kampfkünste {MARTIAL_DIE}; Ungerüstete Verteidigung (10+GES+WEI); Mönchsfokus (Stufe 2); Betäubender Schlag (Stufe 5)",descDe:"Kampfkünstler, angetrieben von innerem Fokus",subclasses:[{id:"open",it:"Guerriero della Mano Aperta",en:"Warrior of the Open Hand",es:"Guerrero de la Mano Abierta",fr:"Credo de la Paume",de:"Krieger der Offenen Hand"},{id:"shadow",it:"Guerriero dell\'Ombra",en:"Warrior of Shadow"},{id:"elements",it:"Guerriero degli Elementi",en:"Warrior of the Elements"},{id:"mercy",it:"Guerriero della Misericordia",en:"Warrior of Mercy"}]},
   {id:"paladin",it:"Paladino",en:"Paladin",es:"Paladín",icon:"⚡",hd:"d10",savesIt:"SAG, CAR",savesEn:"WIS, CHA",savesEs:"SAB, CAR",armorIt:"Tutte le armature, Scudi",armorEn:"All armor, Shields",armorEs:"Todas las armaduras, Escudos",weaponsIt:"Armi semplici e da guerra",weaponsEn:"Simple and martial weapons",weaponsEs:"Armas sencillas y marciales",toolsIt:"—",toolsEn:"—",toolsEs:"—",masteryCount:2,expertiseCount:0,skillsIt:"Scegli 2: Atletica, Intuizione, Intimidire, Medicina, Persuasione, Religione",skillsEn:"Choose 2: Athletics, Insight, Intimidation, Medicine, Persuasion, Religion",skillsEs:"Elige 2: Atletismo, Perspicacia, Intimidación, Medicina, Persuasión, Religión",featIt:"Imposizione delle Mani (5×Lv PF); Incantesimi (CAR); Incanalare Divinità (Lv.3); Aura di Protezione (Lv.6)",featEn:"Lay on Hands (5×level HP); Spellcasting (CHA); Channel Divinity (Lv.3); Aura of Protection (Lv.6)",featEs:"Imponer las manos (5×niv. PG); Conjuros (CAR); Canalizar divinidad (niv. 3); Aura de protección (niv. 6)",descIt:"Guerriero sacro vincolato da un giuramento divino",descEn:"Sacred warrior bound by a divine oath",descEs:"Guerrero sagrado ligado por un juramento divino",fr:"Paladin",savesFr:"SAG, CHA",armorFr:"Toutes les armures, Boucliers",weaponsFr:"Armes courantes et armes de guerre",toolsFr:"—",skillsFr:"Choisissez 2 : Athlétisme, Intuition, Intimidation, Médecine, Persuasion, Religion",featFr:"Imposition des mains (5×Nv PV) ; Sorts (CHA) ; Conduit divin (Nv.3) ; Aura de protection (Nv.6)",descFr:"Guerrier sacré lié par un serment divin",de:"Paladin",savesDe:"WEI, CHA",armorDe:"Alle Rüstungen, Schilde",weaponsDe:"Einfache Waffen und Kriegswaffen",toolsDe:"—",skillsDe:"Wähle 2: Athletik, Einschüchtern, Heilkunde, Motiv erkennen, Religion, Überzeugen",featDe:"Handauflegen (5×Stufe TP); Zauberwirken (CHA); Göttliche Macht fokussieren (Stufe 3); Aura des Schutzes (Stufe 6)",descDe:"Heiliger Krieger, gebunden an einen göttlichen Schwur",subclasses:[{id:"devotion",it:"Giuramento di Devozione",en:"Oath of Devotion",es:"Juramento de Entrega",fr:"Serment de Dévotion",de:"Schwur der Hingabe"},{id:"ancients",it:"Giuramento degli Antichi",en:"Oath of the Ancients"},{id:"vengeance",it:"Giuramento di Vendetta",en:"Oath of Vengeance"},{id:"glory",it:"Giuramento di Gloria",en:"Oath of Glory"}]},
   {id:"ranger",it:"Ranger",en:"Ranger",es:"Explorador",icon:"🏹",hd:"d10",savesIt:"FOR, DES",savesEn:"STR, DEX",savesEs:"FUE, DES",armorIt:"Leggera, Media, Scudi",armorEn:"Light, Medium, Shields",armorEs:"Ligera, Intermedia, Escudos",weaponsIt:"Armi semplici e da guerra",weaponsEn:"Simple and martial weapons",weaponsEs:"Armas sencillas y marciales",toolsIt:"—",toolsEn:"—",toolsEs:"—",masteryCount:2,expertiseCount:1,skillsIt:"Scegli 3: Addestr. Animali, Atletica, Furtività, Indagare, Intuizione, Natura, Percezione, Sopravvivenza",skillsEn:"Choose 3: Animal Handling, Athletics, Stealth, Investigation, Insight, Nature, Perception, Survival",skillsEs:"Elige 3: Trato con Animales, Atletismo, Sigilo, Investigación, Perspicacia, Naturaleza, Percepción, Supervivencia",featIt:"Incantesimi (SAG); Marchio del Cacciatore; Padronanza d\'Armi; Attacco Extra (Lv.5)",featEn:"Spellcasting (WIS); Hunter\'s Mark; Weapon Mastery; Extra Attack (Lv.5)",featEs:"Conjuros (SAB); Marca del cazador; Maestría con armas; Ataque adicional (niv. 5)",descIt:"Esploratore e cacciatore della natura selvaggia",descEn:"Wilderness explorer and hunter",descEs:"Explorador y cazador de la naturaleza salvaje",fr:"Rôdeur",savesFr:"FOR, DEX",armorFr:"Légère, Intermédiaire, Boucliers",weaponsFr:"Armes courantes et armes de guerre",toolsFr:"—",skillsFr:"Choisissez 3 : Dressage, Athlétisme, Discrétion, Investigation, Intuition, Nature, Perception, Survie",featFr:"Sorts (SAG) ; Ennemi juré ; Bottes d’arme ; Attaque supplémentaire (Nv.5)",descFr:"Explorateur et chasseur des terres sauvages",de:"Waldläufer",savesDe:"STÄ, GES",armorDe:"Leichte und mittelschwere Rüstungen, Schilde",weaponsDe:"Einfache Waffen und Kriegswaffen",toolsDe:"—",skillsDe:"Wähle 3: Athletik, Heimlichkeit, Mit Tieren umgehen, Motiv erkennen, Nachforschungen, Naturkunde, Überlebenskunst, Wahrnehmung",featDe:"Zauberwirken (WEI); Erzfeind; Waffenbeherrschung; Zusätzlicher Angriff (Stufe 5)",descDe:"Erkunder und Jäger der Wildnis",subclasses:[{id:"hunter",it:"Cacciatore",en:"Hunter",es:"Cazador",fr:"Chasseur",de:"Jäger"},{id:"beast",it:"Signore delle Bestie",en:"Beast Master"},{id:"gloom",it:"Cacciatore delle Tenebre",en:"Gloom Stalker"},{id:"fey",it:"Viandante Fatato",en:"Fey Wanderer"}]},
-  {id:"rogue",it:"Ladro",en:"Rogue",es:"Pícaro",icon:"🗡️",hd:"d8",savesIt:"DES, INT",savesEn:"DEX, INT",savesEs:"DES, INT",armorIt:"Leggera",armorEn:"Light",armorEs:"Ligera",weaponsIt:"Armi semplici; armi da guerra con proprietà Accurata o Leggera",weaponsEn:"Simple weapons; martial weapons with the Finesse or Light property",weaponsEs:"Armas sencillas; armas marciales con la propiedad Sutil o Ligera",toolsIt:"Arnesi da scasso",toolsEn:"Thieves' tools",toolsEs:"Herramientas de ladrón",masteryCount:2,expertiseCount:2,skillsIt:"Scegli 4: Acrobazia, Atletica, Furtività, Indagare, Inganno, Intimidire, Percezione, Persuasione, Rapidità di Mano",skillsEn:"Choose 4: Acrobatics, Athletics, Stealth, Investigation, Deception, Intimidation, Perception, Persuasion, Sleight of Hand",skillsEs:"Elige 4: Acrobacias, Atletismo, Sigilo, Investigación, Engaño, Intimidación, Percepción, Persuasión, Juego de Manos",featIt:"Attacco Furtivo +1d6; Gergo Ladresco; Maestria; Azione Scaltra (Lv.2); Mira Ferma (Lv.3)",featEn:"Sneak Attack +1d6; Thieves' Cant; Expertise; Cunning Action (Lv.2); Steady Aim (Lv.3)",featEs:"Ataque furtivo +1d6; Jerga de ladrones; Pericia; Acción astuta (niv. 2); Puntería certera (niv. 3)",descIt:"Maestro furtivo di abilità e trucchi",descEn:"Stealthy master of skills and tricks",descEs:"Maestro sigiloso de habilidades y trucos",fr:"Roublard",savesFr:"DEX, INT",armorFr:"Légère",weaponsFr:"Armes courantes ; armes de guerre dotées de la propriété Finesse ou Légère",toolsFr:"Outils de voleur",skillsFr:"Choisissez 4 : Acrobaties, Athlétisme, Discrétion, Investigation, Tromperie, Intimidation, Perception, Persuasion, Escamotage",featFr:"Attaque sournoise +1d6 ; Argot des voleurs ; Expertise ; Ruse (Nv.2) ; Visée appliquée (Nv.3)",descFr:"Maître furtif des compétences et des ruses",de:"Schurke",savesDe:"GES, INT",armorDe:"Leichte Rüstung",weaponsDe:"Einfache Waffen; Kriegswaffen mit der Eigenschaft Finesse oder Leicht",toolsDe:"Diebeswerkzeug",skillsDe:"Wähle 4: Akrobatik, Athletik, Einschüchtern, Fingerfertigkeit, Heimlichkeit, Motiv erkennen, Nachforschungen, Täuschen, Überzeugen, Wahrnehmung",featDe:"Hinterhältiger Angriff +1W6; Diebessprache; Expertise; Raffinierte Aktion (Stufe 2); Zielsicher (Stufe 3)",descDe:"Heimlicher Meister der Fertigkeiten und Kniffe",subclasses:[{id:"thief",it:"Furfante",en:"Thief",es:"Ladrón",fr:"Voleur",de:"Dieb"},{id:"assassin",it:"Assassino",en:"Assassin"},{id:"arcane",it:"Mistificatore Arcano",en:"Arcane Trickster"},{id:"soul",it:"Lama Spirituale",en:"Soulknife"}]},
+  {id:"rogue",it:"Ladro",en:"Rogue",es:"Pícaro",icon:"🗡️",hd:"d8",savesIt:"DES, INT",savesEn:"DEX, INT",savesEs:"DES, INT",armorIt:"Leggera",armorEn:"Light",armorEs:"Ligera",weaponsIt:"Armi semplici; armi da guerra con proprietà Accurata o Leggera",weaponsEn:"Simple weapons; martial weapons with the Finesse or Light property",weaponsEs:"Armas sencillas; armas marciales con la propiedad Sutil o Ligera",toolsIt:"Arnesi da scasso",toolsEn:"Thieves' tools",toolsEs:"Herramientas de ladrón",masteryCount:2,expertiseCount:2,skillsIt:"Scegli 4: Acrobazia, Atletica, Furtività, Indagare, Inganno, Intimidire, Percezione, Persuasione, Rapidità di Mano",skillsEn:"Choose 4: Acrobatics, Athletics, Stealth, Investigation, Deception, Intimidation, Perception, Persuasion, Sleight of Hand",skillsEs:"Elige 4: Acrobacias, Atletismo, Sigilo, Investigación, Engaño, Intimidación, Percepción, Persuasión, Juego de Manos",featIt:"Attacco Furtivo {SNEAK_DICE}; Gergo Ladresco; Maestria; Azione Scaltra (Lv.2); Mira Ferma (Lv.3)",featEn:"Sneak Attack {SNEAK_DICE}; Thieves' Cant; Expertise; Cunning Action (Lv.2); Steady Aim (Lv.3)",featEs:"Ataque furtivo {SNEAK_DICE}; Jerga de ladrones; Pericia; Acción astuta (niv. 2); Puntería certera (niv. 3)",descIt:"Maestro furtivo di abilità e trucchi",descEn:"Stealthy master of skills and tricks",descEs:"Maestro sigiloso de habilidades y trucos",fr:"Roublard",savesFr:"DEX, INT",armorFr:"Légère",weaponsFr:"Armes courantes ; armes de guerre dotées de la propriété Finesse ou Légère",toolsFr:"Outils de voleur",skillsFr:"Choisissez 4 : Acrobaties, Athlétisme, Discrétion, Investigation, Tromperie, Intimidation, Perception, Persuasion, Escamotage",featFr:"Attaque sournoise {SNEAK_DICE} ; Argot des voleurs ; Expertise ; Ruse (Nv.2) ; Visée appliquée (Nv.3)",descFr:"Maître furtif des compétences et des ruses",de:"Schurke",savesDe:"GES, INT",armorDe:"Leichte Rüstung",weaponsDe:"Einfache Waffen; Kriegswaffen mit der Eigenschaft Finesse oder Leicht",toolsDe:"Diebeswerkzeug",skillsDe:"Wähle 4: Akrobatik, Athletik, Einschüchtern, Fingerfertigkeit, Heimlichkeit, Motiv erkennen, Nachforschungen, Täuschen, Überzeugen, Wahrnehmung",featDe:"Hinterhältiger Angriff {SNEAK_DICE}; Diebessprache; Expertise; Raffinierte Aktion (Stufe 2); Zielsicher (Stufe 3)",descDe:"Heimlicher Meister der Fertigkeiten und Kniffe",subclasses:[{id:"thief",it:"Furfante",en:"Thief",es:"Ladrón",fr:"Voleur",de:"Dieb"},{id:"assassin",it:"Assassino",en:"Assassin"},{id:"arcane",it:"Mistificatore Arcano",en:"Arcane Trickster"},{id:"soul",it:"Lama Spirituale",en:"Soulknife"}]},
   {id:"sorcerer",it:"Stregone",en:"Sorcerer",es:"Hechicero",icon:"✨",hd:"d6",savesIt:"COS, CAR",savesEn:"CON, CHA",savesEs:"CON, CAR",armorIt:"Nessuna",armorEn:"None",armorEs:"Ninguna",weaponsIt:"Armi semplici",weaponsEn:"Simple weapons",weaponsEs:"Armas sencillas",toolsIt:"—",toolsEn:"—",toolsEs:"—",masteryCount:0,expertiseCount:0,skillsIt:"Scegli 2: Arcano, Inganno, Intimidire, Intuizione, Persuasione, Religione",skillsEn:"Choose 2: Arcana, Deception, Intimidation, Insight, Persuasion, Religion",skillsEs:"Elige 2: Arcanos, Engaño, Intimidación, Perspicacia, Persuasión, Religión",featIt:"Incantesimi (CAR); Stregoneria Innata (Lv.1); Punti Stregoneria (Lv.2); Metamagia (Lv.2)",featEn:"Spellcasting (CHA); Innate Sorcery (Lv.1); Sorcery Points (Lv.2); Metamagic (Lv.2)",featEs:"Conjuros (CAR); Hechicería innata (niv. 1); Puntos de hechicería (niv. 2); Metamagia (niv. 2)",descIt:"Incantatore innato di pura potenza magica",descEn:"Innate spellcaster of raw magical power",descEs:"Lanzador innato de pura potencia mágica",fr:"Ensorceleur",savesFr:"CON, CHA",armorFr:"Aucune",weaponsFr:"Armes courantes",toolsFr:"—",skillsFr:"Choisissez 2 : Arcanes, Tromperie, Intimidation, Intuition, Persuasion, Religion",featFr:"Sorts (CHA) ; Sorcellerie innée (Nv.1) ; Réserve arcanique (Nv.2) ; Métamagie (Nv.2)",descFr:"Lanceur de sorts inné à la puissance magique brute",de:"Zauberer",savesDe:"KON, CHA",armorDe:"Keine",weaponsDe:"Einfache Waffen",toolsDe:"—",skillsDe:"Wähle 2: Arkane Kunde, Einschüchtern, Motiv erkennen, Religion, Täuschen, Überzeugen",featDe:"Zauberwirken (CHA); Intuitive Zauberei (Stufe 1); Quelle der Magie (Stufe 2); Metamagie (Stufe 2)",descDe:"Angeborener Zauberwirker von roher magischer Macht",subclasses:[{id:"draconic",it:"Stregoneria Draconica",en:"Draconic Sorcery",es:"Hechicería Dracónica",fr:"Sorcellerie draconique",de:"Drakonische Zauberei"},{id:"wild",it:"Magia Selvaggia",en:"Wild Magic Sorcery"},{id:"clockwork",it:"Stregoneria Meccanica",en:"Clockwork Sorcery"},{id:"aberrant",it:"Stregoneria Aberrante",en:"Aberrant Sorcery"}]},
   {id:"warlock",it:"Warlock",en:"Warlock",es:"Brujo",icon:"💀",hd:"d8",savesIt:"SAG, CAR",savesEn:"WIS, CHA",savesEs:"SAB, CAR",armorIt:"Leggera",armorEn:"Light",armorEs:"Ligera",weaponsIt:"Armi semplici",weaponsEn:"Simple weapons",weaponsEs:"Armas sencillas",toolsIt:"—",toolsEn:"—",toolsEs:"—",masteryCount:0,expertiseCount:0,skillsIt:"Scegli 2: Arcano, Indagare, Inganno, Intimidire, Natura, Religione, Storia",skillsEn:"Choose 2: Arcana, Investigation, Deception, Intimidation, Nature, Religion, History",skillsEs:"Elige 2: Arcanos, Investigación, Engaño, Intimidación, Naturaleza, Religión, Historia",featIt:"Magia del Patto (CAR); Suppliche Occulte; Scaltrezza Magica (Lv.2); Arcanum Mistico (Lv.11)",featEn:"Pact Magic (CHA); Eldritch Invocations; Magical Cunning (Lv.2); Mystic Arcanum (Lv.11)",featEs:"Magia del pacto (CAR); Invocaciones sobrenaturales; Astucia mágica (niv. 2); Arcanum místico (niv. 11)",descIt:"Utilizzatore di potere occulto legato da un patto",descEn:"Pact-bound wielder of eldritch power",descEs:"Usuario de poder sobrenatural ligado por un pacto",fr:"Occultiste",savesFr:"SAG, CHA",armorFr:"Légère",weaponsFr:"Armes courantes",toolsFr:"—",skillsFr:"Choisissez 2 : Arcanes, Investigation, Tromperie, Intimidation, Nature, Religion, Histoire",featFr:"Magie de pacte (CHA) ; Manifestations occultes ; Rouerie magique (Nv.2) ; Arcanum mystique (Nv.11)",descFr:"Détenteur d’un pouvoir occulte lié par un pacte",de:"Hexenmeister",savesDe:"WEI, CHA",armorDe:"Leichte Rüstung",weaponsDe:"Einfache Waffen",toolsDe:"—",skillsDe:"Wähle 2: Arkane Kunde, Einschüchtern, Geschichte, Nachforschungen, Naturkunde, Religion, Täuschen",featDe:"Paktmagie (CHA); Schauerliche Anrufungen; Magische Raffinesse (Stufe 2); Mystisches Arkanum (Stufe 11)",descDe:"Träger okkulter Macht, gebunden durch einen Pakt",subclasses:[{id:"fiend",it:"Patrono Immondo",en:"The Fiend",es:"Patrón Infernal",fr:"Protecteur Fiélon",de:"Unhold-Schutzherr"},{id:"archfey",it:"Patrono Signore Fatato",en:"The Archfey"},{id:"great",it:"Patrono Grande Antico",en:"The Great Old One"},{id:"celestial",it:"Patrono Celestiale",en:"The Celestial"}]},
 ];
@@ -5190,7 +5193,7 @@ function fRClassBlock(){
 
   // ── BARDO
   if(cl==='bard'){
-    var bDie=lv>=15?'d12':lv>=10?'d10':lv>=5?'d8':'d6';
+    var bDie=fDieN(fBardicDieN(lv));
     var bMax=Math.max(1,Math.floor((fTotalStat('CHA')-10)/2));
     var bUsed=(C.bardicInsp&&C.bardicInsp.used)||0;
     html+='<div style="'+boxS+'"><div style="'+rowS+'"><span style="'+lblS+'">\uD83C\uDFB5 '+(ft('Ispirazione','Bardic Insp.'))+' ('+bDie+')</span>'+fDots(bUsed,bMax,'fUseBardicInsp','fRestoreBardicInsp','#f39c12')+'<span style="font-size:10px;color:var(--vdim)">'+(bMax-bUsed)+'/'+bMax+'</span></div></div>';
@@ -5408,13 +5411,16 @@ function fRClassBlock(){
     [1,5,10].forEach(function(n){html+='<button onclick="if(!C.palLayHands)C.palLayHands={max:'+layMax+',cur:'+layCur+'};C.palLayHands.cur=Math.min(C.palLayHands.max,C.palLayHands.cur+'+n+');re()" style="background:rgba(39,174,96,.12);border:1px solid rgba(39,174,96,.3);border-radius:3px;color:#27ae60;font-size:11px;padding:3px 7px;cursor:pointer">+'+n+'</button>';});
     html+='<button onclick="C.palLayHands={max:'+layMax+',cur:'+layMax+'};re()" style="background:rgba(200,164,90,.1);border:1px solid rgba(200,164,90,.3);border-radius:3px;color:var(--gold2);font-size:10px;padding:3px 7px;cursor:pointer">♺ Full</button>';
     html+='</div><div style="font-size:10px;color:var(--muted);margin-top:4px">'+(ft('5 PF = cura 1 malattia/veleno','5 HP = cure 1 disease/poison'))+'</div></div>';
-    // Punizione Divina (1×/riposo lungo senza slot)
+    // Punizione Divina (1×/riposo lungo senza slot) — privilegio "Punizione del
+    // Paladino", ottenuto al Lv.2 da paladino (PHB 2024 p.132).
+    if(lv>=2){
     if(!C.divPunish)C.divPunish={used:false};
     html+='<div style="'+boxS+'"><div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px">';
     html+='<span style="font-size:11px;color:var(--gold2)">⚡ '+(ft('Punizione Divina (sempre preparata)','Divine Smite (always prepared)'))+'</span>';
     if(!C.divPunish.used){html+='<button onclick="if(!C.divPunish)C.divPunish={};C.divPunish.used=true;re()" style="background:rgba(241,196,15,.15);border:1px solid rgba(241,196,15,.4);border-radius:3px;color:#f1c40f;font-size:11px;padding:3px 9px;cursor:pointer">⚡ '+(ft('Usa senza slot','Use without slot'))+'</button>';}
     else{html+='<span style="font-size:10px;color:var(--vdim)">'+(ft('Usata','Used'))+' <button onclick="C.divPunish.used=false;re()" style="background:none;border:none;color:var(--vdim);font-size:10px;cursor:pointer;text-decoration:underline">↩</button></span>';}
     html+='</div><div style="font-size:10px;color:var(--muted);margin-top:4px">'+(ft('+2d8 radiosi (+2d8 vs non morti/immondi) · 1×/riposo lungo','+2d8 radiant (+2d8 vs undead/fiends) · 1×/Long Rest'))+'</div></div>';
+    }
     // Aura di Protezione (Lv.6+)
     if(lv>=6){
       html+='<div style="'+boxS+'"><div style="display:flex;align-items:center;gap:8px">';
@@ -7341,6 +7347,20 @@ function fExtraAttackSources(isIt){
       sources.push(cd ? (L(cd)) : id);
     }
   });
+  // Fonti di Attacco Extra NON legate al livello 5 di classe:
+  //  • Bardo del Valore (Collegio del Valore, Lv.6)
+  //  • Warlock con la supplica "Lama Assetata" (richiede Patto della Lama)
+  fEnsureClasses();
+  (C.classes||[]).forEach(function(ce){
+    if(ce && ce.cls==='bard' && ce.subclass==='valore' && (ce.level||0)>=6){
+      const cd = (typeof CLASSES!=='undefined') ? CLASSES.find(x=>x.id==='bard') : null;
+      sources.push((cd?L(cd):'Bardo') + (isIt?' (Valore)':' (Valor)'));
+    }
+  });
+  if((C.warlockInvocations||[]).some(function(i){ return (i&&(i.id||i))==='lama-assetata'; })){
+    const cw = (typeof CLASSES!=='undefined') ? CLASSES.find(x=>x.id==='warlock') : null;
+    sources.push((cw?L(cw):'Warlock') + (isIt?' (Lama Assetata)':' (Thirsting Blade)'));
+  }
   return sources;
 }
 
@@ -8008,7 +8028,7 @@ function fRS0(cl){
         <div style="font-size:11px;color:var(--muted);font-style:italic">${fLoc(cl,'desc')}</div></div>
       </div>
       <div style="margin-bottom:8px"><div style="font-size:9px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px">${ft("Abilità","Skills")}</div><div style="font-size:11px;color:var(--muted)">${fLoc(cl,'skills')}</div></div>
-      <div style="margin-bottom:14px"><div style="font-size:9px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px">${ft("Capacità Chiave","Key Feature")}</div><div style="font-size:12px;color:var(--gold)">${fLoc(cl,'feat')}</div></div>
+      <div style="margin-bottom:14px"><div style="font-size:9px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px">${ft("Capacità Chiave","Key Feature")}</div><div style="font-size:12px;color:var(--gold)">${fKeyFeatureText(cl, 1)}</div></div>
       <div style="font-size:9px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">${ft("Sottoclasse","Subclass")}</div>
       <div class="g2" style="gap:6px">
         ${cl.subclasses.filter(sc=>fSrdAllowed('subclasses',sc.id)).map(sc=>`<div class="card ${C.subclass===sc.id?"sel":""}" style="padding:9px" onclick="fSelSubclass('${sc.id}')">
@@ -8179,10 +8199,21 @@ function fMasteryCount(cls, lv){
 }
 
 // ─── Grant automatici dalla sottoclasse (no scelta) ────────────────────────
-function fSubclassGrantsProfs(cls, sc){
+function fSubclassGrantsProfs(cls, sc, lv){
   const r={armorExtra:[],weaponExtra:'',toolExtra:''};
-  if(cls==='bard'    && sc==='valore')  { r.armorExtra=['Armature medie','Scudi']; r.weaponExtra='Armi da guerra'; }
-  if(cls==='monk'    && sc==='mercy')   { r.toolExtra='Borsa da erborista'; }
+  // Livello della classe che concede il privilegio. Se non passato, si ricava
+  // da C.classes (multiclasse-aware) e in ultima istanza da C.level.
+  if(lv===undefined || lv===null){
+    try{
+      if(typeof fEnsureClasses==='function') fEnsureClasses();
+      const ce=(C.classes||[]).find(function(c){ return c && c.cls===cls && c.subclass===sc; });
+      lv = ce ? (parseInt(ce.level)||0) : ((typeof fClassLevel==='function') ? fClassLevel(cls) : (C.level||0));
+    }catch(e){ lv = C.level||0; }
+  }
+  // Le competenze concesse da una SOTTOCLASSE valgono dal livello del privilegio
+  // (Lv.3): la sottoclasse è pre-selezionabile prima, ma non anticipa i benefici.
+  if(cls==='bard'    && sc==='valore' && lv>=3)  { r.armorExtra=['Armature medie','Scudi']; r.weaponExtra='Armi da guerra'; }
+  if(cls==='monk'    && sc==='mercy'  && lv>=3)  { r.toolExtra='Borsa da erborista'; }
   // Chierico Ordine Protettore (Lv.1): armature pesanti + armi da guerra
   if(cls==='cleric'  && C.divOrder==='protettore') { r.armorExtra=['Armature pesanti']; r.weaponExtra='Armi da guerra'; }
   // Druido Ordine Primordiale Custode (Lv.1): armature pesanti + armi da guerra
@@ -8754,7 +8785,7 @@ function fBuildClassResourcesPrint(){
     }
   }
   if(cl==='bard'){
-    var bd=lv>=15?'d12':lv>=10?'d10':lv>=5?'d8':'d6';
+    var bd=fDieN(fBardicDieN(lv));
     var bm=Math.max(1,Math.floor((fTotalStat('CHA')-10)/2));
     lines.push('ISPIRAZIONE BARDICA: '+bd+' × '+bm+'/riposo breve(Lv.5+)'+circ(bm));
     if(lv>=10) lines.push('Segreti Magici: prepara da Chierico/Druido/Mago');
@@ -8842,7 +8873,7 @@ function fBuildPrintSheet(){
   const castMod=fcmod(fTotalStat(castStat));
   const saveDC=8+pb+castMod;
   const atkBonus=pb+castMod;
-  const initMod=fcmod(fTotalStat('DEX'));
+  const initMod=fInitiativeMod();
   const initStr=(initMod>=0?'+':'')+initMod;
   const percMod=fcmod(fTotalStat('WIS'));
   const isPercProf=skillProfs.includes('Perception');
@@ -8944,7 +8975,7 @@ function fBuildPrintSheet(){
   const emptyRows=Array(emptyN).fill(`<tr><td></td><td></td><td></td><td></td><td class="tc" style="font-size:5.5pt;">○C ○R ○M</td><td></td></tr>`).join('');
 
   // Class features
-  const classFeat=cl?`${fLoc(cl,'feat')||''}`:'' ;
+  const classFeat=cl?`${fKeyFeatureText(cl, fLevelInClass(cl.id))||''}`:'' ;
   const spTraits=sp?`${fpick(sp.traits,sp.traitsEn,sp.traitsEs,sp.traitsFr,sp.traitsDe)||''}`:'' ;
   const featsList=(C.feats||[]).map(f=>{
     const name=f.nameIt||f.name;
@@ -10028,14 +10059,29 @@ function fStatTotalExcluding(statKey, excludeUid){
   return total; // raw, non cappato, e senza il capstone Lv.20
 }
 
+// Le tre caratteristiche aumentate dal background sono un DATO, non testo da
+// leggere: si ricavano dal campo canonico statsEn (stessa convenzione di
+// skillsEn), MAI dalla stringa localizzata. Parsare fLoc(bg,'stats') faceva
+// dipendere il bonus dalla lingua attiva: gli acronimi ES/DE (FUE, STÄ, GES,
+// KON, WEI, SAB) non stanno né in FSTAT_MAP_IT né in FSTAT_MAP_EN, così il
+// bonus spariva (Soldato in tedesco: nessun aumento) oppure — peggio — un
+// acronimo ambiguo veniva risolto con la mappa sbagliata (Soldato in spagnolo:
+// "DES" letto come Destrezza italiana → +2 DES invece di +2 FOR).
+// Unico punto di verità: usata sia dal calcolo sia dal render del pannello.
+function fBgStats3(bg){
+  if(!bg) return [];
+  const raw = bg.statsEn || bg.statsIt || '';
+  return raw.split(/[,\s]+/)
+            .map(p => FSTAT_MAP_EN[p] || FSTAT_MAP_IT[p])
+            .filter(Boolean);
+}
+
 function fGetAllStatBonuses(){
   const result={STR:[],DEX:[],CON:[],INT:[],WIS:[],CHA:[]};
   function addBonus(stat,val,source){if(result[stat])result[stat].push({val,source});}
   const bg=fgBg();
   if(bg){
-    const statsStr=fLoc(bg,'stats');
-    const parts=statsStr.split(/[,\s]+/).filter(s=>FSTAT_MAP_IT[s]||FSTAT_MAP_EN[s]);
-    const stats3 = parts.map(p => FSTAT_MAP_IT[p] || FSTAT_MAP_EN[p]).filter(Boolean);
+    const stats3 = fBgStats3(bg);
     const srcName=fpick(bg.it,bg.en,bg.es,bg.fr);
     
     // Scelta del giocatore: 'spread' (+1 a tutte e 3) o 'split' (+2 a una, +1 a un'altra)
@@ -10103,9 +10149,7 @@ function fSetBgStatChoice(mode, plus2, plus1){
 function fRBgStatBonusBlock(){
   const bg = fgBg();
   if(!bg) return '';
-  const statsStr = fLoc(bg,'stats');
-  const parts = statsStr.split(/[,\s]+/).filter(s => FSTAT_MAP_IT[s] || FSTAT_MAP_EN[s]);
-  const stats3 = parts.map(p => FSTAT_MAP_IT[p] || FSTAT_MAP_EN[p]).filter(Boolean);
+  const stats3 = fBgStats3(bg);   // stessa fonte del calcolo: mai il testo localizzato
   if(stats3.length < 3) return '';
   
   const isIt = lang === 'it';
@@ -11174,7 +11218,33 @@ function fBaseSpeedM(){
   var sr=(typeof fgSr==='function')?fgSr():null;
   var str=(sr&&sr.speed)?sr.speed:((sp&&sp.speed)?sp.speed:'9m');
   var m=str.match(/[0-9]+(?:[.,][0-9]+)?/);
-  return m?parseFloat(m[0].replace(',','.')):9;
+  var base=m?parseFloat(m[0].replace(',','.')):9;
+  return base + fClassSpeedBonusM();
+}
+// Bonus di velocità concessi dalle classi (SRD 5.2.1 / PHB 2024). Non cumulativi
+// tra loro: si applica il maggiore, come per gli altri privilegi omonimi.
+//  • Barbaro Lv.5 "Movimento veloce": +3 m, purché non indossi un'armatura pesante.
+//  • Monaco Lv.2 "Movimento senza armatura": +3 m, purché non indossi armature né
+//    impugni scudo; sale a +4,5 (Lv.6), +6 (Lv.10), +7,5 (Lv.14), +9 (Lv.18).
+function fClassSpeedBonusM(){
+  try{
+    if(typeof fEnsureClasses==='function') fEnsureClasses();
+    var lvOf=function(id){ return (typeof fClassLevel==='function') ? fClassLevel(id)
+      : (C.cls===id ? (parseInt(C.level)||0) : 0); };
+    var armor = C.armor ? ARMORS.find(function(a){return a.en===C.armor||a.it===C.armor;}) : null;
+    var cat = (armor && armor.cat!=='scudo') ? armor.cat : null;
+    var bonus = 0;
+    // Barbaro: basta non avere armatura pesante
+    var bLv = lvOf('barbarian');
+    if(bLv>=5 && cat!=='pesante') bonus = Math.max(bonus, 3);
+    // Monaco: nessuna armatura e nessuno scudo
+    var mLv = lvOf('monk');
+    if(mLv>=2 && !cat && !C.shield){
+      var mb = mLv>=18 ? 9 : mLv>=14 ? 7.5 : mLv>=10 ? 6 : mLv>=6 ? 4.5 : 3;
+      bonus = Math.max(bonus, mb);
+    }
+    return bonus;
+  }catch(e){ return 0; }
 }
 // Velocità effettiva: base − 1,5 m per livello di indebolimento; 0 se una condizione blocca il movimento
 function fEffSpeedM(){
@@ -11394,7 +11464,7 @@ function fRSheet(){
         </div>
         <div>
           <div class="box-title">${ft('Combattimento','Combat')}</div>
-          ${[[ft('CA','AC'),fCharacterAC().value],[ft('Competenza','Prof.'),'+'+fpb(C.level)],[ft('Iniziativa','Initiative'),fmStr(fTotalStat('DEX'))],[ft('Perc. Passiva','Passive Perc.'),10+fcmod(fTotalStat('WIS'))],[ft('Velocità','Speed'),fEffSpeedStr()],[ft('Dado Vita','Hit Die'),fIsMulticlass()?fHitDiceDisplay():(cl?.hd||'—')]].map(([l,v])=>`<div class="sheet-row"><span style="color:var(--muted)">${l}</span><span style="color:var(--gold);font-weight:600">${v}</span></div>`).join('')}
+          ${[[ft('CA','AC'),fCharacterAC().value],[ft('Competenza','Prof.'),'+'+fpb(C.level)],[ft('Iniziativa','Initiative'),fInitiativeStr()],[ft('Perc. Passiva','Passive Perc.'),10+fcmod(fTotalStat('WIS'))],[ft('Velocità','Speed'),fEffSpeedStr()],[ft('Dado Vita','Hit Die'),fIsMulticlass()?fHitDiceDisplay():(cl?.hd||'—')]].map(([l,v])=>`<div class="sheet-row"><span style="color:var(--muted)">${l}</span><span style="color:var(--gold);font-weight:600">${v}</span></div>`).join('')}
           ${fRHPBox(hpV)}
           ${fRExhaustionBox()}
           ${fRConditionsBox()}
@@ -11414,7 +11484,7 @@ function fRSheet(){
       </div>
 
       ${sp?`<div class="box"><div class="box-title">${sp.icon} ${ft('Tratti Specie','Species Traits')}</div><div style="font-size:12px;color:var(--gold);line-height:1.6">${fpick(sp.traits,sp.traitsEn,sp.traitsEs,sp.traitsFr,sp.traitsDe)}</div></div>`:''}
-      ${cl?`<div class="box"><div class="box-title">🎯 ${ft('Capacità Chiave','Key Feature')}</div><div style="font-size:12px;color:var(--gold);line-height:1.6">${fLoc(cl,'feat')}</div></div>`:''}
+      ${cl?`<div class="box"><div class="box-title">🎯 ${ft('Capacità Chiave','Key Feature')}</div><div style="font-size:12px;color:var(--gold);line-height:1.6">${fKeyFeatureText(cl, fLevelInClass(cl.id))}</div></div>`:''}
       ${fRClassFeatures()}
       ${fRSubclassFeatures()}
       ${fRSpellsSection()}
@@ -11842,6 +11912,21 @@ const ALWAYS_PREPARED_SUBCLASS = {
   barbarian:{ berserker:{}, 'albero-mondo':{}, 'cuore-selvaggio':{}, zelota:{} },
 };
 
+// ── Incantesimi SEMPRE PREPARATI concessi dalla CLASSE (non dalla sottoclasse) ──
+// Privilegi che dichiarano «l'incantesimo X è sempre considerato preparato».
+// Il livello di riferimento è quello DELLA CLASSE, non il livello totale del
+// personaggio: in multiclasse i privilegi seguono il livello di ciascuna classe
+// (PHB 2024, cap. 2 «Multiclasse»).
+const ALWAYS_PREPARED_CLASS = {
+  druid:   { 1: ["Parlare con gli animali"] },                 // Lv.1 Druidico
+  ranger:  { 1: ["Marchio del cacciatore"] },                  // Lv.1 Nemico Prescelto
+  paladin: { 2: ["Punizione divina"],                          // Lv.2 Punizione del Paladino
+             5: ["Trova cavalcatura"] },                       // Lv.5 Fido Destriero
+  warlock: { 9: ["Contattare altri piani"] },                  // Lv.9 Contattare il Patrono
+  bard:    { 20:["Parola del potere guarire",
+                 "Parola del potere uccidere"] },              // Lv.20 Parole della Creazione
+};
+
 // ── Incantesimi SEMPRE PREPARATI da specie/sottospecie ───────────────────
 const ALWAYS_PREPARED_SPECIES = {
   elfo: {
@@ -12092,17 +12177,48 @@ function fGetAlwaysPrepared(){
   const result = [];
   const lv = C.level || 1;
 
-  // Incantesimi di sottoclasse dalla mappa statica
-  const scMap = ALWAYS_PREPARED_SUBCLASS[C.cls]?.[C.subclass];
-  if(scMap){
-    for(const [reqLv,spells] of Object.entries(scMap)){
-      if(lv>=parseInt(reqLv))
-        spells.forEach(nome=>result.push({nome,fonte:'subclass',reqLv:parseInt(reqLv)}));
+  // Incantesimi concessi da CLASSE e SOTTOCLASSE. Si itera su tutte le classi
+  // possedute usando il livello di ciascuna: in multiclasse i privilegi seguono
+  // il livello della singola classe, non quello totale (PHB 2024, cap. 2).
+  fEnsureClasses();
+  const _owned = (C.classes||[]).filter(c=>c && c.cls);
+  const _entries = _owned.length ? _owned : [{cls:C.cls, subclass:C.subclass, level:lv}];
+  const _seenCls = {};
+
+  _entries.forEach(function(entry){
+    if(!entry || !entry.cls) return;
+    const eCls = entry.cls, eSub = entry.subclass;
+    const eLv = parseInt(entry.level)||0;
+    if(_seenCls[eCls]) return;      // una sola passata per classe
+    _seenCls[eCls] = 1;
+
+    // Privilegi di classe che rendono un incantesimo sempre preparato
+    const clMap = ALWAYS_PREPARED_CLASS[eCls];
+    if(clMap){
+      for(const [reqLv,spells] of Object.entries(clMap)){
+        if(eLv>=parseInt(reqLv))
+          spells.forEach(nome=>result.push({nome,fonte:'class',reqLv:parseInt(reqLv)}));
+      }
     }
-  }
+
+    // Incantesimi di sottoclasse dalla mappa statica
+    const scMap = ALWAYS_PREPARED_SUBCLASS[eCls]?.[eSub];
+    if(scMap){
+      for(const [reqLv,spells] of Object.entries(scMap)){
+        if(eLv>=parseInt(reqLv))
+          spells.forEach(nome=>result.push({nome,fonte:'subclass',reqLv:parseInt(reqLv)}));
+      }
+    }
+  });
+
+  // Livello da druido: serve al Circolo della Terra (in multiclasse non è C.level)
+  const _druidLv = (typeof fClassLevel==='function' && _owned.length)
+    ? fClassLevel('druid') : (C.cls==='druid' ? lv : 0);
 
   // Circolo della Terra (druido): incantesimi dipendono dal tipo di terra scelto
-  if(C.cls==='druid' && C.subclass==='terra' && C.circleTerrainType){
+  const _isTerra = (C.classes||[]).some(c=>c && c.cls==='druid' && c.subclass==='terra')
+                || (C.cls==='druid' && C.subclass==='terra');
+  if(_druidLv>0 && _isTerra && C.circleTerrainType){
     const TERRA_SPELLS = {
       arida: {
         3: ["Dardo di fuoco","Mani brucianti","Sfocatura"],
@@ -12132,7 +12248,7 @@ function fGetAlwaysPrepared(){
     const tMap = TERRA_SPELLS[C.circleTerrainType];
     if(tMap){
       for(const [reqLv,spells] of Object.entries(tMap)){
-        if(lv>=parseInt(reqLv))
+        if(_druidLv>=parseInt(reqLv))
           spells.forEach(nome=>result.push({nome,fonte:'subclass',reqLv:parseInt(reqLv)}));
       }
     }
@@ -12150,19 +12266,19 @@ function fGetAlwaysPrepared(){
     }
   }
 
-  // Bardo — Collegio della Sapienza: Scoperte Magiche (Lv.6), 2 incantesimi sempre preparati
-  if(C.cls==='bard' && C.subclass==='sapienza' && lv>=6 && Array.isArray(C.bardDiscoveries)){
+  // Bardo — Collegio della Sapienza: Scoperte Magiche (Lv.6), 2 incantesimi sempre preparati.
+  // Anche qui il riferimento è il livello DA BARDO, non quello totale.
+  const _bardLv = (typeof fClassLevel==='function' && _owned.length)
+    ? fClassLevel('bard') : (C.cls==='bard' ? lv : 0);
+  const _isSapienza = (C.classes||[]).some(c=>c && c.cls==='bard' && c.subclass==='sapienza')
+                   || (C.cls==='bard' && C.subclass==='sapienza');
+  if(_isSapienza && _bardLv>=6 && Array.isArray(C.bardDiscoveries)){
     C.bardDiscoveries.forEach(id=>{
       const sp=SPELLS.find(s=>s.id===id);
       if(sp) result.push({nome:sp.nome,fonte:'subclass',reqLv:6});
     });
   }
-
-  // Bardo — Parole della Creazione (Lv.20): due incantesimi sempre preparati
-  if(C.cls==='bard' && lv>=20){
-    ['Parola del potere guarire','Parola del potere uccidere']
-      .forEach(nome=>result.push({nome,fonte:'subclass',reqLv:20}));
-  }
+  // Parole della Creazione (Lv.20) è ora in ALWAYS_PREPARED_CLASS.bard
 
   // Incantesimi concessi dai talenti (Iniziato alla Magia, Incantatore Rituale, Contaminazione)
   // — sempre preparati. Salta quelli già presenti tra i preparati per evitare doppioni.
@@ -16302,6 +16418,54 @@ function fArmorACValue(a, dexMod, dexCapOverride){
 }
 // Calcola la CA totale del personaggio: armatura indossata + scudo + bonus vari,
 // oppure Difesa senza armatura (Barbaro 10+DES+COS, Monaco 10+DES+SAG) se senza armatura.
+/* ── Valori di classe che scalano col livello — FONTE UNICA ────────────────
+   Il riquadro "Capacità Chiave" mostrava il riassunto di classe così com'è
+   scritto nel dato, cioè i valori del 1° livello: un bardo di Lv.20 leggeva
+   "Ispirazione Bardica d6" mentre il pannello Risorse, due riquadri più sotto,
+   calcolava correttamente d12. La stessa scheda si contraddiceva.
+
+   I valori che scalano NON vengono cercati nel testo tradotto: in tedesco il
+   dado si scrive "W6" e in spagnolo la frase ha un'altra forma, quindi un
+   find-and-replace sulla stringa localizzata si romperebbe come già accaduto
+   con le caratteristiche di background. Nei campi feat* stanno invece dei
+   segnaposto neutri, risolti qui una volta sola.
+
+   Tabelle PHB 2024:
+     Ispirazione Bardica   d6 · d8 (5°) · d10 (10°) · d12 (15°)   — Privilegi del bardo
+     Arti Marziali         d6 · d8 (5°) · d10 (11°) · d12 (17°)   — Privilegi del monaco
+     Attacco Furtivo       1d6, +1d6 a ogni livello dispari       — Privilegi del ladro
+   ───────────────────────────────────────────────────────────────────────── */
+function fDieN(n){ return (lang==='de' ? 'W' : 'd') + n; }
+function fBardicDieN(lv){ return lv>=15?12 : lv>=10?10 : lv>=5?8 : 6; }
+function fMartialArtsDieN(lv){ return lv>=17?12 : lv>=11?10 : lv>=5?8 : 6; }
+function fSneakAttackDice(lv){ return Math.max(1, Math.ceil((lv||1)/2)); }
+
+// Livello NELLA classe indicata: in multiclasse un ladro 3 / bardo 17 non deve
+// leggere i valori del livello complessivo.
+function fLevelInClass(clsId){
+  if(typeof fClassLevel === 'function') return fClassLevel(clsId) || 0;
+  return (C.cls === clsId ? (C.level || 0) : 0);
+}
+
+const KEY_FEATURE_TOKENS = {
+  bard:  function(lv){ return {'{BARDIC_DIE}':  fDieN(fBardicDieN(lv))}; },
+  monk:  function(lv){ return {'{MARTIAL_DIE}': fDieN(fMartialArtsDieN(lv))}; },
+  rogue: function(lv){ return {'{SNEAK_DICE}':  '+' + fSneakAttackDice(lv) + fDieN(6)}; },
+};
+
+// lv omesso ⇒ 1° livello: è il caso della scheda di scelta della classe, dove
+// il personaggio non esiste ancora e il riassunto descrive la classe di base.
+function fKeyFeatureText(cl, lv){
+  if(!cl) return '';
+  let s = fLoc(cl,'feat') || '';
+  const mk = KEY_FEATURE_TOKENS[cl.id];
+  if(mk){
+    const map = mk(lv > 0 ? lv : 1);
+    for(const k in map) s = s.split(k).join(map[k]);
+  }
+  return s.replace(/\{[A-Z_]+\}/g, '');   // rete di sicurezza: mai segnaposto a video
+}
+
 function fCharacterAC(){
   const isIt = lang==='it';
   const dex = fcmod(fTotalStat('DEX'));
@@ -16338,13 +16502,42 @@ function fCharacterAC(){
     // STEP 6: Difesa Senza Armatura del Monaco (richiede assenza di scudo, regola del Monaco).
     base = 10 + dex + fcmod(fTotalStat('WIS'));
     src = ft('Senza armatura (Monaco)','Unarmored (Monk)');
+  } else if(!C.shield && (C.classes||[]).some(function(c){
+      return c && c.cls==='bard' && c.subclass==='danza' && (c.level||0)>=3; })){
+    // Collegio della Danza — Scarto Smagliante (Lv.3): senza armatura NÉ scudo,
+    // CA = 10 + mod.DES + mod.CAR. Come le altre Difese senza Armatura si applica
+    // solo in assenza di armatura (ramo else) e, per regola del privilegio, di scudo.
+    base = 10 + dex + fcmod(fTotalStat('CHA'));
+    src = ft('Senza armatura (Danza)','Unarmored (Dance)');
   } else {
     base = 10 + dex;
     src = ft('Senza armatura','Unarmored');
   }
   return { value: base + shieldBon + misc + featBon, base, shield: shieldBon, misc, feat: featBon, featNotes: featNotes, src };
 }
-// ═══════════════════════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════════════════════════
+// INIZIATIVA — PHB 2024: prova di Destrezza. Il talento Allerta concede la
+// competenza in Iniziativa (→ somma il bonus di competenza al tiro).
+// Factotum del Bardo NON si applica: il testo 2024 lo limita alle prove che
+// usano un'abilità in cui non si è competenti, e l'iniziativa non usa abilità.
+// Funzione unica: usata sia dalla scheda a schermo sia dalla scheda di stampa.
+// ════════════════════════════════════════════════════════════════════════════
+function fHasInitiativeProf(){
+  return (C.feats || []).some(function(f){
+    var meta = FEAT_METADATA[f.id || f];
+    return !!(meta && meta.initProf);
+  });
+}
+function fInitiativeMod(){
+  var mod = fcmod(fTotalStat('DEX'));
+  if(fHasInitiativeProf()) mod += fpb(fTotalLevel());
+  return mod;
+}
+function fInitiativeStr(){
+  var m = fInitiativeMod();
+  return (m >= 0 ? '+' : '') + m;
+}
+// ════════════════════════════════════════════════════════════════════════════
 // COMPETENZA ARMATURE / SCUDO — PHB 2024 IT (cap. 6, pag. 219)
 //  • Armatura (leggera/media/pesante) SENZA competenza: svantaggio a TUTTE le
 //    prove con d20 di Forza/Destrezza + NON puoi lanciare incantesimi.
@@ -16367,7 +16560,7 @@ function fEffectiveArmorProf(){
     //  Chierico Protettore e Druido Custode → tutte le armature + scudi;
     //  Bardo del Valore → armature medie + scudi.
     if(typeof fSubclassGrantsProfs==='function'){
-      const g = fSubclassGrantsProfs(c.cls, c.subclass) || {};
+      const g = fSubclassGrantsProfs(c.cls, c.subclass, parseInt(c.level)||0) || {};
       (g.armorExtra||[]).forEach(a=>{
         const s=(''+a).toLowerCase();
         if(s.includes('legger')) out.light=true;
