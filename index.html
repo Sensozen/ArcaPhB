@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Arcana — Suite D&D 5e Italiana</title>
-<script>window.BUILD_VERSION = "05/09/2026 · 16:23"; /* >>> AGGIORNARE A OGNI BUILD: data e ora di consegna (UTC+2) <<< */</script>
+<script>window.BUILD_VERSION = "15/09/2026 · 23:14"; /* >>> AGGIORNARE A OGNI BUILD: data e ora di consegna (UTC+2) <<< */</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -3317,7 +3317,10 @@ const FEAT_METADATA = {
   'dono-resistenza':         { cat:'epic', prereq:'lv19', statBonus:{any:1, val:1}, max:30, energyResist:2 },
   'dono-richiamo':           { cat:'epic', prereq:'lv19', statBonus:{any:'INT_WIS_CHA', val:1}, max:30 },
   'dono-ombra':              { cat:'epic', prereq:'lv19', statBonus:{any:1, val:1}, max:30 },
-  'dono-tempra':             { cat:'epic', prereq:'lv19', statBonus:{any:1, val:1}, max:30 },
+  'dono-tempra':             { cat:'epic', prereq:'lv19', statBonus:{any:1, val:1}, max:30,
+                             // Salute rafforzata: +40 PF massimi (PHB 2024 p.13 Talenti).
+                             // Bonus FISSO, non per livello: va distinto da Robusto.
+                             hpBonus:{flat:40} },
   'dono-teletrasporto':      { cat:'epic', prereq:'lv19', statBonus:{any:1, val:1}, max:30 },
   'dono-velocita':           { cat:'epic', prereq:'lv19', statBonus:{any:1, val:1}, max:30 },
   'dono-vista-pura':         { cat:'epic', prereq:'lv19', statBonus:{any:1, val:1}, max:30 },
@@ -6381,13 +6384,15 @@ function fMaxHP(cls,con,lv){
     const L=lv||1;
     total = Math.max(1,die+cm)+(L-1)*Math.max(1,avg+cm);
   }
-  // Bonus dai talenti (es. Robusto: +2 PF per livello) — sul livello totale
+  // Bonus dai talenti sui PF massimi — due forme distinte:
+  //  · perLevel → moltiplicato per il livello totale (Robusto: +2/livello)
+  //  · flat     → somma fissa una tantum (Dono della Tempra: +40 PF)
   const totLv = fTotalLevel();
   (C.feats || []).forEach(f => {
     const meta = FEAT_METADATA[f.id || f];
-    if(meta && meta.hpBonus && meta.hpBonus.perLevel){
-      total += meta.hpBonus.perLevel * totLv;
-    }
+    if(!meta || !meta.hpBonus) return;
+    if(meta.hpBonus.perLevel) total += meta.hpBonus.perLevel * totLv;
+    if(meta.hpBonus.flat)     total += meta.hpBonus.flat;
   });
   // Bonus dalla specie (Nano — Robustezza Nanica: +1 PF max per livello)
   const sp = SPECIES.find(s => s.id === C.species);
